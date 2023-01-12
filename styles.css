@@ -246,10 +246,16 @@
 
   .welcome-text-div {
     margin: auto;
+    opacity: 0;
+    animation-name: appearProgressively;
+    animation-timing-function: ease-in;
+    animation-duration: 3s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
   }
   
   #welcome-section p {
-    color: var(--dark-color2);
+    color: var(--dark-color1);
     font-size: 20px;
     max-width: 50vw;
     text-shadow: -1px 1px 0 white;
