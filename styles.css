@@ -41,7 +41,7 @@
     animation: wiggle-reverse;
     animation-duration: 30s;
     animation-fill-mode: forwards;
-    animation-delay: 1s;
+    animation-delay: 0s;
     animation-iteration-count: 1;
     z-index: 2;
   }
@@ -75,7 +75,8 @@
     color: white;
     align-items: center;
     border-bottom: 3px solid var(--accent-color2);  
-    animation-name: slide-back;
+    animation-name: none;
+    animation-fill-mode: forwards;
     animation-iteration-count: 1;
     animation-duration: 1s;
   }
@@ -92,12 +93,12 @@
     }
   }
   
-  #nav-section:hover {
+  /*#nav-section:hover {
     animation-name: slide-down;
     animation-duration: 0.5s;
-    animation-fill-mode: forwards;
+    
     animation-timing-function: ease-out;
-  }
+  }*/
   
   
   @keyframes slide-down {
@@ -158,7 +159,7 @@
     animation-name: wiggle, appear;
     animation-duration: 30s, 0.1s;
     animation-fill-mode: forwards, forwards;
-    animation-delay: 1s, 0.9s; 
+    animation-delay: 0.1, 0; 
     animation-iteration-count: 1, 1;
     z-index: 1;
   }
@@ -230,7 +231,7 @@
     border: 1px solid var(--accent-color2);
     animation-name: hr-load;
     animation-duration: 3s;
-    animation-delay: 1.5s;
+    animation-delay: 0.5s;
     animation-fill-mode: forwards;
   }
   
