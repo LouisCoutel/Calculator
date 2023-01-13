@@ -211,6 +211,7 @@
     display: flex;
     flex-direction: column;
     padding: 0 5vh;
+    justify-content: center;
   }
   
   #welcome {
@@ -219,11 +220,11 @@
     color: var(--dark-color1);
     padding-left: 5px;
     text-shadow: -10px 8px 0 white;
-    margin: 30vh auto 10px auto;
+    margin: auto auto 10px auto;
     opacity: 0;
     animation-name: appearProgressively;
     animation-timing-function: ease-in;
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
     
@@ -239,26 +240,34 @@
     opacity: 0;
     animation-name: appearProgressively;
     animation-timing-function: ease-in;
-    animation-duration: 3s;
+    animation-duration: 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
 
-  .welcome-text-div {
-    margin: auto;
-    opacity: 0;
-    animation-name: appearProgressively;
-    animation-timing-function: ease-in;
-    animation-duration: 3s;
-    animation-iteration-count: 1;
-    animation-fill-mode: forwards;
+  #welcome-text-div {
+    margin-bottom: 30vh;
+    margin-top: 5px;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 1000px;
+    
   }
   
-  #welcome-section p {
+  #welcome-text {
+    opacity: 0;
+    display: none;
     color: var(--dark-color1);
     font-size: 20px;
     max-width: 50vw;
     text-shadow: -1px 1px 0 white;
+    overflow: hidden;
+    animation-name: appearProgressively;
+    animation-timing-function: ease-in;
+    animation-delay: 3s;
+    animation-duration: 1.5s;
+    animation-iteration-count: 1;
+    animation-fill-mode: forwards;
   }
 
 
