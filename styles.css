@@ -12,6 +12,7 @@
   }
   
   body {
+    display: block;
     width: 100vw;
     font-family: 'Space Grotesk', sans-serif;
     margin: 0;
@@ -25,6 +26,7 @@
   
   .bottom-orangebar {
     position: fixed;
+    display: block;
     bottom: 0;
     width: 100vw;
     height: 3px;
@@ -33,9 +35,10 @@
   
   .bottom-whiteloader {
     position: fixed;
+    display: block;
     bottom: 0;
     right: 100vw;
-    width: 100%;
+    width: 90%;
     height: 3px;
     background-color: white;
     animation: wiggle-reverse;
@@ -93,14 +96,6 @@
     }
   }
   
-  /*#nav-section:hover {
-    animation-name: slide-down;
-    animation-duration: 0.5s;
-    
-    animation-timing-function: ease-out;
-  }*/
-  
-  
   @keyframes slide-down {
     from {
       height: 0;
@@ -125,6 +120,7 @@
   
   a {
     text-decoration: none;
+    color: inherit;
     margin: auto 0;
   }
   
@@ -152,9 +148,10 @@
   
   .animated-loading {
     position: relative;
+    display: flex;
     left: 100vw;
     height: 3px;
-    width: 90vw;
+    width: 90%;
     background-color: white;
     animation-name: wiggle, appear;
     animation-duration: 30s, 0.1s;
@@ -169,7 +166,7 @@
       display: none;
     }
     to {
-      display: inline;
+      display: block;
     }
   }
   
@@ -207,7 +204,6 @@
   #welcome-section {
     background: var(--light-color2);
     height: 100vh;
-    border-bottom: 2px solid var(--dark-color2);
     display: flex;
     flex-direction: column;
     padding: 0 5vh;
@@ -246,6 +242,7 @@
   }
 
   #welcome-text-div {
+    display: block;
     margin-bottom: 30vh;
     margin-top: 5px;
     margin-left: auto;
@@ -256,7 +253,6 @@
   
   #welcome-text {
     opacity: 0;
-    display: none;
     color: var(--dark-color1);
     font-size: 20px;
     max-width: 50vw;
@@ -273,6 +269,7 @@
 
   .orange-hr {
     position: relative;
+    display: block;
     right: 100vw;
     width: 80vw;
     max-width: 800px;
@@ -287,7 +284,25 @@
     margin: 0 auto;
   }
 
+  #cv-button {
+    opacity: 0;
+    margin: 28px auto;
+    background-color: var(--accent-color2);
+    color: white;
+    border: 2px solid var(--accent-color2);
+    padding: 8px 20px;
+    border-radius: 4px;
+    box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.4);
+    animation: appearProgressively 1.5s ease-in 3.5s 1 normal forwards;
+    font-size: 22px;
+  }
 
+  #cv-button:hover {
+    padding: 8px 21px;
+    font-size: 24px;
+    margin-top: 26px;
+  }
+  
   @keyframes hr-load {
     from {
       left: 100%;
@@ -307,8 +322,8 @@
   #projects {
     background-color: var(--dark-color1);
     color: var(--dark-color2);
-    height: 100vh;
-    border-top: 1px solid var(--dark-color2);
+    min-height: 100vh;
+    border-top: 3px solid var(--dark-color2);
     text-shadow: -6px 4px 0 var(--accent-color1);
     padding: 0 5vh;
     display: flex;
@@ -318,12 +333,12 @@
   
   #contact-section {
     background-color: var(--accent-color1);
-    height: 100vh;
-    border-top: 2px solid var(--dark-color2);
+    min-height: 100vh;
+    border-top: 3px solid var(--dark-color2);
     color: white;
     display: flex;
     flex-direction: column;
-    padding: 5vh;
+    padding: 0 5vh;
     justify-content: center;
   }
   
@@ -342,6 +357,7 @@
   }
   
   .contact-link{
+    display: block;
     color: white;
     font-size: 24px;
     width: fit-content;

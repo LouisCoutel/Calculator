@@ -19,7 +19,6 @@ function marginExpand() {
     } 
     // acts as a makeshift timer to delay the animation
     else {
-    console.log('daccord')
     i+= 0.04;
     }
     // when condition is met, stop and update status
@@ -29,8 +28,6 @@ function marginExpand() {
         
     }
 }
-
-
 
 let i = 0;
 
@@ -69,9 +66,59 @@ onmousemove = e => {
 }; 
 
 
+let sectionList = [welcomeSection, projectsSection, contactSection];
+let currentSection;
+let nextSection;
+let currentSecTop;
+
+
+function checkCurrentSection() {
+    let i = 0;
+    if (window.scrollY >= (1.7 * window.innerHeight)) {
+        i = 2;
+        } else if (window.scrollY >= 0.7 * (window.innerHeight)) {
+        i = 1;
+        } else {
+        i = 0;    ;
+        }
+    currentSection = sectionList[i];
+    nextSection = sectionList[i + 1]
+    prevSection = sectionList[i - 1]
+    currentSecTop = currentSection.getBoundingClientRect().top;
+    console.log(currentSection);  
+    }
+
+
+function fastScroll() {
+
+    checkCurrentSection();
+        if (scrolling = false);
+        scrolling = true;
+        console.log(currentSecTop);
+        if (currentSecTop < -100) {
+            console.log('down!');
+            nextSection.scrollIntoView({block: 'start', behavior: 'smooth'});
+        }
+        else if (currentSecTop > 100) {
+            console.log('up!');
+            prevSection.scrollIntoView({block: 'start', behavior: 'smooth'});
+        } else {
+            console.log('lets stay here!');
+        };
+        
+        console.log('step 2, scroll')
+        
+        console.log('done !');
+        setInterval(function() {
+            scrolling = false;
+        },1500)
+        ;
+    };
 
 
 
+
+setInterval(fastScroll, 1500)
 
 
 
