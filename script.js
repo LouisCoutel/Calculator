@@ -89,7 +89,7 @@ function checkCurrentSection() {
     }
 
 
-function fastScroll() {
+/*function fastScroll() {
 
     checkCurrentSection();
         if (scrolling = false);
@@ -118,7 +118,7 @@ function fastScroll() {
 
 
 
-setInterval(fastScroll, 1500)
+setInterval(fastScroll, 1500) */
 
 
 
