@@ -206,16 +206,24 @@
     height: 100vh;
     display: flex;
     flex-direction: column;
-    padding: 0 5vh;
+    padding: 0 10vw;
     justify-content: center;
   }
   
+  .wrapper {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    margin: auto 0;
+    justify-content: center;
+  }
+
   #welcome {
-    font-size: 100px;
-    letter-spacing: 3;
+    font-size: 70px;
+    letter-spacing: 5pt;
     color: var(--dark-color1);
     padding-left: 5px;
-    text-shadow: -10px 8px 0 white;
+    text-shadow: -8px 6px 0 white;
     margin: auto auto 10px auto;
     opacity: 0;
     animation-name: appearProgressively;
@@ -228,9 +236,9 @@
   
   #job-title {
     color: var(--dark-color1);
-    font-size: 56px;
-    padding: 5px 10px;
-    margin: 0 auto 10px auto;
+    font-size: 50px;
+    letter-spacing: 0.8pt;
+    margin: 10px auto 10px auto;
     text-shadow: -3px 3px 0 white;
     font-style: oblique 5deg;
     opacity: 0;
@@ -243,79 +251,81 @@
 
   #welcome-text-div {
     display: block;
-    margin-bottom: 30vh;
-    margin-top: 5px;
-    margin-left: auto;
-    margin-right: auto;
-    max-width: 1000px;
-    
+    height: 0;
+    margin: 9px auto 40px auto;
+    max-width: 900px;
+    text-align: center;
   }
   
   #welcome-text {
+    display: none;
     opacity: 0;
     color: var(--dark-color1);
-    font-size: 20px;
+    font-size: 22px;
     max-width: 50vw;
     text-shadow: -1px 1px 0 white;
     overflow: hidden;
     animation-name: appearProgressively;
     animation-timing-function: ease-in;
     animation-delay: 3s;
-    animation-duration: 1.5s;
+    animation-duration: 2s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
 
 
   .orange-hr {
+    width: auto;
+    margin: 8px 22vw;
+    border: 1px solid var(--accent-color2);
+  }
+
+  #hr-1 {
     position: relative;
     display: block;
-    right: 100vw;
-    width: 80vw;
-    max-width: 800px;
-    border: 1px solid var(--accent-color2);
+    opacity: 0;
     animation-name: hr-load;
-    animation-duration: 3s;
+    animation-duration: 1.5s;
     animation-delay: 0.5s;
     animation-fill-mode: forwards;
   }
-  
-  .welcome-text-div {
-    margin: 0 auto;
+
+  #hr-2 {
+    opacity: 0;
+    animation: appearProgressively 1.5s ease-in 4.5s 1 normal forwards;
   }
 
   #cv-button {
+    position: relative;
+    display: none;
     opacity: 0;
-    margin: 28px auto;
+    margin: 50px auto 0 auto;
     background-color: var(--accent-color2);
     color: white;
     border: 2px solid var(--accent-color2);
     padding: 8px 20px;
     border-radius: 4px;
     box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.4);
-    animation: appearProgressively 1.5s ease-in 3.5s 1 normal forwards;
+    animation: appearProgressively 2s ease-in 3.5s 1 normal forwards;
     font-size: 22px;
   }
 
   #cv-button:hover {
     padding: 8px 21px;
     font-size: 24px;
-    margin-top: 26px;
+    margin-top: 46px;
   }
   
   @keyframes hr-load {
     from {
-      left: 100%;
-      right: 0;
+      opacity: 1;
+      left: 100vw;
+      right: -100vw;
     }
-  50% {
-    right: 0;
-  }
     to {
+      opacity: 1;
       left: 0;
-      right: 0;
-     
-  
+      right: 0; 
     }
   }
   
@@ -325,12 +335,38 @@
     min-height: 100vh;
     border-top: 3px solid var(--dark-color2);
     text-shadow: -6px 4px 0 var(--accent-color1);
-    padding: 0 5vh;
+    padding: 0 10vw;
     display: flex;
     flex-direction: column;
     justify-content: center;
     }
   
+    #project-slides-div {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-evenly;
+      align-content: center;
+      margin: auto 5vw;
+      gap: 15px;
+      flex-wrap: wrap;
+    }
+
+    .slide {
+      height: 250px;
+      width: 200px;
+      border: 2px solid var(--dark-color2);
+      border-radius: 4px;
+      box-shadow: 0 0 4px var(--dark-color2);
+      background-color: var(--light-color2);
+      
+    }
+
+    .slide:hover {
+      position: relative;
+      bottom: 0;
+      animation: slideup 1s linear 3s infinite normal none;
+    }
+
   #contact-section {
     background-color: var(--accent-color1);
     min-height: 100vh;
@@ -435,7 +471,7 @@
     }
   }
   
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 1100px) {
     #welcome {
       font-size: 70px;
     }
@@ -449,20 +485,44 @@
     .contact-link {
       font-size: 18px;
     }
-  
-  }
-  
-  @media screen and (max-width: 500px) {
+
+    #welcome-text {
+      font-size: 16px  
+    }
+  }  
+  @media screen and (max-width: 800px) {
     #welcome {
-      font-size: 36px;
+      font-size: 54px;
     }
     #job-title {
-      font-size: 32px;
+      font-size: 30px;
     }
     h2 {
       font-size: 24px;
     }
     .contact-link {
       font-size: 16px;
+    }
+
+    #welcome-text {
+      font-size: 16px      
+    }
+  }
+
+  @media screen and (max-width: 650px) {
+    #welcome {
+      font-size: 36px;
+    }
+    #job-title {
+      font-size: 30px;
+    }
+    h2 {
+      font-size: 24px;
+    }
+    .contact-link {
+      font-size: 16px;
+    }
+    #welcome-text {
+      font-size: 14px      
     }
   }

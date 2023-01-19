@@ -6,37 +6,35 @@ const projectsSection = document.getElementById('projects');
 const contactSection = document.getElementById('contact-section');
 const welcomeTextDiv = document.getElementById('welcome-text-div');
 const welcomeText = document.getElementById('welcome-text');
-const jobTitle = document.getElementById('job-title')
-
+const jobTitle = document.getElementById('job-title');
+const cvButton = document.getElementById('cv-button');
 // control for end of margin expand
 divUp = false;
-
-//increases margin of welcome-text-div to push the rest of the page slowly
-function marginExpand() {
-    if (i >= 30) {
-    welcomeTextDiv.style.marginBottom = i + 'vh';
-    i+= 0.03;
-    } 
-    // acts as a makeshift timer to delay the animation
-    else {
-    i+= 0.04;
-    }
-    // when condition is met, stop and update status
-    if (i >= 40) {
-        divUp = true;
-        clearInterval(intervalID)
-        
-    }
-}
-
 let i = 0;
+//increases height of welcome-text-div to push the rest of the elements up
+function marginExpand() {
+    //increments the element height 
+    if (i <= 350) {
+        welcomeTextDiv.style.height = i + 'px';
+        i+= 0.6;
+    }
+    //stops the interval    
+    if (i >= 350) {
+        divUp = true;
+        clearInterval(intervalID)                
+    }
+};        
+let intervalID
+setTimeout(function() {intervalID = setInterval(marginExpand, 1);}, 2500)
 
-let intervalID  = setInterval(marginExpand, 1);
+
+
 
 //prevents child element from being displayed before animation end
 function displayText() {
     if (divUp = true) {
         welcomeText.style.display = 'inline';
+        cvButton.style.display = 'block';
     }
 }
 
