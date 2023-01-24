@@ -51,7 +51,7 @@
   
   h1, h2 {
     font-family: 'Syne', sans-serif;
-    font-size: 48px;
+    font-size: calc(12pt + 1.5vw);
     font-weight: 900;
     letter-spacing: 5pt;
   }
@@ -132,7 +132,7 @@
   
   #navbar a {
     color: white;
-    font-size: 24px;
+    font-size: calc(13pt + 0.65vw);
     padding: 2px 5px;
     margin: auto;
     
@@ -229,7 +229,7 @@
   }
 
   #welcome {
-    font-size: 70px;
+    font-size: calc(12pt + 3vw);
     letter-spacing: 5pt;
     color: var(--dark-color1);
     padding-left: 5px;
@@ -246,7 +246,7 @@
   
   #job-title {
     color: var(--dark-color1);
-    font-size: 50px;
+    font-size: calc(10pt + 2vw);
     letter-spacing: 0.8pt;
     margin: 10px auto 20px auto;
     text-shadow: -3px 3px 0 white;
@@ -274,7 +274,7 @@
     opacity: 0;
     color: var(--dark-color1);
     max-width: 900px;
-    font-size: 22px;
+    font-size: calc(6pt + 0.5vh + 0.3vw);
     text-shadow: -1px 1px 0 white;
     margin: 0 auto;
     animation-name: appearProgressively;
@@ -313,20 +313,20 @@
     position: relative;
     display: none;
     opacity: 0;
-    margin: 30px auto 26px auto;
+    margin: 2.5vh auto;
     background-color: var(--accent-color2);
     color: white;
     border: 2px solid var(--accent-color2);
-    padding: 8px 20px;
+    padding: 0.4vh 0.8vw;
     border-radius: 4px;
     box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.4);
     animation: appearProgressively 1s ease-in 3.5s 1 normal forwards;
-    font-size: 22px;
+    font-size: calc(10pt + 0.5vw);
   }
 
   #cv-button:hover {
-    padding: 8px 21px;
-    font-size: 24px;
+    font-size: calc(12pt + 0.5vw);
+    margin: calc(2.5vh - 1pt) auto;
   }
   
   @keyframes hr-load {
@@ -408,7 +408,7 @@
   .contact-link{
     display: block;
     color: white;
-    font-size: 24px;
+    font-size: calc(13pt + 0.65vw);
     width: fit-content;
     margin: auto;
     padding: 5px;
@@ -474,16 +474,17 @@
   
   @keyframes text-grow {
     from {
-      font-size: 24px;
+      font-size: calc(13pt + 0.65vw);
     }
     50% {
-      font-size: 25px;
+      font-size: calc(14pt + 0.65vw);
     }
     to {
-      fontsize: 24px
+      fontsize: calc(13pt + 0.65vw);
     }
   }
   
+  /*
   @media screen and (max-width: 1200px) {
     #welcome {
       font-size: 54px;
