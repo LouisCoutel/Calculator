@@ -574,7 +574,7 @@
       font-size: 14px      
     }
     #cv-button {
-      font-size: 14px;
+      font-size: 12px;
     }
     #cv-button:hover {
       font-size: 16px;
@@ -583,24 +583,48 @@
 
   @media screen and (max-width: 400px) {
     #welcome {
-      font-size: 26px;
+      font-size: 24px;
     }
     #job-title {
-      font-size: 20px;
+      font-size: 18px;
     }
     h2 {
-      font-size: 20px;
+      font-size: 18px;
     }
     .contact-link {
       font-size: 14px;
     }
     #welcome-text {
-      font-size: 14px      
+      font-size: 12px      
     }
     #cv-button {
       font-size: 14px;
     }
     #cv-button:hover {
       font-size: 16px;
+    }
+  }
+
+  @media screen and (max-width: 320px) {
+    #welcome {
+      font-size: 18px;
+    }
+    #job-title {
+      font-size: 18px;
+    }
+    h2 {
+      font-size: 18px;
+    }
+    .contact-link {
+      font-size: 14px;
+    }
+    #welcome-text {
+      font-size: 12px      
+    }
+    #cv-button {
+      font-size: 12px;
+    }
+    #cv-button:hover {
+      font-size: 14px;
     }
   }
