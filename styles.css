@@ -132,7 +132,7 @@
   
   #navbar a {
     color: white;
-    font-size: calc(13pt + 0.65vw);
+    font-size: calc(12pt + 0.65vw);
     padding: 2px 5px;
     margin: auto;
     
@@ -233,7 +233,7 @@
     letter-spacing: 5pt;
     color: var(--dark-color1);
     padding-left: 5px;
-    text-shadow: -8px 6px 0 white;
+    text-shadow: -0.1em 0.1em 0 white;
     margin: auto auto 10px auto;
     opacity: 0;
     animation-name: appearProgressively;
@@ -249,7 +249,7 @@
     font-size: calc(10pt + 2vw);
     letter-spacing: 0.8pt;
     margin: 10px auto 20px auto;
-    text-shadow: -3px 3px 0 white;
+    text-shadow: -0.07em 0.06em 0 white;
     font-style: oblique 5deg;
     opacity: 0;
     animation-name: appearProgressively;
@@ -274,8 +274,8 @@
     opacity: 0;
     color: var(--dark-color1);
     max-width: 900px;
-    font-size: calc(6pt + 0.5vh + 0.3vw);
-    text-shadow: -1px 1px 0 white;
+    font-size: calc(6pt + 0.5vh + 0.4vw);
+    text-shadow: -0.08em 0.08em 0 white;
     margin: 0 auto;
     animation-name: appearProgressively;
     animation-timing-function: ease-in;
@@ -347,7 +347,7 @@
     color: var(--dark-color2);
     min-height: 100vh;
     border-top: 3px solid var(--dark-color2);
-    text-shadow: -6px 4px 0 var(--accent-color1);
+    text-shadow: -0.3em 0.3em 0 var(--accent-color1);
     padding: 0 10vw;
     display: flex;
     flex-direction: column;
@@ -392,7 +392,7 @@
   }
   
   .contact {
-    text-shadow: -6px 4px 0 var(--accent-color2);
+    text-shadow: -0.1em 0.07em 0 var(--accent-color2);
   }
   
   .contact-link-div {
@@ -408,7 +408,7 @@
   .contact-link{
     display: block;
     color: white;
-    font-size: calc(13pt + 0.65vw);
+    font-size: calc(12pt + 0.65vw);
     width: fit-content;
     margin: auto;
     padding: 5px;
@@ -462,25 +462,25 @@
   
   @keyframes textshadow-blink {
     from {
-      text-shadow: -1px 1px 4px purple, -2px 2px 1px var(--accent-color2);
+      text-shadow: -0.1em 0.07em 4px purple, -0.05em 0.05em 1px var(--accent-color2);
     }
     50% {
-      text-shadow: -1px 1px 16px purple, -2px 2px 2px var(--accent-color2);
+      text-shadow: -0.1em 0.07em 16px purple, -0.05em 0.05em 2px var(--accent-color2);
     }
     to {
-      text-shadow:  -1px 1px 4px purple, -2px 2px 1px var(--accent-color2);
+      text-shadow:  -0.1em 0.07em 4px purple, -0.05em 0.05em 1px var(--accent-color2);
     }
   }
   
   @keyframes text-grow {
     from {
-      font-size: calc(13pt + 0.65vw);
+      font-size: calc(12pt + 0.65vw);
     }
     50% {
-      font-size: calc(14pt + 0.65vw);
+      font-size: calc(13pt + 0.65vw);
     }
     to {
-      fontsize: calc(13pt + 0.65vw);
+      fontsize: calc(12pt + 0.65vw);
     }
   }
   
