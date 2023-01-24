@@ -371,7 +371,7 @@
       border-radius: 4px;
       box-shadow: 0 0 4px var(--dark-color2);
       background-color: var(--light-color2);
-      
+      color: var(--dark-color2)
     }
 
     .slide:hover {
