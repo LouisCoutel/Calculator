@@ -53,7 +53,7 @@
     font-family: 'Syne', sans-serif;
     font-size: 48px;
     font-weight: 900;
-    letter-spacing: 0.6;
+    letter-spacing: 5pt;
   }
   
   
@@ -76,7 +76,6 @@
     z-index: 1;
     background: var(--accent-color1);
     color: white;
-    align-items: center;
     border-bottom: 3px solid var(--accent-color2);  
     animation-name: none;
     animation-fill-mode: forwards;
@@ -112,6 +111,7 @@
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    flex-wrap: wrap;
     align-content: center;
     overflow: hidden;
     box-shadow: 0px -15px 50px var(--dark-color2);
@@ -156,7 +156,7 @@
     animation-name: wiggle, appear;
     animation-duration: 30s, 0.1s;
     animation-fill-mode: forwards, forwards;
-    animation-delay: 0.1, 0; 
+    animation-delay: 0.1s, 0s; 
     animation-iteration-count: 1, 1;
     z-index: 1;
   }
@@ -203,18 +203,28 @@
 
   #welcome-section {
     background: var(--light-color2);
-    height: 100vh;
+    height: 84vh;
     display: flex;
     flex-direction: column;
-    padding: 0 10vw;
+    padding: 8vh 10vw;
     justify-content: center;
   }
   
-  .wrapper {
+  .wrapper .top {
     display: flex;
     flex-direction: column;
     width: 100%;
-    margin: auto 0;
+    height: 10vh;
+    margin: auto auto 0 auto;
+    justify-content: center;
+  }
+
+  .wrapper .bottom {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    height: 10vh;
+    margin: 0 auto auto auto;
     justify-content: center;
   }
 
@@ -238,7 +248,7 @@
     color: var(--dark-color1);
     font-size: 50px;
     letter-spacing: 0.8pt;
-    margin: 10px auto 10px auto;
+    margin: 10px auto 20px auto;
     text-shadow: -3px 3px 0 white;
     font-style: oblique 5deg;
     opacity: 0;
@@ -250,25 +260,27 @@
   }
 
   #welcome-text-div {
-    display: block;
-    height: 0;
-    margin: 9px auto 40px auto;
-    max-width: 900px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    max-height: 0;
+    width: 100%;
     text-align: center;
+    overflow: hidden;
   }
   
   #welcome-text {
     display: none;
     opacity: 0;
     color: var(--dark-color1);
+    max-width: 900px;
     font-size: 22px;
-    max-width: 58vw;
     text-shadow: -1px 1px 0 white;
-    overflow: hidden;
+    margin: 0 auto;
     animation-name: appearProgressively;
     animation-timing-function: ease-in;
     animation-delay: 3s;
-    animation-duration: 2s;
+    animation-duration: 1s;
     animation-iteration-count: 1;
     animation-fill-mode: forwards;
   }
@@ -278,11 +290,11 @@
     width: auto;
     margin: 8px 22vw;
     border: 1px solid var(--accent-color2);
+    position: relative;
+    display: block;
   }
 
   #hr-1 {
-    position: relative;
-    display: block;
     opacity: 0;
     animation-name: hr-load;
     animation-duration: 1.5s;
@@ -291,29 +303,30 @@
   }
 
   #hr-2 {
+    left: 0;
+    right: 0;
     opacity: 0;
-    animation: appearProgressively 1.5s ease-in 4.5s 1 normal forwards;
+    animation: appearProgressively 1s ease-in 4s 1 normal forwards;
   }
 
   #cv-button {
     position: relative;
     display: none;
     opacity: 0;
-    margin: 44px auto 0 auto;
+    margin: 30px auto 26px auto;
     background-color: var(--accent-color2);
     color: white;
     border: 2px solid var(--accent-color2);
     padding: 8px 20px;
     border-radius: 4px;
     box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.4);
-    animation: appearProgressively 2s ease-in 3.5s 1 normal forwards;
+    animation: appearProgressively 1s ease-in 3.5s 1 normal forwards;
     font-size: 22px;
   }
 
   #cv-button:hover {
     padding: 8px 21px;
     font-size: 24px;
-    margin-top: 46px;
   }
   
   @keyframes hr-load {
@@ -471,12 +484,12 @@
     }
   }
   
-  @media screen and (max-width: 1100px) {
+  @media screen and (max-width: 1200px) {
     #welcome {
-      font-size: 70px;
+      font-size: 54px;
     }
     #job-title {
-      font-size: 36px;
+      font-size: 44px;
     }
     h2 {
       font-size: 36px;
@@ -487,12 +500,18 @@
     }
 
     #welcome-text {
-      font-size: 16px  
+      font-size: 20px  
+    }
+    #cv-button {
+      font-size: 18px;
+    }
+    #cv-button:hover {
+      font-size: 20px;
     }
   }  
   @media screen and (max-width: 800px) {
     #welcome {
-      font-size: 54px;
+      font-size: 40px;
     }
     #job-title {
       font-size: 30px;
@@ -503,15 +522,20 @@
     .contact-link {
       font-size: 16px;
     }
-
     #welcome-text {
-      font-size: 16px      
+      font-size: 18px      
+    }
+    #cv-button {
+      font-size: 16px;
+    }
+    #cv-button:hover {
+      font-size: 18px;
     }
   }
 
   @media screen and (max-width: 650px) {
     #welcome {
-      font-size: 36px;
+      font-size: 34px;
     }
     #job-title {
       font-size: 30px;
@@ -523,6 +547,60 @@
       font-size: 16px;
     }
     #welcome-text {
+      font-size: 16px      
+    }
+    #cv-button {
+      font-size: 14px;
+    }
+    #cv-button:hover {
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (max-width: 540px) {
+    #welcome {
+      font-size: 28px;
+    }
+    #job-title {
+      font-size: 26px;
+    }
+    h2 {
+      font-size: 22px;
+    }
+    .contact-link {
+      font-size: 14px;
+    }
+    #welcome-text {
       font-size: 14px      
+    }
+    #cv-button {
+      font-size: 14px;
+    }
+    #cv-button:hover {
+      font-size: 16px;
+    }
+  }
+
+  @media screen and (max-width: 400px) {
+    #welcome {
+      font-size: 26px;
+    }
+    #job-title {
+      font-size: 20px;
+    }
+    h2 {
+      font-size: 20px;
+    }
+    .contact-link {
+      font-size: 14px;
+    }
+    #welcome-text {
+      font-size: 14px      
+    }
+    #cv-button {
+      font-size: 14px;
+    }
+    #cv-button:hover {
+      font-size: 16px;
     }
   }
