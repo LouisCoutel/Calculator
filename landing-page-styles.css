@@ -100,15 +100,15 @@
   
   footer {
     display: flex;
-    flex-direction: row;
-    justify-content: space-between;
+    flex-direction: column;
+    justify-content: space-evenly;
     max-width: 50%;
     min-width: fit-content;
     background-color: var(--mid-color);
-    font-size: 10px;
+    font-size: calc(8px + 0.1vw);
     color: var(--mid-color2);
     padding: 8px 5px;
-    gap: 15px;
+    gap: 0.3em;
   }
   
   #form {
@@ -121,7 +121,7 @@
   #email {
     border: 1px solid var(--mid-color2);
     height: 28px;
-    width: 250px;
+    max-width: 250px;
     font-size: 16px;
     padding: 0 0.5em;
     margin-top: 16px;
@@ -302,7 +302,7 @@
     }
   }
 
-  @media screen and (max-width: 400px) {
+  @media screen and (max-width: 500px) {
   
   
     #nav-bar {
@@ -318,7 +318,8 @@
     }
   
     #video {
-      width: 180px; 
-      height: 90px;
+      width: 240px; 
+      height: 120px;
     }
   }
+

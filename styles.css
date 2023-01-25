@@ -246,6 +246,7 @@
   
   #job-title {
     color: var(--dark-color1);
+    font-family: 'Syne', sans-serif;
     font-size: calc(10pt + 2vw);
     letter-spacing: 0.8pt;
     margin: 10px auto 20px auto;
@@ -321,12 +322,14 @@
     border-radius: 4px;
     box-shadow: 3px 2px 5px 0px rgba(0,0,0,0.4);
     animation: appearProgressively 1s ease-in 3.5s 1 normal forwards;
-    font-size: calc(10pt + 0.5vw);
+    font-size: 22px;
+    font-weight: bold;
   }
+  
 
   #cv-button:hover {
-    font-size: calc(12pt + 0.5vw);
-    margin: calc(2.5vh - 1pt) auto;
+    font-size: 24px;
+    margin: calc(2.5vh - 1px) auto;
   }
   
   @keyframes hr-load {
@@ -407,6 +410,7 @@
   
   .contact-link{
     display: block;
+    position: relative;
     color: white;
     font-size: calc(12pt + 0.65vw);
     width: fit-content;
@@ -474,158 +478,23 @@
   
   @keyframes text-grow {
     from {
-      font-size: calc(12pt + 0.65vw);
+      transform: scale(1);
     }
     50% {
-      font-size: calc(13pt + 0.65vw);
+      transform: scale(1.05);
     }
     to {
-      fontsize: calc(12pt + 0.65vw);
+      transform: scale(1);
     }
   }
   
-  /*
-  @media screen and (max-width: 1200px) {
-    #welcome {
-      font-size: 54px;
-    }
-    #job-title {
-      font-size: 44px;
-    }
-    h2 {
-      font-size: 36px;
-    }
-  
-    .contact-link {
-      font-size: 18px;
-    }
 
-    #welcome-text {
-      font-size: 20px  
-    }
+  @media screen and (max-width: 640px) {
     #cv-button {
-      font-size: 18px;
-    }
-    #cv-button:hover {
-      font-size: 20px;
-    }
-  }  
-  @media screen and (max-width: 800px) {
-    #welcome {
-      font-size: 40px;
-    }
-    #job-title {
-      font-size: 30px;
-    }
-    h2 {
-      font-size: 24px;
-    }
-    .contact-link {
-      font-size: 16px;
-    }
-    #welcome-text {
-      font-size: 18px      
-    }
-    #cv-button {
-      font-size: 16px;
-    }
-    #cv-button:hover {
-      font-size: 18px;
-    }
-  }
-
-  @media screen and (max-width: 650px) {
-    #welcome {
-      font-size: 34px;
-    }
-    #job-title {
-      font-size: 30px;
-    }
-    h2 {
-      font-size: 24px;
-    }
-    .contact-link {
-      font-size: 16px;
-    }
-    #welcome-text {
-      font-size: 16px      
-    }
-    #cv-button {
-      font-size: 14px;
+      font-size: 14px
     }
     #cv-button:hover {
       font-size: 16px;
     }
   }
 
-  @media screen and (max-width: 540px) {
-    #welcome {
-      font-size: 28px;
-    }
-    #job-title {
-      font-size: 26px;
-    }
-    h2 {
-      font-size: 22px;
-    }
-    .contact-link {
-      font-size: 14px;
-    }
-    #welcome-text {
-      font-size: 14px      
-    }
-    #cv-button {
-      font-size: 12px;
-    }
-    #cv-button:hover {
-      font-size: 16px;
-    }
-  }
-
-  @media screen and (max-width: 400px) {
-    #welcome {
-      font-size: 24px;
-    }
-    #job-title {
-      font-size: 18px;
-    }
-    h2 {
-      font-size: 18px;
-    }
-    .contact-link {
-      font-size: 14px;
-    }
-    #welcome-text {
-      font-size: 12px      
-    }
-    #cv-button {
-      font-size: 14px;
-    }
-    #cv-button:hover {
-      font-size: 16px;
-    }
-  }
-
-  @media screen and (max-width: 320px) {
-    #welcome {
-      font-size: 18px;
-    }
-    #job-title {
-      font-size: 18px;
-    }
-    h2 {
-      font-size: 18px;
-    }
-    .contact-link {
-      font-size: 14px;
-    }
-    #welcome-text {
-      font-size: 12px      
-    }
-    #cv-button {
-      font-size: 12px;
-    }
-    #cv-button:hover {
-      font-size: 14px;
-    }
-  }
