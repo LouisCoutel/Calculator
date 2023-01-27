@@ -176,7 +176,10 @@
     margin-right: 24px;
     min-width: 80px;
     justify-content: center;
-    
+  }
+
+  .feature2 .icon-wrapper {
+    padding: 0px 16px 20px 16px;
   }
   
   .icon {
@@ -189,6 +192,7 @@
   }
   
   #video-section {
+    display: flex;
     max-height: fit-content;
     box-shadow: 0 0 5px var(--dark-color);
     margin-bottom: 88px;
@@ -198,7 +202,6 @@
   #video {
         width: 640px; 
         height: 360px;
-   
   }
   
   #pricing-section {
