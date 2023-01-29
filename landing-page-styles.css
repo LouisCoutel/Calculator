@@ -1,6 +1,6 @@
 :root {
     --dark-color: #161A1D;
-    --light-color: #FFFFFF; 
+    --light-color: #FFFF; 
     --mid-color: #F5F3F4;
     --mid-color2: #4E5D68;
     --contrast-color: #A4161A;
@@ -88,7 +88,7 @@
     height: calc(100% - 100px);
     width: 80%;
     bottom: 0;
-    padding: 20px 10% 0 10%;
+    padding: 20px 10% 0;
     background-color: var(--light-color);
     display: flex;
     flex-direction: column;
@@ -179,7 +179,7 @@
   }
 
   .feature2 .icon-wrapper {
-    padding: 0px 16px 20px 16px;
+    padding: 0 16px 20px;
   }
   
   .icon {
@@ -207,10 +207,9 @@
   #pricing-section {
     display: flex;
     width: 100%;
-    flex-direction: row;
     justify-content: center;
     margin-bottom: 150px;
-    flex-wrap: wrap;
+    flex-flow: row wrap;
     gap: 18px;
   }
   
@@ -231,7 +230,7 @@
   }
   
   .pricing-wrapper {
-    padding: 15px 15px 0 15px;
+    padding: 15px 15px 0;
     flex: 1 0 auto;
     line-height: 1.5em;
   }
@@ -263,6 +262,7 @@
     background-color: var(--contrast-color);
     color: var(--light-color)
   }
+
   /* media queries for screen size responsiveness */
   
   @media screen and (max-width: 1000px) {
@@ -284,9 +284,7 @@
     }
   }
   
-  @media screen and (max-width: 600px) {
-  
-  
+  @media screen and (max-width: 600px) {  
     #nav-bar {
       width: 100%;
     }
@@ -306,8 +304,6 @@
   }
 
   @media screen and (max-width: 500px) {
-  
-  
     #nav-bar {
       width: 100%;
     }
