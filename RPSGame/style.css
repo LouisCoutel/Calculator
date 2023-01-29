@@ -12,6 +12,7 @@ button {
     height: 150px;
     font-size: 24px;
     padding: 5px;
+    flex-direction: column;
     justify-content: center;
     align-items: center;
     margin: 10px;
@@ -19,7 +20,10 @@ button {
     border-radius: 10px;
     box-shadow: 10px 5px 5px grey;
     background-color: white;
+}
 
+button i {
+    font-size: 50px;
 }
 
 .results {

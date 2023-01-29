@@ -13,6 +13,8 @@ function marginExpand() {
     clearInterval(intervalID);
   }
 }
+
+// runs animation after a delay
 let intervalID;
 setTimeout(function () {
   intervalID = setInterval(marginExpand, 1);
