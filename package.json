@@ -1,0 +1,27 @@
+{
+  "name": "louiscoutel.github.io",
+  "version": "1.0.0",
+  "description": "stylelint",
+  "main": "script.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "stylelint-check": "stylelint-config-prettier-check"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ljog42/Ljog42.github.io.git"
+  },
+  "keywords": [
+    "stylelint"
+  ],
+  "author": "Louis Coutel",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ljog42/Ljog42.github.io/issues"
+  },
+  "homepage": "https://github.com/Ljog42/Ljog42.github.io#readme",
+  "devDependencies": {
+    "eslint": "^8.33.0",
+    "stylelint-config-prettier": "^9.0.4"
+  }
+}
