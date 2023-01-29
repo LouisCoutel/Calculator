@@ -1,5 +1,6 @@
-// Create DOM Elements
 const welcomeTextDiv = document.getElementById("welcome-text-div");
+const welcomeText = document.getElementById("welcome-text");
+const cvButton = document.getElementById("cv-button");
 // control for end of margin expand
 let i = 0;
 //increases height of welcome-text-div to push the rest of the elements up
@@ -18,6 +19,17 @@ let intervalID;
 setTimeout(function () {
   intervalID = setInterval(marginExpand, 1);
 }, 2000);
+
+//prevents child element from being displayed before animation end
+function displayText() {
+   {
+    welcomeText.style.display = "inline";
+    cvButton.style.display = "block";
+  }
+}
+
+displayText();
+
 
 // declares vertical coordinate in viewport "y"
 let y = 0;
