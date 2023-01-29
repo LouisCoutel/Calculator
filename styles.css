@@ -264,7 +264,7 @@ main {
 }
 
 #welcome-text {
-  display: none;
+  display: inline;
   opacity: 0;
   color: var(--dark-color1);
   max-width: 900px;
@@ -304,7 +304,7 @@ main {
 
 #cv-button {
   position: relative;
-  display: none;
+  display: block;
   opacity: 0;
   margin: 2.5vh auto;
   background-color: var(--accent-color2);
