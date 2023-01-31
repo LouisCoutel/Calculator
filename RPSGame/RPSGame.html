@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -9,18 +10,28 @@
     <link rel="stylesheet" href="style.css">
     <script src="https://kit.fontawesome.com/7a1b45f3d5.js" crossorigin="anonymous"></script>
 </head>
-<body>
-    <div class = buttons>
-        <button class = button><i class="fa-solid fa-hand-back-fist"></i>Rock</button> 
-        <button class = button><i class="fa-solid fa-hand-scissors"></i>Paper</button> 
-        <button class = button><i class="fa-solid fa-hand"></i>Scissors</button>
-    </div>
-    <div class = results>
-        <p class = round></p>
-        <p class = roundCounter>Ok we are ready to play, pick a move</p>
-        <p class = tally></p>
-        <p class = victory></p>
 
+<body>
+    <div class="results">
+        
+        <p class="roundCounter">Round 1</p>
+        <div class="scoreboard"><p class="tally wins"></p><p class="tally losses"></p></div>
+    </div>
+    <div class="messagebox">
+        <p class="round">Please pick a move</p>
+        <p class="victory"></p>
+    </div>
+    <div class="buttons">
+        <button class="button"><i class="fa-solid fa-hand-back-fist"></i>
+            <p class="button-p">ROCK</p>
+        </button>
+        <button class="button"><i class="fa-solid fa-hand"></i>
+            <p class="button-p">PAPER</p>
+        </button>
+        <button class="button"><i class="fa-solid fa-hand-scissors"></i>
+            <p class="button-p">SCISSORS</p>
+        </button>
     </div>
 </body>
+
 </html>
