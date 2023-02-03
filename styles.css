@@ -13,11 +13,8 @@ html {
   scroll-behavior: smooth;
 }
 
-
-
-
-
-p, a {
+p,
+a {
   font-size: 1rem;
   line-height: 1.5em;
 }
@@ -103,7 +100,7 @@ body {
   10% {
     height: 8vh;
   }
-  
+
   100% {
     height: 0;
   }
@@ -113,7 +110,7 @@ body {
   from {
     height: 0;
   }
-  
+
   to {
     height: 8vh;
   }
@@ -143,6 +140,7 @@ a {
 }
 
 #navbar a {
+  font-size: 1.25em;
   color: white;
   padding: 2px 5px;
   margin: auto;
@@ -174,7 +172,7 @@ a {
   from {
     display: none;
   }
-  
+
   to {
     display: block;
   }
@@ -184,7 +182,7 @@ a {
   from {
     transform: translate(0);
   }
-  
+
   to {
     transform: translate(-200vw);
   }
@@ -202,7 +200,7 @@ main {
   from {
     opacity: 0;
   }
-  
+
   to {
     opacity: 1;
   }
@@ -367,7 +365,7 @@ main {
   margin: auto 5vw;
   padding: 15px 0;
   gap: 15px;
-  flex-flow:row wrap;
+  flex-flow: row wrap;
 }
 
 .slide {
@@ -376,7 +374,7 @@ main {
   max-height: 350px;
   max-width: 300px;
   padding: 10px;
-  border: 2px solid var(--dark-color2);
+  border: 2px solid var(--light-color2);
   border-radius: 4px;
   box-shadow: 0 0 4px var(--dark-color2);
   background-color: var(--light-color2);
@@ -509,17 +507,17 @@ main {
   }
 }
 
-@media screen and (min-width: 640px){
+@media screen and (min-width: 640px) {
   h2 {
     font-size: 1.777rem;
   }
-  
+
   h1 {
     font-size: 2.369rem;
   }
 }
 
-@media screen and (min-width: 960px){
+@media screen and (min-width: 960px) {
   :root {
     font-size: 112%;
   }
@@ -527,13 +525,13 @@ main {
   h2 {
     font-size: 1.999rem;
   }
-  
+
   h1 {
     font-size: 2.827rem;
   }
 }
 
-@media screen and (min-width: 1280px){
+@media screen and (min-width: 1280px) {
   :root {
     font-size: 130%;
   }
@@ -541,7 +539,7 @@ main {
   h2 {
     font-size: 2.25rem;
   }
-  
+
   h1 {
     font-size: 3.375rem;
   }

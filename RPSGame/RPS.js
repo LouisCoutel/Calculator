@@ -48,7 +48,9 @@ function round(playerMove, computerMove) {
 
   //updates the round counter
   if (roundCount > 1) {
-    document.querySelector(".roundCounter").textContent = `Round ${roundCount}`;
+    document.querySelector(
+      ".round-counter"
+    ).textContent = `Round ${roundCount}`;
   }
   // display win or loss message
   if (playerVictories === 3) {
@@ -78,7 +80,7 @@ function round(playerMove, computerMove) {
       playerVictories = 0;
       document.querySelector("p.wins").textContent = "0";
       document.querySelector("p.losses").textContent = "0";
-      document.querySelector(".roundCounter").textContent = "Round 1";
+      document.querySelector(".round-counter").textContent = "Round 1";
       document.querySelector(".victory").textContent = "";
       document.querySelector(".countdown").textContent = "";
       document.querySelector(".round").textContent = "Pick a move";

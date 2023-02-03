@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css?family=Fredoka+One:400');
+@import url("https://fonts.googleapis.com/css?family=Fredoka+One:400");
 
 @keyframes slideup {
   0% {
@@ -15,12 +15,11 @@
 }
 
 :root {
---maximum-yellow-red: #f6bd60ff;
---linen: #f7ede2ff;
---cool-grey: #8d89a6ff;
---raisin-black: #332e3cff;
---antique-ruby: #841c26ff;
-
+  --maximum-yellow-red: #f6bd60ff;
+  --linen: #f7ede2ff;
+  --cool-grey: #8d89a6ff;
+  --raisin-black: #332e3cff;
+  --antique-ruby: #841c26ff;
 }
 
 * {
@@ -30,15 +29,18 @@
 
 html {
   font-size: 100%;
-
-} 
-
-p {
-  font-family: 'Fredoka One', sans-serif;
 }
 
-h1, h2, h3, h4, h5 {
-  font-family: 'Fredoka One', sans-serif;
+p {
+  font-family: "Fredoka One", sans-serif;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5 {
+  font-family: "Fredoka One", sans-serif;
   line-height: 1.3;
 }
 
@@ -47,15 +49,26 @@ h1 {
   font-size: 7.594rem;
 }
 
-h2 {font-size: 5.063rem;}
+h2 {
+  font-size: 5.063rem;
+}
 
-h3 {font-size: 3.375rem;}
+h3 {
+  font-size: 3.375rem;
+}
 
-h4 {font-size: 2.25rem;}
+h4 {
+  font-size: 2.25rem;
+}
 
-h5 {font-size: 1.5rem;}
+h5 {
+  font-size: 1.5rem;
+}
 
-small, .text-small {font-size: 0.667rem;}
+small,
+.text-small {
+  font-size: 0.667rem;
+}
 
 body {
   height: 90vh;
@@ -64,7 +77,7 @@ body {
   line-height: 1.3;
   padding: 5vh 5vw;
   overflow: hidden;
-  background-image: url(../Images/BlueGradient.png);
+  background-image: url("../Images/BlueGradient.png");
 }
 
 .game-container {
@@ -76,21 +89,21 @@ body {
   background-color: var(--maximum-yellow-red);
   border-radius: 10px;
   margin: auto;
-  box-shadow: 0 0 20px black; ;
+  box-shadow: 0 0 20px black;
 }
 
 .results {
-    height: max-content;
-    width: calc(100% - 60px);
-    padding: 20px;;
-    background-color: white;
-    border-radius: 5px;
-    box-shadow: 10px 5px 5px grey;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    align-self: center;
+  height: max-content;
+  width: calc(100% - 60px);
+  padding: 20px;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 10px 5px 5px grey;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  align-self: center;
 }
 
 .scoreboard {
@@ -101,7 +114,7 @@ body {
   gap: 20px;
 }
 
-p.roundCounter {
+p.round-counter {
   margin: 0 0 15px;
   font-size: 1.5rem;
 }
@@ -113,7 +126,6 @@ p.roundCounter {
   color: white;
   text-align: center;
   border-radius: 5px;
-
 }
 
 .tally p {
@@ -129,7 +141,7 @@ p.roundCounter {
   background-color: red;
 }
 
-i.fa-robot{
+i.fa-robot {
   position: relative;
   font-size: 70px;
   width: fit-content;
@@ -137,9 +149,9 @@ i.fa-robot{
 }
 
 .robot-wrapper {
-width: calc(100% - 30px);
-margin: auto auto 15px;
-padding: 0 15px;
+  width: calc(100% - 30px);
+  margin: auto auto 15px;
+  padding: 0 15px;
 }
 
 .messagebox {
@@ -206,8 +218,8 @@ button:active {
 }
 
 button i {
-    align-self: center;
-    justify-self: center;
+  align-self: center;
+  justify-self: center;
   font-size: 30px;
   margin: auto;
 }
@@ -217,8 +229,8 @@ button i {
 }
 
 .button-p {
-    font-size: 0.667rem;
-    margin: 0 auto;
+  font-size: 0.667rem;
+  margin: 0 auto;
 }
 
 @media screen and (min-width: 960px) {
@@ -234,7 +246,6 @@ button i {
   button i {
     font-size: 50px;
   }
-  
 
   i.fa-robot {
     font-size: 80px;
@@ -246,10 +257,8 @@ button i {
     bottom: 5px;
     max-width: 255px;
   }
-  
+
   .messagebox p {
     font-size: 1.25rem;
   }
-
 }
-  
