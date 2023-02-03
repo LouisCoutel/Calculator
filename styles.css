@@ -13,8 +13,7 @@ html {
   scroll-behavior: smooth;
 }
 
-p,
-a {
+p {
   font-size: 1rem;
   line-height: 1.5em;
 }
@@ -128,6 +127,7 @@ body {
 }
 
 a {
+  font-size: 1.25rem;
   text-decoration: none;
   color: inherit;
   margin: auto 0;
@@ -140,7 +140,6 @@ a {
 }
 
 #navbar a {
-  font-size: 1.25em;
   color: white;
   padding: 2px 5px;
   margin: auto;
@@ -437,10 +436,12 @@ main {
 
 .contact-link i {
   margin: auto 10px auto auto;
+  font-size: 1.25rem;
 }
 
 .contact-link p {
   margin: auto auto auto 0;
+  font-size: 1.25rem;
 }
 
 .contact-link:hover {
