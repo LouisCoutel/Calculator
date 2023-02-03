@@ -53,6 +53,7 @@ function round(playerMove, computerMove) {
     ).textContent = `Round ${roundCount}`;
   }
   // display win or loss message
+  setTimeout( function displayEndGameText() {
   if (playerVictories === 3) {
     document.querySelector(".victory").textContent =
       "That's three wins for you, you win the game! Let's start over!";
@@ -60,18 +61,19 @@ function round(playerMove, computerMove) {
     document.querySelector(".victory").textContent =
       "Three wins for me, you lose the game! Let's start over!";
   }
+}, 2000)
 
   //Starts countdown before resetting game
   if (playerVictories === 3 || compVictories === 3) {
     setTimeout(function () {
       document.querySelector(".countdown").textContent = "3...";
-    }, 1000);
+    }, 3000);
     setTimeout(function () {
       document.querySelector(".countdown").textContent = "2...";
-    }, 2000);
+    }, 4000);
     setTimeout(function () {
       document.querySelector(".countdown").textContent = "1...";
-    }, 3000);
+    }, 5000);
 
     //resets game
     setTimeout(function restartGame() {
@@ -84,7 +86,7 @@ function round(playerMove, computerMove) {
       document.querySelector(".victory").textContent = "";
       document.querySelector(".countdown").textContent = "";
       document.querySelector(".round").textContent = "Pick a move";
-    }, 4000);
+    }, 5000);
   }
 }
 
