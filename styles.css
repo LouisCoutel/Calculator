@@ -37,7 +37,7 @@ h2 {
 }
 
 body {
-  display: block;
+  position: relative;
   width: 100vw;
   height: 100%;
   font-family: "Space Grotesk", sans-serif;
@@ -47,6 +47,12 @@ body {
   overflow-y: scroll;
   text-align: center;
   color: var(--dark-color2);
+}
+
+.section {
+  display: flex;
+  flex-direction: column;
+  padding: 5vh 5vw;
 }
 
 .bottom-orangebar {
@@ -217,7 +223,7 @@ a {
 }
 
 main {
-  position: absolute;
+  position: relative;
   left: 0;
   right: 0;
   top: 0;
@@ -237,9 +243,6 @@ main {
 #welcome-section {
   background: var(--light-color2);
   min-height: 90vh;
-  display: flex;
-  flex-direction: column;
-  padding: 5vh 5vw;
   justify-content: center;
 }
 
@@ -273,6 +276,19 @@ main {
   animation-duration: 2s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
+}
+
+.paperOverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-repeat: repeat;
+  background-image: url("./Images/cardboard.png");
+  opacity: 0.6;
+  mix-blend-mode: multiply;
+  pointer-events: none;
 }
 
 #job-title {
@@ -318,6 +334,7 @@ main {
   color: var(--dark-color1);
   width: clamp(30ch, 100%, 75ch);
   margin: 0 auto;
+  text-shadow: -0.05em 0.05em 0 white;
   animation-name: appear-progressively;
   animation-timing-function: ease-in;
   animation-delay: 3s;
@@ -391,9 +408,6 @@ main {
   color: var(--light-color2);
   min-height: 100vh;
   border-top: 3px solid var(--dark-color2);
-  padding: 0 10vw;
-  display: flex;
-  flex-direction: column;
   justify-content: center;
 }
 
@@ -450,9 +464,6 @@ main {
   min-height: 100vh;
   border-top: 3px solid var(--dark-color2);
   color: white;
-  display: flex;
-  flex-direction: column;
-  padding: 0 5vh;
   justify-content: center;
 }
 
@@ -564,7 +575,7 @@ main {
     font-size: 112%;
   }
 
-  a {
+  .contact-link {
     font-size: 1.25rem;
   }
 
