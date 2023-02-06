@@ -4,12 +4,12 @@ let i = 0;
 //increases height of welcome-text-div to push the rest of the elements up
 function marginExpand() {
   //increments the element height
-  if (i <= 60) {
+  if (i <= 80) {
     welcomeTextDiv.style.maxHeight = i + "vh";
     i += 0.1;
   }
   //stops the interval
-  if (i >= 60) {
+  if (i >= 80) {
     clearInterval(intervalID);
   }
 }
