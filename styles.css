@@ -17,9 +17,12 @@ p {
   font-size: 1rem;
   line-height: 1.4rem;
   letter-spacing: 0.12;
+  font-variant-ligatures: common-ligatures;
 }
 
 h2 {
+  margin-top: 0;
+  margin-bottom: 2em;
   font-size: 1.25rem;
   line-height: 1.2em;
 }
@@ -54,6 +57,7 @@ body {
   display: flex;
   flex-direction: column;
   padding: 5vh 5vw;
+  height: 90vh;
 }
 
 .bottom-orangebar {
@@ -318,6 +322,44 @@ main {
   text-shadow: none;
   font-weight: 700;
   margin: 5px auto;
+  color: var(--dc2-lighter);
+}
+
+form.contact-form {
+  display: flex;
+  flex-direction: column;
+  flex: 1.62 0 0;
+  gap: 15px;
+  min-width: fit-content;
+  text-align: left;
+}
+
+form h2, .contact-link-div h2 {
+  margin: 0 0 1em ;
+  text-shadow: inherit;
+}
+
+.contact-form label {
+    border: 0;
+    clip-path: rect(1px, 1px, 1px, 1px);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px; 
+}
+
+
+#person-email {
+  max-width: clamp(28ch, 33%, 45ch);
+  font-size: 1rem;
+}
+
+#person-message {
+  font-size: 1rem;
+  max-width: clamp(45ch, 100%, 75ch);
+  height: max(33%, 3rem)
 }
 
 #welcome-text-div {
@@ -462,34 +504,48 @@ main {
 
 #contact-section {
   background-color: var(--accent-color1);
-  min-height: 100vh;
   border-top: 3px solid var(--dark-color2);
   color: white;
-  justify-content: center;
 }
 
-.contact {
+#contact-section h2 {
   text-shadow: -0.1em 0.1em 0 var(--accent-color2);
 }
 
-.contact-link-div {
-  width: 50vw;
-  margin: 0 auto;
-  display: flex;
-  justify-content: space-between;
-  align-content: center;
-  flex-wrap: wrap;
-  gap: 30px;
+.contact {
+  justify-self: flex-start;
 }
+
+.contact-section-wrapper {
+  width: 100%;
+  height: 100%;
+  margin: 0;
+  display: flex;
+  flex-flow: column-reverse;
+  align-content: space-between;
+  justify-content: space-between;
+  gap: 2rem;
+}
+
+.contact-link-div {
+  display: flex;
+  flex: 1 0 0;
+  flex-flow: column wrap;
+  align-items: flex-start;
+  min-width: fit-content;
+  margin: 0;
+  gap: 15px;
+}
+
+
 
 .contact-link {
   position: relative;
   color: white;
-  width: fit-content;
-  margin: auto;
-  padding: 5px;
   display: flex;
   flex-direction: row;
+  width: fit-content;
+  margin: 0;
 }
 
 .contact-link i {
@@ -568,6 +624,10 @@ main {
 
   h1 {
     font-size: 2.369rem;
+  }
+
+  .contact-section-wrapper {
+    flex-direction: row-reverse;
   }
 }
 
