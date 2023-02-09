@@ -1,0 +1,29 @@
+:root {
+
+  }
+  
+  body {
+    padding: 5vw 5vh;
+    margin: 0;
+    width: 90vw;
+    height: 90vh;
+  }
+
+  #container {
+    display: grid;
+    height: 60vh;
+    grid-template-rows: repeat(var(--grid-rows), 1fr);
+    grid-template-columns: repeat(var(--grid-cols), 1fr);
+  }
+  
+  .grid-item {
+    box-sizing: border-box;
+    border: 1px solid #ddd;
+    margin: 0;
+  }
+
+  #color-palette {
+    position: absolute;
+    bottom: 0;
+  }
+
