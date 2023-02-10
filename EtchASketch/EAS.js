@@ -1,6 +1,7 @@
 //Create HTML Elements
 const container = document.getElementById("container");
 const colorPalette = document.getElementById("color-palette");
+const colorPicker = document.getElementById("color-picker");
 
 var pickedColor = "";
 
@@ -41,6 +42,14 @@ for (let i = 0; i < 11; i++) {
     assignColor()
   });
 }
+
+
+
+//add event listener on color input
+colorPicker.addEventListener("input", function assignCustomColor(event) {
+  pickedColor = event.target.value;
+  assignColor();
+}, false);
 
 makeRows(rows, cols);
 

@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -7,16 +8,22 @@
     <link rel="stylesheet" href="StylesEAS.css">
     <title>EtchASketch</title>
 </head>
+
 <body>
     <div id="square-size-picker">
-        
+        <form>
+            <label for="square-size">
+                <input type="range" name="range" id="square-size">
+            </label>
+        </form>
     </div>
     <div id="container"></div>
     <script defer src="EAS.js"></script>
     <div id="color-palette">
-        <input type="color" id="color-picker">  
+        <input type="color" id="color-picker">
     </div>
-        
-    
+
+
 </body>
+
 </html>
