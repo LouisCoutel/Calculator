@@ -25,14 +25,14 @@ function makeRows(rows, cols) {
 }
 
 //create color picking buttons in the color palette
-for (let i = 0; i < 8; i++) {
+for (let i = 0; i < 11; i++) {
   let button = document.createElement("button");
   colorPalette.appendChild(button).className = "color-square";
   button.id = "color" + i;
 }
 
 //set current drawing color based on button clicked
-for (let i = 0; i < 8; i++) {
+for (let i = 0; i < 11; i++) {
   var colorSquare = document.getElementById("color" + i);
   colorSquare.addEventListener("click", function getColor() {
     let style = getComputedStyle(this);
