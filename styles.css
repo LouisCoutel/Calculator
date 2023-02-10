@@ -6,7 +6,7 @@
   --dc2-lighter: #222;
   --light-color2: #eee7cb;
 
-  font-size: 100%;
+  font-size: 88%;
 }
 
 html {
@@ -127,7 +127,7 @@ body {
 @keyframes hamburger-icon-slide {
   from {
     opacity: 1;
-    transform: scaleY(0)
+    transform: scaleY(0);
   }
 
   to {
@@ -321,24 +321,46 @@ main {
 .project-link p {
   font-size: 1.25rem;
   text-shadow: none;
-  font-weight: 700;
-  margin: 5px auto;
-  color: var(--dc2-lighter);
+  margin: 0;
+  font-weight: 600;
+  color: var(--dark-color1);
 }
 
 form.contact-form {
   display: flex;
   flex-direction: column;
   flex: 1.62 0 0;
-  gap: 1rem;
+  gap: 10px;
   min-width: fit-content;
-  padding: 12px;
+  padding: 12px 12px 20px;
   text-align: left;
   border: 2px solid white;
   border-radius: 15px;
 }
 
+#submit {
+  all: revert;
+  background-color: var(--accent-color1);
+  border: 2px solid white;
+  border-radius: 5px;
+  color: white;
+  font-family: inherit;
+  font-size: inherit;
+  flex-grow: 1;
+}
 
+#submit:hover {
+  border: 2px solid var(--accent-color2);
+  color: var(--accent-color2);
+}
+
+.email-wrapper {
+  width: 100%;
+  display: flex;
+  flex-flow: row wrap;
+  gap: 0.5rem;
+
+}
 
 input,
 textarea {
@@ -348,8 +370,9 @@ textarea {
 
 form h2,
 .contact-link-div h2 {
-  margin: 0 0 1em;
-  text-shadow: inherit;
+  justify-self: flex-start;
+  margin: 0 0 1rem;
+  text-shadow: -0.1em 0.1em 0 var(--accent-color2);
 }
 
 .contact-form label {
@@ -364,13 +387,14 @@ form h2,
 }
 
 #person-email {
-  max-width: min(100%, 300px);
   font-size: 1rem;
+  flex-grow: 1.6;
 }
 
 #person-message {
+  font-family: inherit;
   font-size: 1rem;
-  max-width: 100%;
+  max-width: 75ch;
   height: clamp(3rem, 10rem, 15vh);
 }
 
@@ -472,7 +496,7 @@ form h2,
 
 #project-slides-div {
   display: flex;
-  justify-content: space-evenly;
+  justify-content: center;
   align-content: center;
   margin: auto 5vw;
   padding: 15px 0;
@@ -481,16 +505,8 @@ form h2,
 }
 
 .slide {
-  min-height: 150px;
-  min-width: 200px;
-  max-height: 250px;
-  max-width: 300px;
-  padding: 10px;
-  border: 2px solid var(--light-color2);
-  border-radius: 4px;
-  box-shadow: 0 0 4px var(--dark-color2);
-  background-color: var(--light-color2);
-  color: var(--dark-color2);
+  max-width: 320px;
+  background-color: var(--dark-color1);
 }
 
 .slide:hover {
@@ -502,15 +518,16 @@ form h2,
 .project-link {
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  height: 100%;
+  gap: 10px;
+  border: 2px solid var(--light-color2);
+  border-radius: 10px;
+  padding: 12px 12px 20px;
+  background-color: var(--light-color2);
 }
 
 .project-img {
   box-sizing: border-box;
-  max-width: 100%;
-  max-height: 75%;
-  border: 2px solid var(--dc2-lighter);
+  border: 2px solid var(--dark-color1);
   border-radius: 4px;
 }
 
@@ -520,18 +537,15 @@ form h2,
   color: white;
 }
 
-#contact-section h2 {
+.contact-h2 {
   text-shadow: -0.1em 0.1em 0 var(--accent-color2);
   margin-top: auto;
 }
 
-.contact {
-  justify-self: flex-start;
-}
-
 .contact-section-wrapper {
-  width: 100%;
+  max-width: 100%;
   margin: 0 0 auto;
+  padding: 0 0;
   display: flex;
   flex-flow: column-reverse;
   align-content: space-between;
@@ -544,6 +558,7 @@ form h2,
   flex: 1 0 0;
   flex-flow: column wrap;
   align-items: flex-start;
+  justify-content: space-between;
   min-width: fit-content;
   padding: 12px;
   border: 2px solid white;
@@ -553,14 +568,17 @@ form h2,
 .contact-link {
   position: relative;
   color: white;
-  display: flex;
-  flex-direction: row;
-  width: fit-content;
 }
 
 .contact-link i {
-  margin: auto 10px auto auto;
-  font-size: 1.25rem;
+  font-size: calc(5rem + 1vw + 1vh);
+}
+
+.contact-icons-wrapper {
+  display: flex;
+  flex-flow: row wrap;
+  width: 100%;
+  gap: 10px;
 }
 
 .contact-link:hover {
@@ -646,8 +664,8 @@ form h2,
     font-size: 112%;
   }
 
-  .contact-link {
-    font-size: 1.25rem;
+  .contact-section-wrapper {
+    padding: 0 5vw;
   }
 
   h2 {

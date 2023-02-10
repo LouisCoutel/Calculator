@@ -102,35 +102,39 @@
     <!-- contact section -->
 
     <section id="contact-section" class="section">
-      <h2 class="contact">Pour me contacter c'est par</h2>
+      <h2 class="contact-h2">Pour me contacter c'est par</h2>
       <div class="contact-section-wrapper">
         <div class="contact-link-div">
           <h2>là >>></h2>
-          <a class="contact-link" href="">
-            <i class="fa-brands fa-linkedin"></i>
-            <p>LinkedIn</p>
-          </a>
+          <div class="contact-icons-wrapper">
+            <a class="contact-link" href="">
+              <i class="fa-brands fa-linkedin"></i>
+            </a>
 
-          <a class="contact-link" href="">
-            <i class="fa-brands fa-square-github"></i>
-            <p>Github</p>
-          </a>
+            <a class="contact-link" href="">
+              <i class="fa-brands fa-square-github"></i>
+            </a>
 
-          <a class="contact-link" href="">
-            <i class="fa-solid fa-envelope"></i>
-            <p>E-mail</p>
-          </a>
+            <!--<a class="contact-link" href="">
+              <i class="fa-solid fa-square-envelope"></i>
+            </a>-->
+          </div>
         </div>
 
         <form class="contact-form" action="https://formspree.io/f/mvonkgag" method="POST">
           <h2>ici >>></h2>
           <label for="person-email">
             Votre E-mail
-          </label><input type="email" name="person-email" id="person-email" placeholder="Votre E-Mail">
-          <label for="message">
-            Votre message
-          </label><textarea name="message" id="person-message" placeholder="Votre message"></textarea>
-        </form>
+          </label>
+          <div class="email-wrapper">
+          <input type="email" name="person-email" id="person-email" placeholder="Votre E-Mail">
+          <input type="submit" id="submit" name="submit" value="Envoyer">
+        </div>
+      <label for="message">
+        Votre message
+      </label><textarea name="message" id="person-message" placeholder="Votre message"></textarea>
+
+      </form>
       </div>
       </contact>
 

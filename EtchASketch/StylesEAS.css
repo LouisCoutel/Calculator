@@ -1,29 +1,80 @@
-:root {
+body {
+  height: 90vh;
+  margin: 0;
+  padding: 5vw 5vh;
+  width: 90vw;
+}
 
-  }
-  
-  body {
-    padding: 5vw 5vh;
-    margin: 0;
-    width: 90vw;
-    height: 90vh;
-  }
+.grid-item {
+  border: 1px solid #ddd;
+  box-sizing: b>order-box;
+  margin: 0;
 
-  #container {
-    display: grid;
-    height: 60vh;
-    grid-template-rows: repeat(var(--grid-rows), 1fr);
-    grid-template-columns: repeat(var(--grid-cols), 1fr);
-  }
-  
-  .grid-item {
-    box-sizing: border-box;
-    border: 1px solid #ddd;
-    margin: 0;
-  }
+  /* prevent grad/drag on mousedown 
+  Chrome/Safari */
+  -webkit-user-select: none;
 
-  #color-palette {
-    position: absolute;
-    bottom: 0;
-  }
+  /* Firefox */
+  -moz-user-select: none;
 
+  /* Internet Explorer/Edge */
+  -ms-user-select: none;
+
+  /* Standard */
+  user-select: none;
+}
+
+
+
+.color-square {
+  box-sizing: border-box;
+  flex-grow: 1;
+  margin: 20px 10px;
+  min-height: 50px;
+  min-width: 50px;
+}
+
+#color-palette {
+  display: flex;
+  height: 10vh;
+  width: 100%;
+}
+
+#container {
+  height: 60vh;
+  display: grid;
+  grid-template-rows: repeat(var(--grid-rows), 1fr);
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+}
+
+#color0 {
+  background-color: purple;
+}
+
+#color1 {
+  background-color: blue;
+}
+
+#color2 {
+  background-color: green;
+}
+
+#color3 {
+  background-color: yellow;
+}
+
+#color4 {
+  background-color: orange;
+}
+
+#color5 {
+  background-color: red;
+}
+
+#color6 {
+  background-color: white;
+}
+
+#color7 {
+  background-color: black;
+}

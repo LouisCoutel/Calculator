@@ -22,6 +22,7 @@
   "homepage": "https://github.com/Ljog42/Ljog42.github.io#readme",
   "devDependencies": {
     "eslint": "^8.33.0",
+    "jest": "^29.4.2",
     "stylelint-config-prettier": "^9.0.4"
   }
 }
