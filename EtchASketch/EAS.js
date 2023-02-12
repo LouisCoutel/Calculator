@@ -5,12 +5,12 @@ const colorPicker = document.getElementById("color-picker");
 const sizeRange = document.getElementById("size-range");
 const sizeOutput = document.getElementById("size-output");
 const sizeButton = document.getElementById("size-button");
+const wipeButton = document.getElementById("wipe-button");
 const allowedSizesByHeight = [0];
 const allowedSizesByWidth = [0];
 var pickedColor = "";
 
-const allowedSizes = [1];
-const minSize = 1;
+var allowedSizes = [1];
 var desiredSize;
 
 var rows;
@@ -18,7 +18,15 @@ var cols;
 var grid = document.getElementsByClassName("grid-item");
 
 // calculate grid item size on window load or resize
-window.addEventListener("resize", getAllowedSizes());
+window.addEventListener("resize", async function() {
+  await getAllowedSizes();
+  await setMaxSize();
+});
+
+window.addEventListener("load", async function() {
+  await getAllowedSizes();
+  await setMaxSize();
+});
 
 //executes the grid creation sequence when button to select size is clicked
 sizeButton.onclick = async function() {
@@ -29,6 +37,7 @@ sizeButton.onclick = async function() {
 
 //get allowed grid item sizes based on container height and width
 async function getAllowedSizes() {
+
   let k = 0;
   for (let i = 0; i < container.clientHeight; i++) {
     if (container.clientHeight % i == 0) {
@@ -36,30 +45,39 @@ async function getAllowedSizes() {
       k++;
     }
   }
+  console.log(allowedSizesByHeight)
   let l = 0;
-  for (let i = 0; i < container.clientHeight; i++) {
-    if (container.clientHeight % i == 0) {
+  for (let i = 0; i < container.clientWidth; i++) {
+    if (container.clientWidth % i == 0) {
       allowedSizesByWidth[l] = i;
       l++;
     }
   }
-
+  console.log(allowedSizesByWidth);
+  allowedSizes = [];
   allowedSizesByHeight.forEach((element) => {
     if (allowedSizesByWidth.includes(element)) {
+      console.log(element)
       allowedSizes.push(element);
     }
   });
-  
+
+}
+
+async function setMaxSize() {
+  console.log("allowed sizes" + allowedSizes);
   var maxSize = (allowedSizes.length - 1);
+  console.log("maxsize" + maxSize);
   sizeRange.setAttribute("max", maxSize);
-  sizeRange.setAttribute("min", minSize);
   console.log("ça marche");
+  desiredSize = allowedSizes[allowedSizes.length - 1];
+  sizeOutput.innerHTML = allowedSizes[allowedSizes.length - 1] 
 }
 
 //Set desired square size based on user input (WIP)
 sizeRange.oninput = function setDesiredSize() {
   desiredSize = allowedSizes[this.value];
-  sizeOutput.innerHTML = desiredSize
+  sizeOutput.innerHTML = allowedSizes[this.value];
 };
 
 //Set number of rows and cols based on desired square size
@@ -75,8 +93,8 @@ async function setRowsColsNumber() {
 async function setGridItemSize() {
   for (let i = 0; i < grid.length; i++) {
     //grid item size
-    grid[i].style.setProperty("width", desiredSize + "px");
-    grid[i].style.setProperty("height", desiredSize + "px");
+    grid[i].style.setProperty("width", desiredSize - 2 + "px");
+    grid[i].style.setProperty("height", desiredSize -2 + "px");
   }
   console.log("4");
 }
@@ -152,5 +170,16 @@ function assignColor() {
         grid[i].style.backgroundColor = pickedColor;
       }
     });
+  }
+}
+
+function wipeCanvas() {
+  for (let i = 0; i < grid.length; i++) {
+      grid[i].style.backgroundColor = "transparent"}
+  }
+
+wipeButton.onclick = function() {
+  if (window.confirm("Are you sure you want to start over?")) {
+    wipeCanvas()
   }
 }
