@@ -320,11 +320,12 @@ main {
 }
 
 .project-link p {
+  display: none;
   font-size: 1.25rem;
   text-shadow: none;
-  margin: 0;
   font-weight: 600;
   color: var(--dark-color1);
+  margin: 15px 0 0;
 }
 
 form.contact-form {
@@ -505,31 +506,29 @@ form h2,
   flex-flow: row wrap;
 }
 
-.slide {
-  max-width: 320px;
-  background-color: var(--dark-color1);
+.project-link {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  flex: 1 1 auto;
+  border: 2px solid var(--light-color2);
+  border-radius: 10px;
+  padding: 12px;
+  background-color: var(--light-color2);
+  max-width: 25vw;
+  max-height: 25vw;
 }
 
-.slide:hover {
+.project-link:hover {
   position: relative;
   bottom: 0;
   animation: slideup 3s ease-in-out 0s infinite normal none;
 }
 
-.project-link {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-  border: 2px solid var(--light-color2);
-  border-radius: 10px;
-  padding: 12px 12px 20px;
-  background-color: var(--light-color2);
-}
-
 .project-img {
   box-sizing: border-box;
   border: 2px solid var(--dark-color1);
-  border-radius: 4px;
+  border-radius: 8px;
 }
 
 #contact-section {
@@ -647,6 +646,9 @@ form h2,
 }
 
 @media screen and (min-width: 640px) {
+  .project-link p {
+    display: block;
+  }
   h2 {
     font-size: 1.777rem;
   }
