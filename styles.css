@@ -157,7 +157,8 @@ body {
   position: absolute;
   bottom: -38px;
   width: min(10vw, 80px);
-  animation: hamburger-icon-slide 1s ease-out 2s 1 normal forwards;
+  height: 30px;
+  animation: hamburger-icon-slide 0.5s ease-out 2s 1 normal forwards;
 }
 
 .hamburger-icon-wrapper i {
