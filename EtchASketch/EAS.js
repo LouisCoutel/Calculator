@@ -52,7 +52,7 @@ async function setContainerWidth() {
   if (ratio >= 2) {
     container.style.setProperty("width", "120vh");
   } else if (ratio >= 1.5) {
-    container.style.setProperty("width", "90vh");
+    container.style.setProperty("width", "120vh");
   } else if (ratio >= 1) {
     container.style.setProperty("width", "60vh");
   } else {
@@ -67,13 +67,13 @@ async function getAllowedSizes() {
   //get all possible sizes based on height
   let k = 0;
   console.log(container.clientHeight);
-  for (let i = 0; i < container.clientHeight; i++) {
+  for (let i = 8; i < container.clientHeight; i++) {
     if (container.clientHeight % i == 0) {
       allowedSizesByHeight[k] = i;
       k++;
     }
   }
-  console.log(allowedSizesByHeight);
+  console.log("all height" + allowedSizesByHeight);
   //get all possible sides based on width
   let l = 0;
   console.log(container.clientWidth);
@@ -83,7 +83,7 @@ async function getAllowedSizes() {
       l++;
     }
   }
-  console.log(allowedSizesByWidth);
+  console.log("all wid" + allowedSizesByWidth);
   //reset allowed sizes array everytime the function runs
   allowedSizes = [];
   // check which values would work for both width and height
@@ -105,19 +105,19 @@ async function setMaxSize() {
   //default desired size to max
   desiredSize = allowedSizes[allowedSizes.length - 1];
   //display current selected size
-  sizeOutput.innerHTML = allowedSizes[allowedSizes.length - 1];
+  sizeOutput.innerHTML = allowedSizes[allowedSizes.length - 1] + "px";
 }
 
 //Set desired square size based on user input (WIP)
 sizeRange.oninput = function setDesiredSize() {
   desiredSize = allowedSizes[this.value];
-  sizeOutput.innerHTML = allowedSizes[this.value];
+  sizeOutput.innerHTML = allowedSizes[this.value] + "px";
 };
 
 //Set number of rows and cols based on desired square size
 async function setRowsColsNumber() {
   rows = Math.floor(container.clientHeight / desiredSize);
-  console.log("cols" + rows);
+  console.log("rows" + rows);
   cols = Math.floor(container.clientWidth / desiredSize);
   console.log("cols" + cols);
 
@@ -127,8 +127,8 @@ async function setRowsColsNumber() {
 async function setGridItemSize() {
   for (let i = 0; i < grid.length; i++) {
     //grid item size
-    grid[i].style.setProperty("width", desiredSize - 2 + "px");
-    grid[i].style.setProperty("height", desiredSize - 2 + "px");
+    grid[i].style.setProperty("width", desiredSize + "px");
+    grid[i].style.setProperty("height", desiredSize + "px");
   }
 }
 

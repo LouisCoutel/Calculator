@@ -12,14 +12,16 @@
 <body>
     <div id="square-size-picker">
         <label for="square-size">
-            Select canvas grid item size
+            Grid item size
         </label>
         <input type="range" name="range" id="size-range">
         <div id="size-output"></div>
         <button id="size-button">APPLY</button>
         <button id="wipe-button">START OVER</button>
     </div>
-    <div id="container"></div>
+    <div class="wrapper" id="container-wrapper">
+        <div id="container"></div>
+    </div>
     <script defer src="EAS.js"></script>
     <div id="color-palette">
         <input type="color" id="color-picker">

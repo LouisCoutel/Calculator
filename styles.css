@@ -513,7 +513,7 @@ form h2,
   flex: 1 1 auto;
   border: 2px solid var(--light-color2);
   border-radius: 10px;
-  padding: 12px;
+  padding: 2%;
   background-color: var(--light-color2);
   max-width: 25vw;
   max-height: 25vw;
