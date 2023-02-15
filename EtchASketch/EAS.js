@@ -82,7 +82,7 @@ async function getAllowedSizes() {
   //get all possible sides based on width
   let l = 0;
   console.log(container.clientWidth);
-  for (let i = 0; i < container.clientWidth; i++) {
+  for (let i = 8; i < container.clientWidth; i++) {
     if (container.clientWidth % i == 0) {
       allowedSizesByWidth[l] = i;
       l++;
