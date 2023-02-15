@@ -19,13 +19,13 @@ var grid = document.getElementsByClassName("grid-item");
 
 // calculate grid item size on window load or resize
 window.addEventListener("resize", async function () {
-  await setContainerWidth();
+  await setContainer();
   await getAllowedSizes();
   await setMaxSize();
 });
 
 window.addEventListener("load", async function () {
-  await setContainerWidth();
+  await setContainer();
   await getAllowedSizes();
   await setMaxSize();
 });
@@ -46,17 +46,22 @@ sizeButton.onclick = async function () {
   firstTime = false;
 };
 
-async function setContainerWidth() {
+async function setContainer() {
   let ratio = window.innerWidth / window.innerHeight;
   console.log("ratio" + ratio);
-  if (ratio >= 2) {
-    container.style.setProperty("width", "120vh");
+  let roundedHeight = Math.ceil((window.innerHeight + 1) / 10) * 10 * 0.6;
+  console.log("roundedH ", roundedHeight);
+  container.style.setProperty("height", roundedHeight + "px");
+  if (ratio >= 2.5) {
+    container.style.setProperty("width", 2.5 * roundedHeight + "px");
+  } else if (ratio >= 2) {
+    container.style.setProperty("width", 2 * roundedHeight + "px");
   } else if (ratio >= 1.5) {
-    container.style.setProperty("width", "120vh");
+    container.style.setProperty("width", 1.5 * roundedHeight + "px");
   } else if (ratio >= 1) {
-    container.style.setProperty("width", "60vh");
+    container.style.setProperty("width", 1 * roundedHeight + "px");
   } else {
-    container.style.setProperty("width", "30vh");
+    container.style.setProperty("width", 0.5 * roundedHeight + "px");
   }
 }
 
@@ -67,7 +72,7 @@ async function getAllowedSizes() {
   //get all possible sizes based on height
   let k = 0;
   console.log(container.clientHeight);
-  for (let i = 8; i < container.clientHeight; i++) {
+  for (let i = 4; i < container.clientHeight; i++) {
     if (container.clientHeight % i == 0) {
       allowedSizesByHeight[k] = i;
       k++;
@@ -120,7 +125,6 @@ async function setRowsColsNumber() {
   console.log("rows" + rows);
   cols = Math.floor(container.clientWidth / desiredSize);
   console.log("cols" + cols);
-
 }
 
 //Assign grid item size

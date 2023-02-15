@@ -1,9 +1,9 @@
 :root {
-  --dark-color: #586f7cff;;
+  --dark-color: #586f7cff;
   --accent-color1: #c16200ff;
   --accent-color2: #881600ff;
   --light-color1: #f4f4f9ff;
-  --light-color2: #fdfffcff
+  --light-color2: #fdfffcff;
 }
 
 html {
@@ -25,13 +25,16 @@ body {
   background-color: var(--light-color2);
 }
 
+.shadow {
+  box-shadow: 0 15px var(--dark-color);
+}
+
 .grid-item {
   box-sizing: border-box;
   margin: 0;
   border-bottom: 1px solid var(--dark-color);
   border-right: 1px solid var(--dark-color);
-  background-color: var(--light-color2);
-  
+
   /* prevent grad/drag on mousedown 
   Chrome/Safari */
   /* stylelint-disable-next-line property-no-vendor-prefix */
@@ -48,8 +51,6 @@ body {
   /* Standard */
   user-select: none;
 }
-
-
 
 #color0 {
   background-color: purple;
@@ -104,14 +105,55 @@ body {
   background: url("../Images/brushed-alum.png"), var(--light-color1);
   border-radius: 10px;
   border: 2px solid var(--dark-color);
-  box-shadow: 0 15px var(--dark-color);
   display: flex;
   flex-flow: row wrap;
-  height: 150px;
+  height: 100px;
   justify-content: space-between;
   margin: 25px 0 10px;
   padding: 5px 10px 10px;
   width: calc(100% - 24px);
+}
+
+#container-wrapper {
+  background: url("../Images/brushed-alum.png"), var(--light-color1);
+  border-radius: 20px;
+  border: 2px solid var(--dark-color);
+  height: max-content;
+  margin: 0 auto;
+  padding: 20px;
+  width: max-content;
+}
+
+#container {
+  background-color: var(--light-color2);
+  background-image: none;
+  border-left: 1px solid var(--dark-color);
+  border-top: 1px solid var(--dark-color);
+  box-shadow: inset 2px 2px var(--dark-color);
+  display: grid;
+  grid-template-columns: repeat(var(--grid-cols), 1fr);
+  grid-template-rows: repeat(var(--grid-rows), 1fr);
+  margin: 0 auto;
+}
+
+#square-size-picker {
+  background: url("../Images/brushed-alum.png") var(--light-color1);
+  border-radius: 5px;
+  border: 2px solid var(--dark-color);
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-evenly;
+  margin: 0 auto 10px;
+  padding: 5px 0;
+  width: 100%;
+}
+
+#size-output {
+  width: 5ch;
+}
+
+#size-range {
+  width: auto;
 }
 
 .color-square,
@@ -122,42 +164,8 @@ body {
   box-sizing: border-box;
   flex-grow: 1;
   margin: 5px;
+  max-height: 100px;
+  max-width: 100px;
   min-height: 30px;
   min-width: 40px;
-  max-width: 150px;
-  max-height: 150px;
-}
-
-#container-wrapper {
-  padding: 20px;
-  border-radius: 20px;
-  box-shadow: 0 20px var(--dark-color);
-  width: max-content;
-  margin: 0 auto;
-  height: max-content;
-  background: url("../Images/brushed-alum.png"), var(--light-color1);
-}
-
-#container {
-  height: 60vh;
-  border-top: 1px solid var(--dark-color);
-  border-left: 1px solid var(--dark-color);
-  display: grid;
-  grid-template-columns: repeat(var(--grid-cols), 1fr);
-  grid-template-rows: repeat(var(--grid-rows), 1fr);
-  margin: 0 auto;
-  box-shadow: inset 2px 2px var(--dark-color);
-  background: none;
-  background-color: var(--light-color2);
-}
-
-#square-size-picker {
-  margin: auto;
-  display: flex;
-  flex-flow: row wrap;
-  justify-content: space-evenly;
-}
-
-#size-range {
-  width:auto;
 }
