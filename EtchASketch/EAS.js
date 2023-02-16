@@ -3,9 +3,13 @@ const container = document.getElementById("container");
 const colorPalette = document.getElementById("color-palette");
 const colorPicker = document.getElementById("color-picker");
 const sizeRange = document.getElementById("size-range");
+const menu = document.getElementById("menu");
 const sizeOutput = document.getElementById("size-output");
 const sizeButton = document.getElementById("size-button");
 const wipeButton = document.getElementById("wipe-button");
+const menuButton = document.getElementById("menu-button");
+const closeButton = document.getElementById("close-button");
+
 var allowedSizesByHeight = [];
 var allowedSizesByWidth = [];
 var pickedColor = "";
@@ -28,6 +32,7 @@ window.addEventListener("load", async function () {
   await setContainer();
   await getAllowedSizes();
   await setMaxSize();
+  displayMenu();
 });
 
 // control for first time execution
@@ -43,26 +48,18 @@ sizeButton.onclick = async function () {
   await setRowsColsNumber();
   await makeRows();
   await setGridItemSize();
-  firstTime = false;
 };
 
 async function setContainer() {
   let ratio = window.innerWidth / window.innerHeight;
   console.log("ratio" + ratio);
-  let roundedHeight = Math.ceil((window.innerHeight + 1) / 10) * 10 * 0.6;
+  let roundedHeight = Math.ceil((window.innerHeight + 1) / 10) * 10 * 0.7;
   console.log("roundedH ", roundedHeight);
   container.style.setProperty("height", roundedHeight + "px");
-  if (ratio >= 2.5) {
-    container.style.setProperty("width", 2.5 * roundedHeight + "px");
-  } else if (ratio >= 2) {
-    container.style.setProperty("width", 2 * roundedHeight + "px");
-  } else if (ratio >= 1.5) {
-    container.style.setProperty("width", 1.5 * roundedHeight + "px");
-  } else if (ratio >= 1) {
-    container.style.setProperty("width", 1 * roundedHeight + "px");
-  } else {
-    container.style.setProperty("width", 0.5 * roundedHeight + "px");
-  }
+  container.style.setProperty(
+    "width",
+    (Math.round(ratio * 2) / 2) * roundedHeight + "px"
+  );
 }
 
 //get allowed grid item sizes based on container height and width
@@ -200,12 +197,14 @@ function assignColor() {
     grid[i].addEventListener("mousedown", function () {
       grid[i].style.backgroundColor = pickedColor;
     });
+    firstTime = false;
     //when the pointer enters a square IF the user is holding down the mouse button
     grid[i].addEventListener("mouseover", function () {
       if (drawing == true) {
         console.log("drawing");
         grid[i].style.backgroundColor = pickedColor;
       }
+      firstTime = false;
     });
   }
 }
@@ -220,4 +219,17 @@ wipeButton.onclick = function () {
   if (window.confirm("Are you sure you want to start over?")) {
     wipeCanvas();
   }
+};
+
+//set buttons events
+function displayMenu() {
+  menu.style.setProperty("display", "flex");
+}
+
+menuButton.onclick = function() {
+  menu.style.setProperty("display", "flex");
+};
+
+closeButton.onclick = function displayPalette() {
+  this.parentElement.style.setProperty("display", "none");
 };
