@@ -4,6 +4,8 @@ let compVictories = 0;
 let playerVictories = 0;
 let computerPlay = "";
 let answer = "";
+
+var gameOn = true;
 const rock = document.getElementById("rock");
 const paper = document.getElementById("paper");
 const scissors = document.getElementById("scissors");
@@ -53,18 +55,20 @@ function round(playerMove, computerMove) {
     ).textContent = `Round ${roundCount}`;
   }
   // display win or loss message
-  setTimeout( function displayEndGameText() {
-  if (playerVictories === 3) {
-    document.querySelector(".victory").textContent =
-      "That's three wins for you, you win the game! Let's start over!";
-  } else if (compVictories === 3) {
-    document.querySelector(".victory").textContent =
-      "Three wins for me, you lose the game! Let's start over!";
-  }
-}, 3000)
+  setTimeout(function displayEndGameText() {
+    if (playerVictories === 3) {
+      document.querySelector(".victory").textContent =
+        "That's three wins for you, you win the game! Let's start over!";
+    } else if (compVictories === 3) {
+      document.querySelector(".victory").textContent =
+        "Three wins for me, you lose the game! Let's start over!";
+    }
+  }, 3000);
 
   //Starts countdown before resetting game
   if (playerVictories === 3 || compVictories === 3) {
+    //prevent further playing//
+    gameOn = false;
     setTimeout(function () {
       document.querySelector(".countdown").textContent = "3...";
     }, 4000);
@@ -86,62 +90,69 @@ function round(playerMove, computerMove) {
       document.querySelector(".victory").textContent = "";
       document.querySelector(".countdown").textContent = "";
       document.querySelector(".round").textContent = "Pick a move";
-    }, 5000);
+      gameOn = true;
+    }, 7000);
   }
 }
 
 //add an event on click for each button
 rock.addEventListener("click", function () {
-  //assign value to answer based on button clicked
-  answer = "rock";
-  let playerMove = 0;
+  if (gameOn) {
+    //assign value to answer based on button clicked
+    answer = "rock";
+    let playerMove = 0;
 
-  //generates random number in order to pick a move for the computer
-  let computerMove = Math.floor(Math.random() * (2 + 1));
-  // picks one of three possible moves for the computer to play, depending and the random number generated //
-  if (computerMove === 0) {
-    computerPlay = "rock";
-  } else if (computerMove === 1) {
-    computerPlay = "paper";
-  } else if (computerMove === 2) {
-    computerPlay = "scissors";
+    //generates random number in order to pick a move for the computer
+    let computerMove = Math.floor(Math.random() * (2 + 1));
+    // picks one of three possible moves for the computer to play, depending and the random number generated //
+    if (computerMove === 0) {
+      computerPlay = "rock";
+    } else if (computerMove === 1) {
+      computerPlay = "paper";
+    } else if (computerMove === 2) {
+      computerPlay = "scissors";
+    }
+
+    round(playerMove, computerMove);
   }
-
-  round(playerMove, computerMove);
 });
 
 paper.addEventListener("click", function () {
-  answer = "paper";
-  let playerMove = 1;
+  if (gameOn) {
+    answer = "paper";
+    let playerMove = 1;
 
-  //generates random number in order to pick a move for the computer
-  let computerMove = Math.floor(Math.random() * (2 + 1));
-  // picks one of three possible moves for the computer to play, depending and the random number generated //
-  if (computerMove === 0) {
-    computerPlay = "rock";
-  } else if (computerMove === 1) {
-    computerPlay = "paper";
-  } else if (computerMove === 2) {
-    computerPlay = "scissors";
+    //generates random number in order to pick a move for the computer
+    let computerMove = Math.floor(Math.random() * (2 + 1));
+    // picks one of three possible moves for the computer to play, depending and the random number generated //
+    if (computerMove === 0) {
+      computerPlay = "rock";
+    } else if (computerMove === 1) {
+      computerPlay = "paper";
+    } else if (computerMove === 2) {
+      computerPlay = "scissors";
+    }
+
+    round(playerMove, computerMove);
   }
-
-  round(playerMove, computerMove);
 });
 
 scissors.addEventListener("click", function () {
-  answer = "scissors";
-  let playerMove = 2;
+  if (gameOn) {
+    answer = "scissors";
+    let playerMove = 2;
 
-  //generates random number in order to pick a move for the computer
-  let computerMove = Math.floor(Math.random() * (2 + 1));
-  // picks one of three possible moves for the computer to play, depending and the random number generated //
-  if (computerMove === 0) {
-    computerPlay = "rock";
-  } else if (computerMove === 1) {
-    computerPlay = "paper";
-  } else if (computerMove === 2) {
-    computerPlay = "scissors";
+    //generates random number in order to pick a move for the computer
+    let computerMove = Math.floor(Math.random() * (2 + 1));
+    // picks one of three possible moves for the computer to play, depending and the random number generated //
+    if (computerMove === 0) {
+      computerPlay = "rock";
+    } else if (computerMove === 1) {
+      computerPlay = "paper";
+    } else if (computerMove === 2) {
+      computerPlay = "scissors";
+    }
+
+    round(playerMove, computerMove);
   }
-
-  round(playerMove, computerMove);
 });
