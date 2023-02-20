@@ -494,16 +494,16 @@ form h2,
 
 .projects-h2 {
   text-shadow: -0.1em 0.1em 0 var(--accent-color1);
+  margin-top: auto;
 }
 
 #project-slides-div {
   display: flex;
   justify-content: center;
   align-content: center;
-  margin: auto 5vw;
-  padding: 15px 0;
   gap: 15px;
   flex-flow: row wrap;
+  margin-bottom: auto;
 }
 
 .project-link {
@@ -555,7 +555,7 @@ form h2,
 
 .contact-link-div {
   display: flex;
-  flex: 1 0 0;
+  flex: 1 1 0;
   flex-flow: column wrap;
   align-items: flex-start;
   justify-content: space-between;
@@ -697,7 +697,7 @@ form h2,
 
 @media screen and (max-height: 560px) {
   .section {
-    height: max-content;
+    height: min(90vh, max-content);
   }
 }
 
