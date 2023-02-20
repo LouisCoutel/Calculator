@@ -1,3 +1,5 @@
+// VARIABLE DECLARATIONS //
+
 //Create HTML Elements
 const container = document.getElementById("container");
 const colorPalette = document.getElementById("color-palette");
@@ -9,6 +11,7 @@ const sizeButton = document.getElementById("size-button");
 const wipeButton = document.getElementById("wipe-button");
 const menuButton = document.getElementById("menu-button");
 const closeButton = document.getElementById("close-button");
+const gridButton = document.getElementById("grid-button");
 
 var allowedSizesByHeight = [];
 var allowedSizesByWidth = [];
@@ -21,6 +24,10 @@ var rows;
 var cols;
 var grid = document.getElementsByClassName("grid-item");
 
+var gridDisplay = true
+
+// #region MAIN SEQUENCES
+
 // calculate grid item size on window load or resize
 window.addEventListener("resize", async function () {
   await setContainer();
@@ -32,6 +39,9 @@ window.addEventListener("load", async function () {
   await setContainer();
   await getAllowedSizes();
   await setMaxSize();
+  await createPaletteElements();
+  await assignColorEvent();
+  await assignCustomColorEvent();
   displayMenu();
 });
 
@@ -48,18 +58,23 @@ sizeButton.onclick = async function () {
   await setRowsColsNumber();
   await makeRows();
   await setGridItemSize();
+  gridButton.onclick = function () {
+    toggleGrid();
+  };
+  menu.style.setProperty("display", "none");
 };
 
+// #endregion
+
+// #region GRID AND CONTAINER
+
 async function setContainer() {
-  let ratio = window.innerWidth / window.innerHeight;
-  console.log("ratio" + ratio);
-  let roundedHeight = Math.ceil((window.innerHeight + 1) / 10) * 10 * 0.7;
-  console.log("roundedH ", roundedHeight);
+  let ratio = Math.round((window.innerWidth / window.innerHeight) * 5) / 5;
+  let roundedHeight = Math.ceil((0.6 * window.innerHeight) / 20) * 20;
+  console.log("roundedHeight" + roundedHeight);
+  console.log("ratio " + ratio);
   container.style.setProperty("height", roundedHeight + "px");
-  container.style.setProperty(
-    "width",
-    (Math.round(ratio * 2) / 2) * roundedHeight + "px"
-  );
+  container.style.setProperty("width", ratio * roundedHeight + "px");
 }
 
 //get allowed grid item sizes based on container height and width
@@ -68,14 +83,12 @@ async function getAllowedSizes() {
   allowedSizesByWidth = [];
   //get all possible sizes based on height
   let k = 0;
-  console.log(container.clientHeight);
   for (let i = 4; i < container.clientHeight; i++) {
     if (container.clientHeight % i == 0) {
       allowedSizesByHeight[k] = i;
       k++;
     }
   }
-  console.log("all height" + allowedSizesByHeight);
   //get all possible sides based on width
   let l = 0;
   console.log(container.clientWidth);
@@ -85,13 +98,11 @@ async function getAllowedSizes() {
       l++;
     }
   }
-  console.log("all wid" + allowedSizesByWidth);
   //reset allowed sizes array everytime the function runs
   allowedSizes = [];
   // check which values would work for both width and height
   allowedSizesByHeight.forEach((element) => {
     if (allowedSizesByWidth.includes(element)) {
-      console.log(element);
       allowedSizes.push(element);
     }
   });
@@ -101,7 +112,6 @@ async function getAllowedSizes() {
 async function setMaxSize() {
   console.log("allowed sizes" + allowedSizes);
   var maxSize = allowedSizes.length - 1;
-  console.log("maxsize" + maxSize);
   sizeRange.setAttribute("max", maxSize);
 
   //default desired size to max
@@ -119,9 +129,7 @@ sizeRange.oninput = function setDesiredSize() {
 //Set number of rows and cols based on desired square size
 async function setRowsColsNumber() {
   rows = Math.floor(container.clientHeight / desiredSize);
-  console.log("rows" + rows);
   cols = Math.floor(container.clientWidth / desiredSize);
-  console.log("cols" + cols);
 }
 
 //Assign grid item size
@@ -146,36 +154,68 @@ async function makeRows() {
   }
   //Create grid items list
   grid = container.getElementsByClassName("grid-item");
-  console.log("3");
 }
 
+function toggleGrid() {
+  console.log("lessgo");
+  var gridArray = Array.from(grid);
+  if (gridDisplay == true) {
+    gridArray.forEach(function (element) {
+      element.classList.add("inactive");
+    });
+    gridDisplay = false;
+    gridButton.classList.add("opened");
+  } else {
+    gridArray.forEach(function (element) {
+      element.classList.remove("inactive");
+    });
+    gridDisplay = true;
+    gridButton.classList.remove("opened");
+  }
+}
+
+// #endregion
+
+//#endregion
+
+// #region PALETTE AND COLOR
+
 //create color picking buttons in the color palette
-for (let i = 0; i < 11; i++) {
-  let button = document.createElement("button");
-  colorPalette.appendChild(button).className = "color-square";
-  button.id = "color" + i;
+async function createPaletteElements() {
+  for (let i = 0; i < 11; i++) {
+    let button = document.createElement("button");
+    colorPalette.appendChild(button).className = "color-square";
+    button.id = "color" + i;
+  }
 }
 
 //set current drawing color based on button clicked
-for (let i = 0; i < 11; i++) {
-  var colorSquare = document.getElementById("color" + i);
-  colorSquare.addEventListener("click", function getColor() {
-    let style = getComputedStyle(this);
-    pickedColor = style.backgroundColor;
-    console.log(pickedColor);
-    assignColor();
-  });
+async function assignColorEvent() {
+  for (let i = 0; i < 11; i++) {
+    var colorSquare = document.getElementById("color" + i);
+    colorSquare.addEventListener("click", function getColor() {
+      let style = getComputedStyle(this);
+      pickedColor = style.backgroundColor;
+      assignColor();
+    });
+  }
 }
 
 //add event listener on color input
-colorPicker.addEventListener(
-  "input",
-  function assignCustomColor(event) {
-    pickedColor = event.target.value;
-    assignColor();
-  },
-  false
-);
+async function assignCustomColorEvent() {
+  colorPicker.addEventListener(
+    "input",
+    function assignCustomColor(event) {
+      pickedColor = event.target.value;
+      assignColor();
+    },
+    false
+  );
+}
+
+// #endregion
+
+// #region DRAWING
 
 //control for user input
 var drawing = false;
@@ -201,7 +241,6 @@ function assignColor() {
     //when the pointer enters a square IF the user is holding down the mouse button
     grid[i].addEventListener("mouseover", function () {
       if (drawing == true) {
-        console.log("drawing");
         grid[i].style.backgroundColor = pickedColor;
       }
       firstTime = false;
@@ -211,22 +250,27 @@ function assignColor() {
 
 function wipeCanvas() {
   for (let i = 0; i < grid.length; i++) {
-    grid[i].style.backgroundColor = "transparent";
+    grid[i].style.backgroundColor = "white";
   }
 }
 
 wipeButton.onclick = function () {
   if (window.confirm("Are you sure you want to start over?")) {
     wipeCanvas();
+    menu.style.setProperty("display", "none");
   }
 };
+
+// #endregion
+
+// #region MENUS
 
 //set buttons events
 function displayMenu() {
   menu.style.setProperty("display", "flex");
 }
 
-menuButton.onclick = function() {
+menuButton.onclick = function () {
   menu.style.setProperty("display", "flex");
 };
 

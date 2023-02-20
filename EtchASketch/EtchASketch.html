@@ -15,22 +15,25 @@
 
 <body>
     <div class="wrapper shadow white" id="container-wrapper">
-        <div id="container"></div>
+        <div id="container">
+        </div>
+
     </div>
 
     <div id="color-palette" class="shadow white">
         <input type="color" id="color-picker">
     </div>
-        <button id="menu-button" class="button"><i class="fa-solid fa-gear"></i></button>
+    <button id="menu-button" class="fixed-button"><i class="fa-solid fa-gear"></i></button>
+    <button id="grid-button" class="fixed-button"><i class="fa-solid fa-border-all"></i></button>
     <div id="menu" class="white">
         <label for="square-size">
-            Grid item size
+            Grid square size
         </label>
         <input type="range" name="range" id="size-range">
         <div id="size-output"></div>
-        <button id="size-button">APPLY</button>
-        <button id="wipe-button">START OVER</button>
-        <button id="close-button">CLOSE</button>
+        <button id="size-button" class="button">APPLY</button>
+        <button id="wipe-button" class="button">START OVER</button>
+        <button id="close-button" class="button">CLOSE</button>
     </div>
     <script defer src="EAS.js"></script>
 </body>
