@@ -157,6 +157,7 @@ button {
 }
 
 #container-wrapper {
+  box-sizing: border-box;
   height: fit-content;
   margin: auto;
   padding: 20px;
@@ -170,7 +171,7 @@ button {
   display: grid;
   grid-template-columns: repeat(var(--grid-cols), 1fr);
   grid-template-rows: repeat(var(--grid-rows), 1fr);
-  margin: 0 auto;
+  margin: 0;
   overflow: hidden;
 }
 
