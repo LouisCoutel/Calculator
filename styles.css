@@ -488,7 +488,6 @@ form h2,
 #projects {
   background-color: var(--dark-color1);
   color: var(--light-color2);
-  min-height: 100vh;
   border-top: 3px solid var(--dark-color2);
   justify-content: center;
 }

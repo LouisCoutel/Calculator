@@ -61,19 +61,19 @@ function round(playerMove, computerMove) {
     document.querySelector(".victory").textContent =
       "Three wins for me, you lose the game! Let's start over!";
   }
-}, 2000)
+}, 3000)
 
   //Starts countdown before resetting game
   if (playerVictories === 3 || compVictories === 3) {
     setTimeout(function () {
       document.querySelector(".countdown").textContent = "3...";
-    }, 3000);
-    setTimeout(function () {
-      document.querySelector(".countdown").textContent = "2...";
     }, 4000);
     setTimeout(function () {
-      document.querySelector(".countdown").textContent = "1...";
+      document.querySelector(".countdown").textContent = "2...";
     }, 5000);
+    setTimeout(function () {
+      document.querySelector(".countdown").textContent = "1...";
+    }, 6000);
 
     //resets game
     setTimeout(function restartGame() {
