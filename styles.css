@@ -695,3 +695,10 @@ form h2,
     font-size: 3.375rem;
   }
 }
+
+@media screen and (max-height: 560px) {
+  .section {
+    height: max-content;
+  }
+}
+
