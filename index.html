@@ -27,29 +27,29 @@
 
   <!-- navigation section -->
 
-  <section id="nav-section">
+  <section id="nav-section" class="white-text">
 
-    <navbar id="navbar">
-      <div class="navlink-wrapper">
-        <a class="nav-welcome" href="#welcome-section">A propos</a>
+    <navbar id="navbar" class="flex space-between">
+      <div class="navlink-wrapper flex">
+        <a class="nav-welcome white-text" href="#welcome-section">A propos</a>
       </div>
 
-      <div class="navlink-wrapper">
-        <a class="nav-projects" href="#projects">Projets</a>
+      <div class="navlink-wrapper flex">
+        <a class="nav-projects white-text" href="#projects">Projets</a>
       </div>
 
-      <div class="navlink-wrapper">
-        <a class="nav-contact" href="#contact-section">Contact</a>
+      <div class="navlink-wrapper flex">
+        <a class="nav-contact white-text" href="#contact-section">Contact</a>
       </div>
 
-      <div class="navlink-wrapper">
-        <a id="cv-link" href="./CV/CV_Louis_Coutel.pdf" download="CV_LOUIS_COUTEL" target="_blank">Mon CV</a>
+      <div class="navlink-wrapper flex">
+        <a id="cv-link" class="white-text" href="./CV/CV_Louis_Coutel.pdf" download="CV_LOUIS_COUTEL" target="_blank">Mon CV</a>
       </div>
       <div class="hamburger-icon-wrapper"><i class="fa-solid fa-bars"></i>
         <div class="paperOverlay"></div>
       </div>
     </navbar>
-    <div class="animated-loading"></div>
+    <div class="animated-loading flex"></div>
     <div class="paperOverlay"></div>
   </section>
 
@@ -59,18 +59,18 @@
 
     <!-- welcome section -->
 
-    <section id="welcome-section" class="section">
+    <section id="welcome-section" class="section flex dark-color-text">
       <div class="wrapper top">
         <h1 id="welcome" class="textured">Louis Coutel</h1>
         <hr id="hr-1" class="orange-hr">
         <h2 id="job-title">Développeur Front-End</h2>
       </div>
-      <div id="welcome-text-div">
-        <p id="welcome-text">J'ai consacré près de 400 heures à apprendre le développement grace à <b>freeCodeCamp</b>
+      <div id="welcome-text-div" class="flex">
+        <p class="welcome-text">J'ai consacré près de 400 heures à apprendre le développement grace à <b>freeCodeCamp</b>
           et <b>Odin Project</b>. Aujourd'hui, j'ai rejoint la formation Intégrateur Web d'<b>OpenClassrooms</b> et suis
           à la recherche d'une alternance en tant que <b>Développeur Front-End</b>. Je maitrise les principes du
           Responsive Design, les languages HTML, CSS et Javascript ainsi que le contrôle de version avec Git/Github.</p>
-        <p id="welcome-text"> Avant cela, j'ai accompagné le magazine <b>l'Express</b> pendant 4 ans en tant que
+        <p class="welcome-text"> Avant cela, j'ai accompagné le magazine <b>l'Express</b> pendant 4 ans en tant que
           <b>Réalisateur
             Podcast</b>. J'ai notamment participé à la création de <b>La Loupe</b>, le podcast quotidien de
           l'Express.<br />
@@ -81,23 +81,23 @@
 
     <!-- projects section -->
 
-    <section id="projects" class="section">
+    <section id="projects" class="section flex white-text">
       <h2 class="projects-h2">Voici quelques un de mes projets</h2>
-      <div id="project-slides-div">
+      <div id="project-slides-div" class="flex row-wrap">
 
-        <a class="project-link" href="./Landing Page/landing-page.html" target="_blank"><img class="project-img"
+        <a class="project-link flex space-between" href="./Landing Page/landing-page.html" target="_blank"><img class="project-img"
             src="./Images/Landing-Page.png">
-          <p>Landing Page</p>
+          <p class="dark-color-text">Landing Page</p>
         </a>
 
-        <a class="project-link" href="./RPSGame/RPSGame.html" target="_blank"><img class="project-img"
+        <a class="project-link flex space-between" href="./RPSGame/RPSGame.html" target="_blank"><img class="project-img"
             src="./Images/RPSGame.png">
-          <p>Rock Paper Scissors</p>
+          <p class="dark-color-text">Rock Paper Scissors</p>
         </a>
 
-        <a class="project-link" href="./EtchASketch/EtchASketch.html" target="_blank"><img class="project-img"
+        <a class="project-link flex space-between" href="./EtchASketch/EtchASketch.html" target="_blank"><img class="project-img"
             src="./Images/Drawing.png">
-          <p>Drawing Board (W.I.P)</p>
+          <p class="dark-color-text">Drawing Board (W.I.P)</p>
         </a>
 
       </div>
@@ -107,17 +107,17 @@
 
     <!-- contact section -->
 
-    <section id="contact-section" class="section">
+    <section id="contact-section" class="section flex white-text">
       <h2 class="contact-h2">Pour me contacter c'est par</h2>
-      <div class="contact-section-wrapper">
-        <div class="contact-link-div">
+      <div class="contact-section-wrapper flex space-between">
+        <div class="contact-link-div flex column-wrap space-between">
           <h2>là >>></h2>
-          <div class="contact-icons-wrapper">
-            <a class="contact-link" href="">
+          <div class="contact-icons-wrapper flex row-wrap">
+            <a class="contact-link flex white-text" href="">
               <i class="fa-brands fa-linkedin"></i>
             </a>
 
-            <a class="contact-link" href="">
+            <a class="contact-link flex white-text" href="">
               <i class="fa-brands fa-square-github"></i>
             </a>
 
@@ -127,14 +127,14 @@
           </div>
         </div>
 
-        <form class="contact-form" action="https://formspree.io/f/mvonkgag" method="POST">
+        <form class="contact-form flex" action="https://formspree.io/f/mvonkgag" method="POST">
           <h2>ici >>></h2>
           <label for="person-email">
             Votre E-mail
           </label>
-          <div class="email-wrapper">
+          <div class="email-wrapper" class="flex row-wrap">
             <input type="email" name="person-email" id="person-email" placeholder="Votre E-Mail">
-            <input type="submit" id="submit" name="submit" value="Envoyer">
+            <input type="submit" id="submit" name="submit" value="Envoyer" class="white-text">
           </div>
           <label for="message">
             Votre message

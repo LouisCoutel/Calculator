@@ -51,12 +51,31 @@ body {
   z-index: -999;
 }
 
-.section {
+.flex {
   display: flex;
+}
+
+.row-wrap {
+ flex-flow: row wrap;
+}
+
+.column-wrap {
+ flex-flow: column wrap;
+}
+
+.section {
   flex-direction: column;
   padding: 5vh 5vw;
   height: 90vh;
   width: 90vw;
+}
+
+.white-text {
+  color: white;
+}
+
+.dark-color-text {
+  color: var(--dark-color1);
 }
 
 .bottom-orangebar {
@@ -94,7 +113,6 @@ body {
   height: 0;
   z-index: 1;
   background: var(--accent-color1);
-  color: white;
   animation-name: none;
   animation-fill-mode: forwards;
   animation-iteration-count: 1;
@@ -137,11 +155,13 @@ body {
   }
 }
 
+.space-between {
+  justify-content: space-between;
+}
+
 #navbar {
   height: 100%;
   width: 100%;
-  display: flex;
-  justify-content: space-between;
   flex-flow: row nowrap;
   align-content: center;
   overflow: hidden;
@@ -177,12 +197,10 @@ a {
 .navlink-wrapper {
   height: 100%;
   width: 33%;
-  display: flex;
 }
 
 #navbar a {
   font-size: 1.25rem;
-  color: white;
   padding: 2px 5px;
   margin: auto;
 }
@@ -196,7 +214,6 @@ a {
 
 .animated-loading {
   position: relative;
-  display: flex;
   left: 100vw;
   bottom: 3px;
   height: 3px;
@@ -255,7 +272,6 @@ main {
 }
 
 .wrapper .top {
-  display: flex;
   flex-direction: column;
   width: 100%;
   height: 10vh;
@@ -263,18 +279,8 @@ main {
   justify-content: center;
 }
 
-.wrapper .bottom {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 10vh;
-  margin: 0 auto auto;
-  justify-content: center;
-}
-
 #welcome {
   letter-spacing: 5pt;
-  color: var(--dark-color1);
   padding-left: 5px;
   text-shadow: -0.08em 0.08em 0 white;
   margin: auto auto 10px;
@@ -300,7 +306,6 @@ main {
 }
 
 #job-title {
-  color: var(--dark-color1);
   font-family: Syne, sans-serif;
   letter-spacing: 0.8pt;
   font-weight: 400;
@@ -325,12 +330,10 @@ main {
   font-size: 1.25rem;
   text-shadow: none;
   font-weight: 600;
-  color: var(--dark-color1);
   margin: 15px 0 0;
 }
 
 form.contact-form {
-  display: flex;
   flex-direction: column;
   flex: 1.62 0 0;
   gap: 10px;
@@ -343,10 +346,10 @@ form.contact-form {
 
 #submit {
   all: revert;
+  color: white;
   background-color: var(--accent-color1);
   border: 2px solid white;
   border-radius: 5px;
-  color: white;
   font-family: inherit;
   font-size: inherit;
   flex-grow: 1;
@@ -359,10 +362,7 @@ form.contact-form {
 
 .email-wrapper {
   width: 100%;
-  display: flex;
-  flex-flow: row wrap;
   gap: 0.5rem;
-
 }
 
 input,
@@ -402,7 +402,6 @@ form h2,
 }
 
 #welcome-text-div {
-  display: flex;
   flex-direction: column;
   align-content: center;
   max-height: 0;
@@ -410,17 +409,16 @@ form h2,
   overflow: hidden;
 }
 
-#welcome-text {
+.welcome-text {
   display: inline;
   opacity: 0;
-  color: var(--dark-color1);
   width: clamp(30ch, 100%, 75ch);
   margin: 0 auto;
   text-shadow: -0.05em 0.05em 0 white;
   animation-name: appear-progressively;
   animation-timing-function: ease-in;
   animation-delay: 3s;
-  animation-duration: 1s;
+  animation-duration: 1.5s;
   animation-iteration-count: 1;
   animation-fill-mode: forwards;
 }
@@ -450,21 +448,6 @@ form h2,
   right: 0;
   opacity: 0;
   animation: appear-progressively 1s ease-in 4s 1 normal forwards;
-}
-
-#cv-button {
-  position: relative;
-  display: block;
-  opacity: 0;
-  margin: 2.5vh auto;
-  background-color: var(--accent-color2);
-  color: white;
-  border: 2px solid var(--accent-color2);
-  padding: 0.4vh 0.8vw;
-  border-radius: 4px;
-  box-shadow: 3px 2px 5px 0 rgba(0 0 0 40%);
-  animation: appear-progressively 1s ease-in 3.5s 1 normal forwards;
-  font-weight: bold;
 }
 
 #cv-button:hover {
@@ -498,25 +481,24 @@ form h2,
 }
 
 #project-slides-div {
-  display: flex;
   justify-content: center;
   align-content: center;
   gap: 15px;
-  flex-flow: row wrap;
   margin-bottom: auto;
+  height: fit-content;
+  padding: 0 5vw;
 }
 
 .project-link {
-  display: flex;
   flex-direction: column;
-  justify-content: space-between;
-  flex: 1 1 auto;
   border: 2px solid var(--light-color2);
   border-radius: 10px;
   padding: 2%;
   background-color: var(--light-color2);
-  max-width: 25vw;
-  max-height: 25vw;
+  width: 250px;
+  flex: 1 1 0;
+  min-width: 100px;
+  min-height: 57px;
 }
 
 .project-link:hover {
@@ -529,12 +511,13 @@ form h2,
   box-sizing: border-box;
   border: 2px solid var(--dark-color1);
   border-radius: 8px;
+  min-width: 0;
+  min-height: 0;
 }
 
 #contact-section {
   background-color: var(--accent-color1);
   border-top: 3px solid var(--dark-color2);
-  color: white;
 }
 
 .contact-h2 {
@@ -546,39 +529,31 @@ form h2,
   max-width: 100%;
   margin: 0 0 auto;
   padding: 0;
-  display: flex;
   flex-flow: column-reverse;
   align-content: space-between;
-  justify-content: space-between;
   gap: 1rem;
 }
 
 .contact-link-div {
-  display: flex;
   flex: 1 1 0;
-  flex-flow: column wrap;
   align-items: flex-start;
-  justify-content: space-between;
   min-width: fit-content;
   padding: 12px;
   border: 2px solid white;
   border-radius: 15px;
 }
 
+.contact-icons-wrapper {
+  width: 100%;
+  gap: 10px;
+}
+
 .contact-link {
   position: relative;
-  color: white;
 }
 
 .contact-link i {
   font-size: calc(5rem + 1vw + 1vh);
-}
-
-.contact-icons-wrapper {
-  display: flex;
-  flex-flow: row wrap;
-  width: 100%;
-  gap: 10px;
 }
 
 .contact-link:hover {
@@ -646,10 +621,6 @@ form h2,
 }
 
 @media screen and (min-width: 640px) {
-  .project-link p {
-    display: block;
-  }
-
   h2 {
     font-size: 1.777rem;
   }
@@ -695,9 +666,8 @@ form h2,
   }
 }
 
-@media screen and (max-height: 560px) {
-  .section {
-    height: min(90vh, max-content);
+@media screen and (min-width: 560px) and (min-height: 560px) {
+  .project-link p {
+    display: block;
   }
 }
-
