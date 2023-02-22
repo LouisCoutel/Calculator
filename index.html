@@ -31,21 +31,21 @@
 
     <navbar id="navbar" class="flex space-between">
       <div class="navlink-wrapper flex">
-        <a class="nav-welcome white-text" href="#welcome-section">A propos</a>
+        <a id="navlink-welcome" href="#welcome-section">A propos</a>
       </div>
 
       <div class="navlink-wrapper flex">
-        <a class="nav-projects white-text" href="#projects">Projets</a>
+        <a id="navlink-projects" href="#projects">Projets</a>
       </div>
 
       <div class="navlink-wrapper flex">
-        <a class="nav-contact white-text" href="#contact-section">Contact</a>
+        <a id="navlink-contact" href="#contact-section">Contact</a>
       </div>
 
       <div class="navlink-wrapper flex">
-        <a id="cv-link" class="white-text" href="./CV/CV_Louis_Coutel.pdf" download="CV_LOUIS_COUTEL" target="_blank">Mon CV</a>
+        <a id="navlink-cv" href="./CV/CV_Louis_Coutel.pdf" download="CV_LOUIS_COUTEL" target="_blank">Mon CV</a>
       </div>
-      <div class="hamburger-icon-wrapper"><i class="fa-solid fa-bars"></i>
+      <div id="hamburger-icon-wrapper"><i class="fa-solid fa-bars"></i>
         <div class="paperOverlay"></div>
       </div>
     </navbar>
@@ -114,11 +114,11 @@
           <h2>là >>></h2>
           <div class="contact-icons-wrapper flex row-wrap">
             <a class="contact-link flex white-text" href="">
-              <i class="fa-brands fa-linkedin"></i>
+              <i class="fa-brands fa-linkedin contact-link-icon"></i>
             </a>
 
             <a class="contact-link flex white-text" href="">
-              <i class="fa-brands fa-square-github"></i>
+              <i class="fa-brands fa-square-github contact-link-icon"></i>
             </a>
 
             <!--<a class="contact-link" href="">
@@ -132,7 +132,7 @@
           <label for="person-email">
             Votre E-mail
           </label>
-          <div class="email-wrapper" class="flex row-wrap">
+          <div id="email-wrapper" class="flex row-wrap">
             <input type="email" name="person-email" id="person-email" placeholder="Votre E-Mail">
             <input type="submit" id="submit" name="submit" value="Envoyer" class="white-text">
           </div>
@@ -150,7 +150,7 @@
 
   <div class="bottom-orangebar"></div>
   <div class="bottom-whiteloader"></div>
-  <div class="paperOverlay"></div>
+  <div class="paper-overlay"></div>
 </body>
 
 </html>
