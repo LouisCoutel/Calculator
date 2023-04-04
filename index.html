@@ -28,34 +28,35 @@
   <!-- main -->
 
   <main>
-
-    <!-- header section -->
-    <section class="main_header flex col">
-      <div class="main_header_wrapper1 flex row">
-        <div class="main_header_wrapper1_wrapper2 flex col">
-          <h2 class="main_header-h2">
-            Louis Coutel
-          </h2>
-          <h1 class="main_header-h1">
-            Développeur Front-End
-          </h1>
-        </div>
-        <div class="main_header_wrapper1_wrapper3 flex row">
-          <i class="main_header_wrapper1_wrapper3-icon fa-brands fa-linkedin"></i>
-          <i class="main_header_wrapper1_wrapper3-icon fa-brands fa-square-github"></i>
-        </div>
-      </div>
-      <hr class="main_header-hr">
-    </section>
-
-
     <div class="main_wrapper grid">
+      <!-- header section -->
+      <section class="main_header flex col">
+        <div class="header_wrapper1 flex row">
+          <div class="header_wrapper1_1 flex col">
+            <h2 class="header-h2">
+              Louis Coutel
+            </h2>
+            <h1 class="header-h1">
+              Développeur<wbr> Front-End
+            </h1>
+          </div>
+          <div class="header_wrapper1_2 flex row">
+            <i class="header_wrapper1_2-icon fa-brands fa-linkedin"></i>
+            <i class="header_wrapper1_2-icon fa-brands fa-square-github"></i>
+          </div>
+        </div>
+        <hr class="header-hr">
+      </section>
+
+
+
+
       <!-- about section -->
       <section class="main_about flex col">
 
-        <h3 class="main_about-h3">A propos</h3>
+        <h3 class="about-h3">A propos</h3>
 
-        <p class="main_about-p">
+        <p class="about-p">
           J'ai consacré près de 500 heures à apprendre le développement grace à freeCodeCamp et Odin Project.
           Aujourd'hui,
           j'ai rejoint la formation Intégrateur Web d'OpenClassrooms et suis à la recherche d'une alternance en tant que
@@ -63,76 +64,91 @@
           ainsi que le contrôle de version avec Git/Github.
         </p>
 
-        <p class="main_about-p">
+        <p class="about-p">
           Avant cela, j'ai accompagné le magazine L'Express pendant 4 ans en tant que Réalisateur Podcast. J'ai
           notamment
           participé à la création de La Loupe, le podcast quotidien de l'Express.
         </p>
 
-        <a class="main_about-a">MonCV.pdf</a>
+        <a class="about-a" href="./CV/CV_Louis_Coutel.pdf" target="_blank">MonCV.pdf</a>
 
       </section>
+
+      <!-- contact section -->
+      <section class="main_contact flex col">
+        <h3 class="contact-h3">
+          Contact
+        </h3>
+        <form class="contact_form flex col" action="https://formspree.io/f/mvonkgag" method="POST">
+
+
+          <div class="contact_form_wrapper1 flex row">
+
+            <div class="form_wrapper1_1">
+              <label for="name" class="form_wrapper1_1-label">Nom :</label>
+              <input type="text" id="name" class="contact_form-text grey r10px" required>
+            </div>
+
+            <div class="form_wrapper1_2">
+              <label for="email" class="form_wrapper1_2-label">Email :</label>
+              <input type="email" id="email" class="contact_form-email grey r10px" required>
+            </div>
+
+          </div>
+          <textarea id="textarea" name="message" placeholder="Rédigez votre message ici"
+            class="contact_form-textarea grey r10px" required></textarea>
+          <input type="submit" id="submit" name="submit" value="Envoyer"
+            class="contact_form-submit r10px grey bordered">
+        </form>
+      </section>
+
 
       <!-- projects section -->
       <section class="main_projects flex col">
 
         <h3>Projets</h3>
 
-        <div class="main_projects_wrapper grid">
-          <div class="main_projects_wrapper_tile flex col grey r10px">
-            <img src="./Images/Landing-Page.png" alt="Projet Landing Page"
-              class="main_projects_wrapper_tile-LandingPageImg">
-            <p class="main_projects_wrapper_tile-p">
+        <div class="projects_wrapper flex row">
+          <div class="projects_wrapper_tile flex col grey r10px">
+            <img src="./Images/Landing-Page.png" alt="Projet Landing Page" class="wrapper_tile-LandingPageImg">
+            <p class="wrapper_tile-p">
               Landing Page
             </p>
           </div>
 
-          <div class="main_projects_wrapper_tile flex col grey r10px">
-            <img src="./Images/RPSGame.png" alt="Projet Rock Paper Scissors" class="main_projects_wrapper_tile-RPSImg">
-            <p class="main_projects_wrapper_tile-p">
+          <div class="projects_wrapper_tile flex col grey r10px">
+            <img src="./Images/RPSGame.png" alt="Projet Rock Paper Scissors" class="wrapper_tile-RPSImg">
+            <p class="wrapper_tile-p">
               RPS
             </p>
           </div>
 
-          <div class="main_projects_wrapper_tile flex col grey r10px">
-            <img src="./Images/Drawing.png" alt="Projet Paint App" class="main_projects_wrapper_tile-PaintAppImg">
-            <p class="main_projects_wrapper_tile-p">
+          <div class="projects_wrapper_tile flex col grey r10px">
+            <img src="./Images/Drawing.png" alt="Projet Paint App" class="wrapper_tile-PaintAppImg">
+            <p class="wrapper_tile-p">
               Paint App
             </p>
+          </div>
+
+          <div class="projects_wrapper_tile flex col grey r10px">
+          </div>
+
+          <div class="projects_wrapper_tile flex col grey r10px">
+          </div>
+
+          <div class="projects_wrapper_tile flex col grey r10px">
           </div>
 
         </div>
       </section>
 
-      <!-- contact section -->
-      <section class="main_contact flex col">
-        <h3 class="main_contact-h3">
-          Contact
-        </h3>
-        <form class="main_contact_form flex col">
-          <div class="main_contact_wrapper flex row">
-
-            <div class="main_contact_wrapper_wrapper1">
-              <label for="name" class="main_contact_form_wrapper-label">Nom :</label>
-              <input type="text" id="name" class="main_contact_form_wrapper-input grey r10px">
-            </div>
-
-            <div class="main_contact_wrapper_wrapper2">
-              <label for="email" class="main_contact_form_wrapper-label">Email :</label>
-              <input type="email" id="email" class="main_contact_form_wrapper-input grey r10px">
-            </div>
-
-          </div>
-          <textarea id="textarea" name="message" placeholder="Rédigez votre message ici"
-            class="main_contact_form-textarea grey r10px"></textarea>
-        </form>
-      </section>
-    </div>
 
   </main>
 
   <!-- footer -->
-
+  <footer class="footer">
+    <p class="footer-p">/ Louis Coutel 2023 <wbr>/ Icons : Font Awesome <wbr>/ Fonts : Syne, Space Grotesk - Google Fonts</p>
+  </footer>
 
 </body>
 
