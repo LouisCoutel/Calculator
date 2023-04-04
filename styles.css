@@ -31,7 +31,11 @@ p {
   letter-spacing: 0.02em;
 }
 
-a {
+.projects_wrapper-a {
+  all: unset;
+}
+
+.about-a {
   font-size: 20px;
   font-family: "Space Grotesk", sans-serif;
   font-weight: 500;
@@ -110,12 +114,13 @@ img {
 
 label {
   font-family: Syne, sans-serif;
+  font-weight: 600;
   font-size: 20px;
-  line-height: 16px;
-  padding: 0 4px 0 0;
+  line-height: 20px;
+  padding: 0;
   width: fit-content;
   text-justify: center;
-  margin: auto 0;
+  margin: 0;
 }
 
 .main_header {
@@ -242,7 +247,7 @@ label {
 
 .contact_form {
   margin-top: 16px;
-  gap: 16px;
+  gap: 8px;
   height: 100%;
   width: 100%;
 }
@@ -276,7 +281,7 @@ label {
 }
 
 .contact_form-textarea {
-  padding: 8px 16px;
+  padding: 8px 8px;
   flex-grow: 1;
   font-size: 16px;
   line-height: 24px;
