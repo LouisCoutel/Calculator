@@ -281,7 +281,7 @@ label {
 }
 
 .contact_form-textarea {
-  padding: 8px 8px;
+  padding: 8px;
   flex-grow: 1;
   font-size: 16px;
   line-height: 24px;
