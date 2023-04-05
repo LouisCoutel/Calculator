@@ -2,6 +2,9 @@
 /* stylelint-disable selector-class-pattern */
 /* stylelint-disable alpha-value-notation */
 /* stylelint-disable color-function-notation */
+
+/* #region Elements */
+
 * {
   margin: 0;
   padding: 0;
@@ -18,10 +21,11 @@ body {
 }
 
 main {
+  font-family: "Space Grotesk", sans-serif;
   box-sizing: border-box;
   margin: 0 auto;
   height: 100%;
-  max-width: 150ch;
+  max-width: 130ch;
 }
 
 p {
@@ -29,21 +33,6 @@ p {
   font-size: 16px;
   line-height: 24px;
   letter-spacing: 0.02em;
-}
-
-.projects_wrapper-a,
-.header_wrapper1_2-a {
-  text-decoration: none;
-  color: black;
-}
-
-.about-a {
-  font-size: 20px;
-  font-family: "Space Grotesk", sans-serif;
-  font-weight: 500;
-  margin-top: 16px;
-  width: fit-content;
-  color: black;
 }
 
 h1 {
@@ -65,53 +54,27 @@ h3 {
 h1,
 h2,
 h3 {
-  white-space: nowrap;
   font-family: Syne, sans-serif;
   display: block;
   line-height: 1em;
   letter-spacing: 0.02em;
 }
 
+span {
+  white-space: nowrap;
+}
+
 hr {
   color: black;
 }
 
-.projects_wrapper_tile {
-  padding: 16px;
-}
-
-input,
-textarea {
-  border: none;
-  padding: 4px 8px;
-  font-family: "Space Grotesk", sans-serif;
-  font-size: 16px;
-}
-
-input:focus,
-textarea:focus {
-  border: none;
-  outline: none;
-  background-color: #dadada;
-}
-
-input:hover,
-textarea:hover,
-.projects_wrapper_tile:hover {
-  background-color: #dadada;
-}
-
 img {
-  max-width: 100%;
+  box-sizing: border-box;
+  max-width: 90%;
   max-height: 100%;
   border: 1px solid black;
   border-radius: 5px;
-  margin: auto;
-}
-
-i,
-img {
-  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
+  margin: 0 auto;
 }
 
 label {
@@ -125,37 +88,14 @@ label {
   margin: 0;
 }
 
-.main_header {
-  grid-area: Header;
-  width: 100%;
-  height: 100%;
+i,
+img {
+  filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.25));
 }
 
-.header_wrapper1 {
-  width: 100%;
-  height: fit-content;
-  justify-content: space-between;
-}
+/* #endregion */
 
-.header_wrapper1_1 {
-  justify-content: flex-end;
-  gap: 8px;
-}
-
-.header_wrapper1_2 {
-  width: auto;
-  gap: 16px;
-  margin: auto 0 0 20px;
-}
-
-.header-hr {
-  margin-top: 8px;
-}
-
-.header_wrapper1_2-icon {
-  display: block;
-  font-size: 88px;
-}
+/* #region Styling */
 
 .bordered {
   border: 2px solid #dadada;
@@ -196,45 +136,15 @@ label {
   grid-area: Empty;
 }
 
-.about-p {
-  margin-top: 16px;
-  min-width: 45ch;
-  max-width: 75ch;
+.projects_wrapper-a,
+.header_wrapper1_2-a {
+  text-decoration: none;
+  color: black;
 }
 
-.main_contact {
-  grid-area: Contact;
-  width: 100%;
-  height: 100%;
-}
+/* #endregion */
 
-.main_projects {
-  grid-area: Projects;
-  width: 100%;
-  height: 100%;
-}
-
-.projects_wrapper {
-  height: 100%;
-  width: 100%;
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  grid-template-rows: 1fr 1fr 1fr;
-  gap: 16px 16px;
-  grid-template-areas:
-    "Tile1 Tile2"
-    "Tile3 ."
-    ". .";
-  margin: 16px auto auto;
-}
-
-.wrapper_tile-p {
-  font-size: 20px;
-  font-weight: 600;
-  font-family: Syne, sans-serif;
-  text-align: center;
-  margin: 8px auto auto;
-}
+/* #region Main */
 
 .main_wrapper {
   width: 100%;
@@ -245,6 +155,75 @@ label {
     "Header Header Header Header Header Header Header Header Header Header Header Header"
     "About About About About About About . Projects Projects Projects Projects Projects"
     "Contact Contact Contact Contact Contact Contact . Projects Projects Projects Projects Projects";
+}
+
+/* #endregion */
+
+/* #region Header */
+
+.main_header {
+  grid-area: Header;
+  width: 100%;
+  height: 100%;
+}
+
+.header_wrapper1 {
+  width: 100%;
+  height: fit-content;
+  justify-content: space-between;
+}
+
+.header_wrapper1_1 {
+  justify-content: flex-end;
+  gap: 8px;
+}
+
+.header_wrapper1_2 {
+  width: auto;
+  gap: 16px;
+  margin: auto 0 0 20px;
+}
+
+.header-hr {
+  margin-top: 8px;
+  
+}
+
+.header_wrapper1_2-icon {
+  display: block;
+  font-size: 88px;
+}
+
+.header_wrapper1_2-icon:hover {
+  animation: slideup 2s ease-in-out 0 infinite forwards none;
+}
+
+/* #endregion */
+
+/* #region About */
+.about-a {
+  font-size: 20px;
+  font-family: "Space Grotesk", sans-serif;
+  font-weight: 500;
+  margin-top: 16px;
+  width: fit-content;
+  color: black;
+}
+
+.about-p {
+  margin-top: 16px;
+  min-width: 45ch;
+  max-width: 65ch;
+}
+
+/* #endregion */
+
+/* #region Contact */
+
+.main_contact {
+  grid-area: Contact;
+  width: 100%;
+  height: 100%;
 }
 
 .contact_form {
@@ -290,6 +269,53 @@ label {
   resize: none;
 }
 
+.contact_form-submit {
+  height: 29px;
+  padding: 2px 8px;
+}
+
+/* #endregion */
+
+/* #region Projects */
+
+.main_projects {
+  grid-area: Projects;
+  width: 100%;
+  height: 100%;
+}
+
+.projects_wrapper {
+  height: 100%;
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr;
+  gap: 16px 16px;
+  grid-template-areas:
+    "Tile1 Tile2"
+    "Tile3 ."
+    ". .";
+  margin: 16px auto auto;
+}
+
+.wrapper_tile-p {
+  font-size: 20px;
+  font-weight: 600;
+  font-family: Syne, sans-serif;
+  text-align: center;
+  margin: 8px auto auto;
+}
+
+.projects_wrapper_tile {
+  box-sizing: border-box;
+  padding: 16px;
+  height: 100%;
+}
+
+/* #endregion */
+
+/* #region Footer */
+
 footer {
   position: relative;
   left: 0;
@@ -304,14 +330,56 @@ footer {
   line-height: 16px;
 }
 
-.wrapper_subwrapper {
-  grid-area: Section1;
+/* #endregion */
+
+/* #region MultiSelectors */
+
+input,
+textarea {
+  border: none;
+  padding: 4px 8px;
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 16px;
 }
 
-.contact_form-submit {
-  height: 29px;
-  padding: 2px 8px;
+input:focus,
+textarea:focus {
+  border: none;
+  outline: none;
+  background-color: #dadada;
 }
+
+input:hover,
+textarea:hover,
+.projects_wrapper_tile:hover {
+  background-color: #dadada;
+}
+
+/* #endregion */
+
+/* #region Animations */
+
+@keyframes slideup {
+  0% {
+    position: relative;
+    transform: translateY(0);
+  }
+
+  50% {
+    position: relative;
+    transform: translateY(4px);
+  }
+
+  100% {
+    position: relative;
+    transform: translateY(0);
+  }
+  
+}
+
+/* #endregion */
+
+/* #region MediaQueries */
 
 @media screen and (width < 1130px) {
   .main_wrapper {
@@ -453,3 +521,5 @@ footer {
     font-size: 40px;
   }
 }
+
+/* #endregion */
