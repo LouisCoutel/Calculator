@@ -19,13 +19,14 @@
     rel="stylesheet">
   <!-- .js link -->
   <script defer type="text/javascript" src="./script.js"></script>
-
+</head>
 
   <!-- body -->
 
-<body>
+<body id="body" class="light">
 
   <!-- main -->
+  <button class="button--colorTheme" id="colorTheme"><i class="button_colorTheme_colorIcon--dark fa-solid fa-lightbulb"></i></button>
 
   <main>
     <div class="main_wrapper grid">
@@ -106,22 +107,21 @@
 
 
       <!-- projects section -->
-      <section class="main_projects flex col">
+      <section class="main_projects">
 
-        <h3>Projets</h3>
+        <h3 class="project-h3">Projets</h3>
 
         <a class="projects_wrapper-a" href="./Landing Page/landing-page.html" target="_blank">
-          <div class="projects_wrapper flex row">
-            <div class="projects_wrapper_tile flex col grey r10px">
-              <img src="./Images/Landing-Page.png" alt="Projet Landing Page" class="wrapper_tile-LandingPageImg">
-              <p class="wrapper_tile-p">
-                Landing Page
-              </p>
-            </div>
+          <div class="projects_tile flex col grey r10px">
+            <img src="./Images/Landing-Page.png" alt="Projet Landing Page" class="wrapper_tile-LandingPageImg">
+            <p class="wrapper_tile-p">
+              Landing Page
+            </p>
+          </div>
         </a>
 
         <a class="projects_wrapper-a" href="./RPSGame/RPSGame.html" target="_blank">
-          <div class="projects_wrapper_tile flex col grey r10px">
+          <div class="projects_tile flex col grey r10px">
             <img src="./Images/RPSGame.png" alt="Projet Rock Paper Scissors" class="wrapper_tile-RPSImg">
             <p class="wrapper_tile-p">
               RPS
@@ -129,8 +129,8 @@
           </div>
         </a>
 
-        <a class="projects_wrapper-a" href="./EtchASketch/EtchASketch.html" target="_blank" >
-          <div class="projects_wrapper_tile flex col grey r10px">
+        <a class="projects_wrapper-a" href="./EtchASketch/EtchASketch.html" target="_blank">
+          <div class="projects_tile flex col grey r10px">
             <img src="./Images/Drawing.png" alt="Projet Paint App" class="wrapper_tile-PaintAppImg">
             <p class="wrapper_tile-p">
               Paint App
@@ -138,13 +138,13 @@
           </div>
         </a>
 
-        <div class="projects_wrapper_tile flex col grey r10px">
+        <div class="projects_tile flex col grey r10px">
         </div>
 
-        <div class="projects_wrapper_tile flex col grey r10px">
+        <div class="projects_tile flex col grey r10px">
         </div>
 
-        <div class="projects_wrapper_tile flex col grey r10px">
+        <div class="projects_tile flex col grey r10px">
         </div>
 
     </div>
