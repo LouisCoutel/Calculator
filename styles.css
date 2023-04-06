@@ -465,7 +465,7 @@ textarea:hover,
   }
 
   100% {
-    transform: translateY(-5%);
+    transform: translateY(-3%);
   }
 }
 
