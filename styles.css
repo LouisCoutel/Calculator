@@ -3,11 +3,6 @@
 /* stylelint-disable alpha-value-notation */
 /* stylelint-disable color-function-notation */
 
-.button_colorTheme_colorIcon--dark,
-.button_colorTheme_colorIcon--light {
-  transform: translate(50%, -50%);
-}
-
 .button--colorTheme {
   all: unset;
   cursor: pointer;
@@ -61,7 +56,7 @@ html {
 body {
   box-sizing: border-box;
   flex-direction: column;
-  height: 100%;
+  height: 100vh;
   padding: 60px 60px 100px;
   color: var(--text-color);
   background-color: var(--bg-color);
@@ -381,6 +376,7 @@ footer {
   left: 0;
   top: 80px;
   width: 100%;
+  white-space: nowrap;
   color: var(--text-color);
   background: transparent;
 }
@@ -388,7 +384,6 @@ footer {
 .footer-p {
   font-size: 10px;
   text-align: center;
-  white-space: nowrap;
   line-height: 16px;
 }
 
@@ -485,6 +480,11 @@ textarea:hover,
       "Projects"
       "Contact";
   }
+
+  .button--colorTheme {
+display: none;
+  }
+
 
   body {
     height: auto;
