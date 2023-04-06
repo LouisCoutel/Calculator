@@ -481,11 +481,6 @@ textarea:hover,
       "Contact";
   }
 
-  .button--colorTheme {
-display: none;
-  }
-
-
   body {
     height: auto;
   }
@@ -512,6 +507,10 @@ display: none;
 }
 
 @media screen and (width < 650px) {
+  .button--colorTheme {
+    display: none;
+  }
+  
   .header_wrapper1_2 {
     gap: 8px;
   }
