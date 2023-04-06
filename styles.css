@@ -10,8 +10,8 @@
   position: fixed;
   width: 40px;
   height: 40px;
-  right: 16px;
-  top: 16px;
+  right: 0;
+  top: 0;
   text-align: center;
   transform: translate(-50%, 50%);
 }
@@ -469,6 +469,10 @@ textarea:hover,
 /* #region MediaQueries */
 
 @media screen and (width < 1130px) {
+  .button--colorTheme {
+    font-size: 20px;
+  }
+
   .main_wrapper {
     width: 100%;
     height: 100%;
@@ -510,7 +514,7 @@ textarea:hover,
   .button--colorTheme {
     display: none;
   }
-  
+
   .header_wrapper1_2 {
     gap: 8px;
   }
