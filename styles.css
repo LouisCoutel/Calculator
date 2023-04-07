@@ -10,8 +10,8 @@
   position: fixed;
   width: 40px;
   height: 40px;
-  right: 0;
-  top: 0;
+  right: -16px;
+  top: -10px;
   text-align: center;
   transform: translate(-50%, 50%);
 }
@@ -65,10 +65,11 @@ body {
 
 main {
   font-family: "Space Grotesk", sans-serif;
-  box-sizing: border-box;
+  font-size: 16px;
   margin: 0 auto;
   height: 100%;
   max-width: 130ch;
+  box-sizing: border-box;
 }
 
 p {
@@ -253,8 +254,12 @@ img {
 
 .about-p {
   margin-top: 16px;
+}
+
+.main_about,
+.main_contact {
   min-width: 45ch;
-  max-width: 65ch;
+  max-width: 70ch;
 }
 
 /* #endregion */
@@ -263,7 +268,6 @@ img {
 
 .main_contact {
   grid-area: Contact;
-  width: 100%;
   height: 100%;
 }
 
@@ -374,8 +378,8 @@ img {
 
 footer {
   position: relative;
-  left: 0;
-  top: 50px;
+  left: -10px;
+  bottom: -45px;
   width: 100%;
   white-space: nowrap;
   color: var(--text-color);
@@ -496,7 +500,7 @@ textarea:hover,
   }
 
   main {
-    max-width: 75ch;
+    max-width: 70ch;
   }
 
   html {
@@ -517,10 +521,6 @@ textarea:hover,
 }
 
 @media screen and (width < 650px) {
-  .button--colorTheme {
-    display: none;
-  }
-
   .header_wrapper1_2 {
     gap: 8px;
   }
@@ -535,11 +535,16 @@ textarea:hover,
 }
 
 @media screen and (width < 550px) {
+  .button--colorTheme {
+    display: none;
+  }
+
   body {
     padding: 40px 20px 75px;
   }
 
-  .about-p {
+  .main_about,
+  .main_contact {
     min-width: 30ch;
   }
 
@@ -584,7 +589,8 @@ textarea:hover,
     letter-spacing: 0;
   }
 
-  .about-p {
+  .main_about,
+  .main_contact {
     min-width: 20ch;
   }
 
@@ -610,7 +616,8 @@ textarea:hover,
     gap: 10px 10px;
   }
 
-  .about-p {
+  .main_about,
+  .main_contact {
     min-width: 0;
   }
 
