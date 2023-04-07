@@ -378,9 +378,9 @@ img {
 
 footer {
   position: relative;
-  left: -10px;
-  bottom: -45px;
-  width: 100%;
+  width: fit-content;
+  left: -44px;
+  bottom: -44px;
   white-space: nowrap;
   color: var(--text-color);
   background: transparent;
@@ -389,7 +389,6 @@ footer {
 .footer-p {
   font-size: 10px;
   line-height: 16px;
-  width: 100%;
 }
 
 /* #endregion */
@@ -495,6 +494,10 @@ textarea:hover,
     margin-bottom: auto;
   }
 
+  footer {
+    bottom: -88px;
+  }
+
   body {
     height: auto;
   }
@@ -526,7 +529,12 @@ textarea:hover,
   }
 
   body {
-    padding: 60px 40px;
+    padding: 60px 40px 80px;
+  }
+
+  footer {
+    left: -24px;
+    bottom: -68px;
   }
 
   .contact_form-textarea {
@@ -541,6 +549,11 @@ textarea:hover,
 
   body {
     padding: 40px 20px 75px;
+  }
+
+  footer {
+    left: -4px;
+    bottom: -63px;
   }
 
   .main_about,
@@ -581,6 +594,11 @@ textarea:hover,
 
   body {
     padding: 30px 16px 50px;
+  }
+
+  footer {
+    left: 0;
+    bottom: -38px;
   }
 
   h1,
