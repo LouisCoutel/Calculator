@@ -26,14 +26,14 @@
   --bg-color: #111010;
   --element-color: #323030;
   --hover-color: #545050;
-  --text-color: #e7e6e6;
+  --text-color: #EFEFEF;
   --shadow-color: rgba(228, 228, 228, 0.25);
   --placeholder-color: #c5c3c3;
 }
 
 .light {
   --bg-color: white;
-  --element-color: #e7e6e6;
+  --element-color: #EFEFEF;
   --hover-color: #dadada;
   --text-color: black;
   --shadow-color: rgba(0, 0, 0, 0.25);
