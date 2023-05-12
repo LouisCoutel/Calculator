@@ -1,0 +1,78 @@
+html {
+  height: 100vh;
+  width: 100vw;
+}
+
+body {
+  height: 100%;
+  box-sizing: border-box;
+  padding: 8vh 16px 10vh;
+  margin: auto;
+}
+
+button {
+  all: unset;
+  border-radius: 10px;
+  text-justify: center;
+  text-align: center;
+}
+.calculator {
+  display: grid;
+  height: 100%;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 4fr 1fr;
+  gap: 16px 0px;
+  grid-template-areas:
+    "calculatorScreen"
+    "calculatorDigits"
+    "calculatorFeatures";
+  height: 100%;
+  width: 100%;
+  margin-top: auto;
+  margin-bottom: auto;
+  justify-content: center;
+  gap: 16px;
+}
+
+.calculator_screen {
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  grid-area: calculatorScreen;
+}
+
+.calculator_digits {
+  grid-area: calculatorDigits;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr 1fr 1fr 1fr;
+  gap: 8px 8px;
+  grid-template-areas:
+    ". . . ."
+    ". . . ."
+    ". . . ."
+    ". . . .";
+}
+
+.calculator_digits button {
+    background-color: #EFEFEF;
+}
+.calculator_features {
+  grid-area: calculatorFeatures;
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: 1fr;
+  gap: 8px 8px;
+  grid-template-areas: "clrButton equalButton equalButton equalButton";
+}
+
+.calculator_features_equalButton {
+  background-color: #ff7a00;
+  color: white;
+  grid-area: equalButton;
+}
+
+.calculator_features_clrButton {
+  background-color: #000000;
+  color: white;
+  grid-area: clrButton;
+}
