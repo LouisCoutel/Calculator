@@ -36,44 +36,6 @@ const divide = function (a, b) {
   }
 };
 
-// const sum = function (numbers) {
-//   let result = 0;
-//   numbers.forEach((element) => (result += element));
-//   if (result != 0) {
-//     return result;
-//   } else {
-//     return 0;
-//   }
-// };
-
-// const multiply = function (numbers) {
-//   let result = numbers[0];
-//   numbers.shift();
-//   numbers.forEach((element) => (result *= element));
-//   if (result != 0) {
-//     return result;
-//   } else {
-//     return 0;
-//   }
-// };
-
-// const power = function (a, b) {
-//   let result = Math.pow(a, b);
-//   return result;
-// };
-
-// const factorial = function (a) {
-//   let result = 1;
-//   if (a != 0 && a != 1) {
-//     for (i = a; i >= 1; i--) {
-//       result *= i;
-//     }
-//     return result;
-//   } else {
-//     return 1;
-//   }
-// };
-
 //#endregion
 
 //#region variables
@@ -108,38 +70,34 @@ const buttons = document.querySelectorAll("button");
 var numbersArray = [];
 var operatorsArray = [];
 var numberCounter = 0;
+var opCounter = 0;
 var lastEntered = undefined;
 //#endregion
 
 // when backspace button is clicked
 backspaceButton.onclick = function removeLast() {
   // check array counter to know if there was a previous calculation made or if we're starting over with 0 inputs
-  if (numbersArray[numberCounter] != undefined) {
+  if (lastEntered != undefined) {
     // if we're not starting over, remove last character from display string
     lastEntered = display.innerHTML.charAt(display.innerHTML.length - 1);
-    console.log(lastEntered);
-    // check if the last char is a number or a dot
-    if (lastEntered != "+" && lastEntered != " " && lastEntered != "-" && lastEntered != "/" && lastEntered != "*") {
-      console.log("THATS A NUMBER OR A DOT" + display.innerHTML + "\"");
-      // if the last input was a number or a dot, remove last character from current "number" array element
+    // check if the last char is an operator
+    if (lastEntered != " ") {
+      console.log("THATS A NUMBER OR A DOT" + display.innerHTML + '"');
+      // if the last input isn't and is a number or a dot, remove last character from current "number" array element
       display.innerHTML = display.innerHTML.slice(0, -1);
-      console.log("OKAY");
       numbersArray[numberCounter] = numbersArray[numberCounter].slice(0, -1);
-    }
-    // if last char is an operator
-    else if (lastEntered == " ") {
-      console.log("THATS A SPACE");
-      // remove last element from operator array
-      display.innerHTML = display.innerHTML.slice(0, -1);
+
+      // if last char is a space
     } else {
-      display.innerHTML = display.innerHTML.slice(0, -1);
-      console.log("THATS AN OPERATOR");
+      // remove last 3 char from display
+      display.innerHTML = display.innerHTML.slice(0, -3);
+      // and remove from operator array
       operatorsArray.pop();
 
+      // check if there's still a number stored in the array, meaning there is a number before the operator we just removed
       if (numberCounter > 0) {
-        display.innerHTML = display.innerHTML.slice(0, -1);
+        // actualize number counter to switch to last number still stored
         numberCounter--;
-        numbersArray[numberCounter] += numbersArray[numberCounter + 1];
         numbersArray.pop();
       }
     }
@@ -155,6 +113,7 @@ function clearInputs() {
   numbersArray.splice(0, numbersArray.length);
   // remove all elements from operator array
   operatorsArray = [];
+  lastEntered = undefined;
 }
 
 // when clear button is clicked
@@ -171,32 +130,42 @@ equalButton.onclick = function operate() {
   });
 
   // for each operator stored in array
-  operatorsArray.forEach((element) => {
-    console.log("are we doing this ?");
-    // check if there's less numbers stored than operators, indicating an extra operator was entered by mistake
+
+  while (operatorsArray.length > 0) {
     if (numbersArray.length >= operatorsArray.length) {
+      if (operatorsArray.includes("*")) {
+        opCounter = operatorsArray.indexOf("*");
+      } else if (operatorsArray.includes("/")) {
+        opCounter = operatorsArray.indexOf("/");
+      } else {
+        opCounter = 0;
+      }
+
+      console.log("are we doing this ?");
       // if +, perform addition
-      if (element == "+") {
+      if (operatorsArray[opCounter] == "+") {
         // result equals first two number
-        let result = add(numbersArray[0], numbersArray[1]);
-        //first number is removed
-        numbersArray.shift();
-        // first number is now result of the operation
-        numbersArray[0] = result;
-        display.innerHTML = result;
-      } else if (element == "-") {
-        let result = subtract(numbersArray[0], numbersArray[1]);
-        numbersArray.shift();
-        numbersArray[0] = result;
-        display.innerHTML = result;
-      } else if (element == "/") {
+        let result = add(numbersArray[opCounter], numbersArray[opCounter + 1]);
+        //numbers are removed and first number of the pair is now result
+        numbersArray.splice(opCounter, 2, result);
+        operatorsArray.splice(opCounter, 1);
+      } else if (operatorsArray[opCounter] == "-") {
+        let result = subtract(
+          numbersArray[opCounter],
+          numbersArray[opCounter + 1]
+        );
+        operatorsArray.splice(opCounter, 1);
+        numbersArray.splice(opCounter, 2, result);
+      } else if (operatorsArray[opCounter] == "/") {
         // check if user is trying to divide by zero
         if (numbersArray[1] != 0) {
           // if not, perform division
-          let result = divide(numbersArray[0], numbersArray[1]);
-          numbersArray.shift();
-          numbersArray[0] = result;
-          display.innerHTML = result;
+          let result = divide(
+            numbersArray[opCounter],
+            numbersArray[opCounter + 1]
+          );
+          numbersArray.splice(opCounter, 2, result);
+          operatorsArray.splice(opCounter, 1);
         } else {
           // berate user for trying to divide by zero
           display.innerHTML =
@@ -205,23 +174,22 @@ equalButton.onclick = function operate() {
             clearInputs();
           }, 1500);
         }
-      } else if (element == "*") {
-        let result = multiply(numbersArray[0], numbersArray[1]);
-        numbersArray.shift();
-        numbersArray[0] = result;
-        display.innerHTML = result;
+      } else if (operatorsArray[opCounter] == "*") {
+        let result = multiply(
+          numbersArray[opCounter],
+          numbersArray[opCounter + 1]
+        );
+        numbersArray.splice(opCounter, 2, result);
+        console.log(result);
+        operatorsArray.splice(opCounter, 1);
       }
     }
-  });
-
-  // check if user tried to divide by zero
-  if (
-    display.innerHTML != "Are you trying to create a black hole or something ?"
-  ) {
-    // keep result stored and displayed but
-    operatorsArray = [];
-    numberCounter = 0;
+    // check if user tried to divide by zero
   }
+  operatorsArray = [];
+  numberCounter = 0;
+  display.innerHTML = Math.round(numbersArray[0] * 100000) / 100000;
+  lastEntered = undefined;
 };
 
 floatButton.onclick = function addDot() {
@@ -234,6 +202,7 @@ floatButton.onclick = function addDot() {
     display.innerHTML += ".";
     numbersArray[numberCounter] += ".";
   }
+  lastEntered = display.innerHTML.length;
 };
 
 // for every number and operator button
@@ -246,25 +215,26 @@ buttons.forEach((element) => {
   ) {
     element.onclick = function enterInputs() {
       // check if element is a number or not
-      if (isNaN(element.innerHTML)) {
+      if (isNaN(element.id)) {
         // display operator with spaces on either side
-        display.innerHTML += " " + element.innerHTML + " ";
+        display.innerHTML += " " + element.id + " ";
         // store operator in array
-        operatorsArray.push(element.innerHTML);
+        operatorsArray.push(element.id);
         // move to next number to be inputed
         numberCounter++;
       } else {
         // else, retrieve number value from HTML and display it
-        display.innerHTML += element.innerHTML;
+        display.innerHTML += element.id;
         // store the info that last input was a number
         // if we're starting from fresh create first number element in array
         if (numbersArray[numberCounter] == undefined) {
-          numbersArray[numberCounter] = element.innerHTML;
+          numbersArray[numberCounter] = element.id;
           // else concat element value to current "number" being edited
         } else {
-          numbersArray[numberCounter] += element.innerHTML;
+          numbersArray[numberCounter] += element.id;
         }
       }
+      lastEntered = display.innerHTML.length;
     };
   }
 });

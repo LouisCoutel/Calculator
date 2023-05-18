@@ -4,48 +4,63 @@ html {
 }
 
 body {
-  height: 100%;
+  align-items: center;
   box-sizing: border-box;
-  padding: 8vh 16px 10vh;
-  margin: auto;
+  display: flex;
+  font-family: Syne;
+  font-feature-settings: "lnum";
+  font-size: 32px;
+  font-weight: 400;
+  height: 100vh;
+  justify-content: center;
+  margin: 0;
+  width: 100vw;
 }
 
 button {
   all: unset;
   border-radius: 10px;
-  text-justify: center;
   text-align: center;
+  text-justify: center;
 }
+
 .calculator {
+  background-color: #fefefe;
   display: grid;
-  height: 100%;
-  grid-template-columns: 1fr;
-  grid-template-rows: 2fr 4fr 1fr;
-  gap: 16px 0px;
+  gap: 16px 0;
   grid-template-areas:
     "calculatorScreen"
     "calculatorDigits"
     "calculatorFeatures";
-  height: 100%;
-  width: 100%;
-  margin-top: auto;
-  margin-bottom: auto;
+  grid-template-columns: 1fr;
+  grid-template-rows: 2fr 4fr 1fr;
   justify-content: center;
-  gap: 16px;
+  max-height: 800px;
+  max-width: 400px;
+  min-height: 528px;
+  padding: 16px;
+  width: 100%;
 }
 
 .calculator_screen {
-  background-color: #f5f5f5;
+  background-color: #efefef;
   border-radius: 10px;
   grid-area: calculatorScreen;
+  padding: 16px;
+}
+
+.calculator_screen_p {
+  font-size: 64px;
+  margin: 0;
+  text-align: right;
 }
 
 .calculator_digits {
-  grid-area: calculatorDigits;
   display: grid;
+  gap: 8px 8px;
+  grid-area: calculatorDigits;
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr 1fr 1fr 1fr;
-  gap: 8px 8px;
   grid-template-areas:
     ". . . ."
     ". . . ."
@@ -53,16 +68,13 @@ button {
     ". . . .";
 }
 
-.calculator_digits button {
-    background-color: #EFEFEF;
-}
 .calculator_features {
-  grid-area: calculatorFeatures;
   display: grid;
+  gap: 8px 8px;
+  grid-area: calculatorFeatures;
+  grid-template-areas: "clrButton equalButton equalButton equalButton";
   grid-template-columns: 1fr 1fr 1fr 1fr;
   grid-template-rows: 1fr;
-  gap: 8px 8px;
-  grid-template-areas: "clrButton equalButton equalButton equalButton";
 }
 
 .calculator_features_equalButton {
@@ -75,4 +87,41 @@ button {
   background-color: #000000;
   color: white;
   grid-area: clrButton;
+}
+
+.calculator_digits button {
+  aspect-ratio: 1/1;
+  background-color: #efefef;
+}
+
+.calculator_digits i,
+.calculator_features i {
+  font-size: 24px;
+}
+
+.calculator_screen i {
+  font-size: 40px;
+}
+
+button:hover {
+  background-color: #dadada;
+  transform: translateY(-1px);
+}
+
+.calculator_features_equalButton:hover {
+  background-color: #ff891b;
+}
+
+.calculator_features_clrButton:hover {
+  background-color: white;
+  border: 2px solid black;
+  box-sizing: border-box;
+  color: black;
+}
+
+@media screen and (width > 440px) {
+  .calculator {
+    border-radius: 10px;
+    box-shadow: 2px 5px 12px 0px #949494;
+  }
 }
