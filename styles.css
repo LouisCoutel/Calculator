@@ -30,7 +30,7 @@ button {
   display: grid;
   gap: 16px 0;
   grid-template-areas:
-    "calculatorScreen"
+    "calculatorScreenDisplay"
     "calculatorDigits"
     "calculatorFeatures";
   grid-template-columns: 1fr;
@@ -46,9 +46,10 @@ button {
 .calculator_screen {
   background-color: #efefef;
   border-radius: 10px;
-  grid-area: calculatorScreen;
+  grid-area: calculatorScreenDisplay;
   padding: 16px;
   overflow: hidden;
+  box-shadow: 1px 1px 4px rgb(200, 200, 200) inset, -1px -1px 4px rgb(200, 200, 200) inset;
 }
 
 .calculator_screen_p {
