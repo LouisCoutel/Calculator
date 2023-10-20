@@ -6,19 +6,7 @@ export const useProjects = defineStore('useProjects', {
         projects: [{
             name: 'Calculator', href: './Calculator/calculator.html', img: calcUrl, alt: "Une interface minimaliste représentant une calculatrice"
         }, {
-            name: 'ShazamWorldMap', href: './home/louis/Documents/Projets/DataViz/projet-collectif-dataviz-sonia-bastien-gilbert-louis/index.html', img: shazamUrl, alt: "Une carte du monde sur laquelle se surimpose le titre n1 des charts Shazam au Danemark"
-        },
-        {
-            name: 'ShazamWorldMap', href: './home./louis/Documents/Projets/DataViz/projet-collectif-dataviz-sonia-bastien-gilbert-louis/index.html', img: './src/assets/images/ShazamWorldMap.png', alt: "Une carte du monde sur laquelle se surimpose le titre n1 des charts Shazam au Danemark"
-        },
-        {
-            name: 'ShazamWorldMap', href: './home./louis/Documents/Projets/DataViz/projet-collectif-dataviz-sonia-bastien-gilbert-louis/index.html', img: './src/assets/images/ShazamWorldMap.png', alt: "Une carte du monde sur laquelle se surimpose le titre n1 des charts Shazam au Danemark"
-        },
-        {
-            name: 'ShazamWorldMap', href: './home./louis/Documents/Projets/DataViz/projet-collectif-dataviz-sonia-bastien-gilbert-louis/index.html', img: './src/assets/images/ShazamWorldMap.png', alt: "Une carte du monde sur laquelle se surimpose le titre n1 des charts Shazam au Danemark"
-        },
-        {
-            name: 'ShazamWorldMap', href: './home./louis/Documents/Projets/DataViz/projet-collectif-dataviz-sonia-bastien-gilbert-louis/index.html', img: './src/assets/images/ShazamWorldMap.png', alt: "Une carte du monde sur laquelle se surimpose le titre n1 des charts Shazam au Danemark"
+            name: 'ShazamWorldMap', href: './ShazamWorldMap/SWM.html', img: shazamUrl, alt: "Une carte du monde sur laquelle se surimpose le titre n1 des charts Shazam au Danemark"
         }]
     }),
     getters: {
