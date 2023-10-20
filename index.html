@@ -1,164 +1,22 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portfolio Louis Coutel</title>
+    <!-- FontAwesome icons link -->
+    <script src="https://kit.fontawesome.com/7a1b45f3d5.js" crossorigin="anonymous"></script>
+    <!-- CSS stylesheet -->
+    <!-- Google Fonts link -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
+      rel="stylesheet"
+    />
+  </head>
 
-<!-- head -->
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Portfolio Louis Coutel</title>
-  <!-- FontAwesome icons link -->
-  <script src="https://kit.fontawesome.com/7a1b45f3d5.js" crossorigin="anonymous"></script>
-  <!-- CSS stylesheet -->
-  <link rel="stylesheet" href="./styles.css">
-  <!-- Google Fonts link -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link
-    href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Syne:wght@400;500;600;700;800&display=swap"
-    rel="stylesheet">
-  <!-- .js link -->
-  <script defer type="text/javascript" src="./script.js"></script>
-</head>
-
-  <!-- body -->
-
-<body id="body" class="light">
-
-  <!-- main -->
-  <button class="button--colorTheme" id="colorTheme"><i class="button_colorTheme_colorIcon--dark fa-solid fa-lightbulb"></i></button>
-
-  <main>
-    <div class="main_wrapper grid">
-      <!-- header section -->
-      <section class="main_header flex col">
-        <div class="header_wrapper1 flex row">
-          <div class="header_wrapper1_1 flex col">
-            <h2 class="header-h2">
-              Louis Coutel
-            </h2>
-            <h1 class="header-h1">
-              Développeur<wbr> <span>Front-End</span>
-            </h1>
-          </div>
-          <div class="header_wrapper1_2 flex row">
-            <a class="header_wrapper1_2-a" href="https://www.linkedin.com/in/louis-coutel/" target="_blank">
-              <i class="header_wrapper1_2-icon fa-brands fa-linkedin"></i></a>
-            <a class="header_wrapper1_2-a" href="https://github.com/LouisCoutel" target="_blank">
-              <i class="header_wrapper1_2-icon fa-brands fa-square-github"></i></a>
-          </div>
-        </div>
-        <hr class="header-hr">
-      </section>
-
-
-
-
-      <!-- about section -->
-      <section class="main_about flex col">
-
-        <h3 class="about-h3">A propos</h3>
-
-        <p class="about-p">
-          J'ai consacré près de 500 heures à apprendre le développement grace à <b>freeCodeCamp</b> et <b>The Odin Project</b>.
-          Aujourd'hui,
-          j'ai rejoint la formation Intégrateur Web d'<b>OpenClassrooms</b> et suis à la recherche d'une alternance en tant que
-          Développeur Front-End. Je maitrise les principes du <b>Responsive Design</b>, les languages <b>HTML</b>, <b>CSS</b> et <b>Javascript</b>, 
-          le contrôle de version, les tests unitaires et la conception graphique sur <b>Figma</b>.
-        </p>
-
-        <p class="about-p">
-          Avant cela, j'ai accompagné le magazine <b>L'Express</b> pendant 4 ans en tant que <b>Réalisateur Podcast</b>. J'ai
-          notamment
-          participé à la création de <b>La Loupe</b>, le podcast quotidien de <b>L'Express</b>.
-        </p>
-
-        <a class="about-a" href="./CV/CV_LouisCoutel.pdf" target="_blank">MonCV.pdf</a>
-
-      </section>
-
-      <!-- contact section -->
-      <section class="main_contact flex col">
-        <h3 class="contact-h3">
-          Contact
-        </h3>
-        <form class="contact_form flex col" action="https://formspree.io/f/mvonkgag" method="POST">
-
-
-          <div class="contact_form_wrapper1 flex row">
-
-            <div class="form_wrapper1_1">
-              <label for="name" class="form_wrapper1_1-label-name"></label>
-              <input type="text" id="name" class="contact_form-text grey r10px" required placeholder="Nom">
-            </div>
-
-            <div class="form_wrapper1_2">
-              <label for="email" class="form_wrapper1_2-label-email"></label>
-              <input type="email" id="email" class="contact_form-email grey r10px" required placeholder="Email">
-            </div>
-
-          </div>
-          <textarea id="textarea" name="message" placeholder="Rédigez votre message ici"
-            class="contact_form-textarea grey r10px" required></textarea>
-          <input type="submit" id="submit" name="submit" value="Envoyer"
-            class="contact_form-submit r10px grey bordered">
-        </form>
-      </section>
-
-
-      <!-- projects section -->
-      <section class="main_projects">
-
-        <h3 class="project-h3">Projets</h3>
-
-        <a class="projects_wrapper-a" href="./Landing Page/landing-page.html" target="_blank">
-          <div class="projects_tile flex col grey r10px">
-            <img src="./Images/Landing-Page.png" alt="Projet Landing Page" class="wrapper_tile-LandingPageImg">
-            <p class="wrapper_tile-p">
-              Landing Page
-            </p>
-          </div>
-        </a>
-
-        <a class="projects_wrapper-a" href="./RPSGame/RPSGame.html" target="_blank">
-          <div class="projects_tile flex col grey r10px">
-            <img src="./Images/RPSGame.png" alt="Projet Rock Paper Scissors" class="wrapper_tile-RPSImg">
-            <p class="wrapper_tile-p">
-              RPS
-            </p>
-          </div>
-        </a>
-
-        <a class="projects_wrapper-a" href="./EtchASketch/EtchASketch.html" target="_blank">
-          <div class="projects_tile flex col grey r10px">
-            <img src="./Images/Drawing.png" alt="Projet Paint App" class="wrapper_tile-PaintAppImg">
-            <p class="wrapper_tile-p">
-              Paint App
-            </p>
-          </div>
-        </a>
-
-        <div class="projects_tile flex col grey r10px">
-        </div>
-
-        <div class="projects_tile flex col grey r10px">
-        </div>
-
-        <div class="projects_tile flex col grey r10px">
-        </div>
-
-    </div>
-    </section>
-
-
-  </main>
-
-  <!-- footer -->
-  <footer class="footer">
-    <p class="footer-p">Louis Coutel 2023<br>Icons : Font Awesome<br>Fonts : Syne, Space Grotesk - Google Fonts
-    </p>
-  </footer>
-
-</body>
-
+  <body id="app" class="flex flex-col w-screen h-screen pt-10 px-28 pb-20 sm:pb-14 sm:pt-8 sm:px-18 xs:text-xs sm:text-sm text-eerie-black font-body overflow-hidden">
+    <script type="module" src="/src/main.js"></script>
+  </body>
 </html>
