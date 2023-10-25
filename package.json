@@ -14,13 +14,11 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
-    "latest": "^0.2.0",
     "pinia": "^2.1.6",
     "vue": "^3.3.4",
     "vue-router": "^4.2.4"
   },
   "devDependencies": {
-    "@rushstack/eslint-patch": "^1.3.3",
     "@vitejs/plugin-vue": "^4.3.4",
     "@vue/eslint-config-prettier": "^8.0.0",
     "autoprefixer": "^10.4.16",
