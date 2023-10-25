@@ -23,6 +23,6 @@ export default defineConfig({
       },
     },
   },
-  base: '/',
+  base: '/<repo>/',
   assetsInclude: ["**/*.png"],
 })

@@ -2,7 +2,7 @@
   "name": "portfolio",
   "version": "0.0.3",
   "private": true,
-  "homepage": "https://LouisCoutel.github.io/",
+  "homepage": "https://<username>.github.io/<repo>/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
