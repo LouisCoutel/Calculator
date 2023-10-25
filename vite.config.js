@@ -19,7 +19,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
          calculator: resolve(__dirname, 'Calculator/calculator.html'),
-        // swm: resolve(__dirname, 'ShazamWorldMap/SWM.html'),
+         swm: resolve(__dirname, 'ShazamWorldMap/SWM.html'),
       },
     },
   },
