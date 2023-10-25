@@ -23,5 +23,6 @@ export default defineConfig({
       },
     },
   },
+  base: '/LouisCoutel.github.io/',
   assetsInclude: ["**/*.png"],
 })
