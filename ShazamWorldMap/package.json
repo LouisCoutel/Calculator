@@ -16,7 +16,6 @@
   },
   "devDependencies": {
     "autoprefixer": "^10.4.16",
-    "cypress": "^12.17.3",
     "postcss": "^8.4.31",
     "stylelint": "^15.10.2",
     "stylelint-config-standard": "^34.0.0",
