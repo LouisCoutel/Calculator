@@ -18,7 +18,7 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'index.html'),
-        // calculator: resolve(__dirname, 'Calculator/calculator.html'),
+         calculator: resolve(__dirname, 'Calculator/calculator.html'),
         // swm: resolve(__dirname, 'ShazamWorldMap/SWM.html'),
       },
     },
