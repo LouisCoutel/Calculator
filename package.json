@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "vite",
     "build": "vite build",
+    "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "preview": "vite preview --port 8080",
     "test:e2e": "start-server-and-test preview http://localhost:4173 'cypress run --e2e'",
