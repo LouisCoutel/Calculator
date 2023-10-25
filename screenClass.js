@@ -1,30 +1,35 @@
 class ScreenDisplay {
-    #inner
 
     constructor() {
         this.id = "screen"
         this.el = document.getElementById(this.id)
-        this.#inner = this.el.innerHTML
     }
 
-    set inner(value) {
-        this.#inner = value
+    concatToDisplay(value) {
+        this.el.innerHTML = this.el.innerHTML + value
     }
 
-    concatToDisplay(input) {
-        this.inner(this.#inner + input)
+    concatFloat() {
+        if (this.el.innerHTML.length <= 0) {
+            this.displayValue("0.")
+        } else {
+            this.concatToDisplay(".")
+        }
     }
 
     clear() {
-        this.inner("")
+        this.el.innerHTML = ""
     }
 
-    display(value) {
-        this.inner(value)
+    displayValue(value) {
+        this.el.innerHTML = value
     }
 
-    getLast() {
-        return this.#inner.charAt(this.#inner.length - 1)
+    getLastDisplayed() {
+        return this.el.innerHTML.charAt(this.el.innerHTML.length - 1)
+    }
+    erase(value) {
+        this.displayValue(this.el.innerHTML.slice(0, value))
     }
 }
 

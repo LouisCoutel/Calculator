@@ -1,6 +1,4 @@
-import ScreenDisplay from "./screenClass"
-import Buttons from "./buttonsClass"
-class Calculator {
+class Engine {
     #numbers
     #operators
     #counter
@@ -15,10 +13,7 @@ class Calculator {
         this.#lastEntered = undefined;
     }
 
-    initSubClasses() {
-        this.screen = new ScreenDisplay;
-        this.buttons = new Buttons;
-    }
+
 
     add(a, b) {
         let result = a + b;
@@ -89,23 +84,20 @@ class Calculator {
         this.#numbers = value
     }
 
-    clearInputs() {
-        // reset display
-        this.screen.clear()
+    //new methods
+    reset() {
         // reset number counter so that input goes to first "number"
-        this.counter(0)
+        this.counter = 0
         // remove all existing elements from number array, leaving it "undefined" so that we start from fresh
         this.numbers.splice(0, this.numbers.length);
         // remove all elements from operator array
-        this.operators([]);
-        this.lastEntered(undefined);
+        this.operators = [];
+        this.lastEntered = undefined;
     }
+    //old methods
+    getResult() {
 
-    displayResult() {
-        this.operators([])
-        this.counter(0)
-        this.screen.display(Math.round(this.numbers[0] * 100000) / 100000)
-        this.lastEntered(undefined)
+        return (this.numbers[0] * 100000) / 100000
     }
 
     #concatToNumbers(input) {
@@ -124,11 +116,8 @@ class Calculator {
         }
     }
     setOperator(input) {
+        console.log(input)
         this.operators.push(input)
-    }
-
-    incOpCounter() {
-        this.opCounter++
     }
     addFloat() {
         if (this.numbers[this.counter] != undefined) {
@@ -137,8 +126,9 @@ class Calculator {
             this.#initNumbers("0.")
         }
     }
-    actualize() {
-        this.lastEntered(this.screen.length);
+    setLast(value) {
+        this.lastEntered = value
+        console.log(this.lastEntered)
     }
     checkInit() {
         if (this.lastEntered != undefined) {
@@ -152,15 +142,10 @@ class Calculator {
             return true
         } else { return false }
     }
-    delLast() {
-        this.lastEntered(this.screen.delLast())
-    }
     delNumbers() {
         this.numbers[this.counter] = this.numbers[this.counter].slice(0, -1);
     }
-    delScreen(value) {
-        this.screen.display(this.screen.slice(0, value))
-    }
+
     checkForNumber() {
         if (this.counter > 0) {
             return true
@@ -168,8 +153,11 @@ class Calculator {
             return false
         }
     }
+    incCounter() {
+        this.#counter++
+    }
     decCounter() {
-        this.counter--
+        this.#counter--
     }
 
     backToPrevNumber() {
@@ -217,12 +205,7 @@ class Calculator {
             this.numbers.splice(this.opCounter, 2, result);
             this.operators.splice(this.opCounter, 1);
         } else {
-            // berate user for trying to divide by zero
-            this.screen =
-                "Err - division by 0";
-            setTimeout(function () {
-                this.reset();
-            }, 1500);
+            throw new Error("ERR - Forbidden Operation: Cannot divide by 0")
         }
     }
 
@@ -236,12 +219,16 @@ class Calculator {
     }
 
     toActualNumbers() {
-        this.numbers = this.numbers.map(function (str) {
-            return Math.round(parseFloat(str) * 100000) / 100000;
+        this.#numbers = this.#numbers.map(el => {
+           return (Math.round(parseFloat(el) * 100000) / 100000);
         });
     }
 
     compute() {
+        this.toActualNumbers()
+        console.log(this.#numbers)
+        console.log(this.#counter)
+        console.log(this.#opCounter)
         while (this.operators.length > 0) {
             this.setPriority()
 
@@ -251,7 +238,9 @@ class Calculator {
             } else if (this.operators[this.#opCounter] == "-") {
                 this.subOperation()
             } else if (this.operators[this.#opCounter] == "/") {
+                console.log(this.operators[this.#opCounter])
                 this.divOperation()
+
             } else if (this.operators[this.#opCounter] == "*") {
                 this.multOperation()
             }
@@ -261,4 +250,4 @@ class Calculator {
 
 
 
-export default Calculator
+export default Engine
