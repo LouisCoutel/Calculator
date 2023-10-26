@@ -10,7 +10,7 @@ const labelName = props.labelName
   <div
     class="form-element flex flex-row w-full text-xl font-display h-6 items-center leading-none whitespace-nowrap gap-1"
   >
-    <label :for="labelName" class="w-fit h-fit"> {{ labelName }} :</label>
+    <label :for="labelName" class="w-fit h-fit xs-reg:text-base sm-reg:text-lg font-medium "> {{ labelName }}:</label>
     <input
       type="text"
       :id="labelName"
