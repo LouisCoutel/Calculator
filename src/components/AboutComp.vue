@@ -1,5 +1,7 @@
 <script setup>
 import SectionHeading from './atoms/SectionHeading.vue'
+import CVurl from '../../public/CV_LouisCoutel_2023.pdf'
+
 </script>
 
 <template>
@@ -20,7 +22,7 @@ import SectionHeading from './atoms/SectionHeading.vue'
 
     <a
       class="about-a text-lg xs:text-base sm:text-base underline transition-all w-fit font-medium hover:text-utOrange duration-100"
-      href="./src/assets/CV/CV_LouisCoutel_2023.pdf"
+      :href=CVurl
       target="_blank"
       >MonCV.pdf</a
     >
