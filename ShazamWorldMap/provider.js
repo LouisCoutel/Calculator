@@ -5,7 +5,7 @@ class ShazamAPIHandler {
     this.options = {
       method: 'GET',
       headers: {
-        'X-RapidAPI-Key': '',
+        'X-RapidAPI-Key': '8bd7bea49fmsh2b744dd0c4b202bp175bb5jsna5c214a753cd',
         'X-RapidAPI-Host': 'shazam.p.rapidapi.com'
       }
     }

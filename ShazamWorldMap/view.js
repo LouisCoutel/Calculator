@@ -12,14 +12,14 @@ class View {
 
     buildSelectors(countries) {
         countries.map(country => {
-            country.selector = new Selector(country.id)
+            country.selector = new Selector(country.name)
             return country
         })
     }
 
     insertCard(country) {
         console.log(country)
-       document.body.appendChild(country.card.chartCard)
+        document.body.appendChild(country.card.chartCard)
         country.HTMLelement.onmouseover = () => {
             country.card.chartCard.classList.toggle("displayed")
         }

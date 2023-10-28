@@ -1,6 +1,6 @@
 class Selector {
-    constructor(id) {
-        this.id = id
+    constructor(name) {
+        this.id = name
         this.element = this.create("li")
         this.label = this.create("label")
         this.switch = this.create("input")
@@ -9,11 +9,12 @@ class Selector {
         this.assemble()
     }
     setAttributes() {
-        this.label.setAttribute("for", `${this.id}`)
+        this.label.setAttribute("for", `${this.name}`)
         this.switch.setAttribute("type", "checkbox")
     }
     setValue() {
         this.label.innerText = this.id
+        this.label.id = this.id
     }
     assemble() {
         this.element.appendChild(this.label)
