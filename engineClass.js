@@ -96,7 +96,6 @@ class Engine {
     }
     //old methods
     getResult() {
-
         return (this.numbers[0] * 100000) / 100000
     }
 
@@ -220,27 +219,20 @@ class Engine {
 
     toActualNumbers() {
         this.#numbers = this.#numbers.map(el => {
-           return (Math.round(parseFloat(el) * 100000) / 100000);
+            return (Math.round(parseFloat(el) * 100000) / 100000);
         });
     }
 
     compute() {
         this.toActualNumbers()
-        console.log(this.#numbers)
-        console.log(this.#counter)
-        console.log(this.#opCounter)
         while (this.operators.length > 0) {
             this.setPriority()
-
-            // if +, perform addition
             if (this.operators[this.#opCounter] == "+") {
                 this.sumOperation()
             } else if (this.operators[this.#opCounter] == "-") {
                 this.subOperation()
             } else if (this.operators[this.#opCounter] == "/") {
-                console.log(this.operators[this.#opCounter])
                 this.divOperation()
-
             } else if (this.operators[this.#opCounter] == "*") {
                 this.multOperation()
             }

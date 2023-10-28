@@ -26,6 +26,8 @@ class Calculator {
         this.#engine.compute()
         let result = this.#engine.getResult()
         this.#calcDisplay.displayValue(result)
+        // this.#engine.setNumber(result)
+        // this.#engine.setLast(result[result.length - 1])
     }
     actualize() {
         this.#engine.setLast(this.#calcDisplay.getLastDisplayed())
@@ -53,13 +55,14 @@ class Calculator {
             if (this.#engine.checkNotOp()) {
                 // if the last input isn't and is a number or a dot, remove last character from current "number" array element
                 this.#calcDisplay.erase(-1)
-                this.#engine.backToPrevNumber()
+                this.#engine.delNumbers()
                 this.actualize()
                 // if last char is a space
             } else {
                 // remove last 3 char from display
                 this.#calcDisplay.erase(-3)
                 // and remove from operator array
+                this.#engine.backToPrevNumber()
                 this.#engine.backToPrevOp()
                 this.actualize()
 
