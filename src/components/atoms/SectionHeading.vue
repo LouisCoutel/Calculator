@@ -7,5 +7,5 @@ const title = props.title
 </script>
 
 <template>
-  <h3 class="xs-reg:text-lg sm-reg:text-xl md-reg:text-2xl lg-reg:text-3xl sm-tall:text-2xl md-tall:text-3xl lg-tall:text-4xl font-display font-bold mb-2 normal:text-3xl">{{ title }}</h3>
+  <h3 class="xs:text-lg sm:text-xl text-2xl xl:text-3xl font-display font-bold mb-2 normal:text-3xl">{{ title }}</h3>
 </template>

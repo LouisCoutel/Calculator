@@ -11,7 +11,7 @@ const faClass = props.faClass
   <a class="social-icon" :href="link" target="_blank">
     <i
       :class="faClass"
-      class="header_wrapper1_2-icon fa-brands block xs-reg:text-3xl sm-reg:text-6xl ease-in-out transition-all duration-500 hover:duration-200 hover:-translate-y-1 hover:text-utOrange"
+      class="header_wrapper1_2-icon fa-brands block xs:text-3xl sm:text-3xl text-6xl ease-in-out transition-all duration-500 hover:duration-200 hover:-translate-y-1 hover:text-utOrange"
     ></i
   ></a>
 </template>
