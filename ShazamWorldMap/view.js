@@ -10,39 +10,59 @@ class View {
         country.card = new Card(country)
     }
 
-    buildSelectors(countries) {
-        countries.map(country => {
-            country.selector = new Selector(country.name)
-            return country
+    buildSelectors(continents) {
+        continents.map(continent => {
+            continent.selector = new Selector(continent.name)
+            return continent
         })
     }
 
     insertCard(country) {
         console.log(country)
         document.body.appendChild(country.card.chartCard)
-        country.HTMLelement.onmouseover = () => {
+        country.element.onmouseover = () => {
             country.card.chartCard.classList.toggle("displayed")
         }
-        country.HTMLelement.onmouseleave = () => {
+        country.element.onmouseleave = () => {
             country.card.chartCard.classList.toggle("displayed")
         }
     }
 
-    selectEvents(countries) {
-        countries.forEach(async country => {
-            country.selector.switch.onchange = async () => {
-                this.controller.setSelected(country);
-                await this.controller.fetchSelected(country);
-                this.controller.showSelected(country);
+    async eventsLoop(index, countries, continent) {
+        if (index < countries.length) {
+            if (countries[index].continent == continent.name) {
+                this.controller.setSelected(countries[index]);
+                await this.controller.fetchSelected(countries[index])
+                this.controller.enableSelected(countries[index]);
+                index++
+                this.eventsLoop(index, countries, continent)
+            } else {
+                this.controller.setHidden(countries[index])
+                index++
+                this.eventsLoop(index, countries, continent)
             }
+        }
+    }
 
+    selectEvents(continents, countries) {
+        continents.forEach(continent => {
+            continent.selector.switch.onchange = () => {
+                this.eventsLoop(0, countries, continent)
+                this.controller.hideOtherContinents()
+            }
         })
     }
-    insertSelectors(countries) {
-        countries.forEach(country => {
-            this.selectorsList.appendChild(country.selector.element)
+
+
+
+
+
+    insertSelectors(continents) {
+        continents.forEach(continent => {
+            this.selectorsList.appendChild(continent.selector.element)
         })
     }
 }
+
 
 export default View

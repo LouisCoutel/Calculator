@@ -1,17 +1,16 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
 
- 
-
-* {
+ *{
   margin: 0;
   padding: 0;
 }
 
+html {
+  width: 100vw;
+  height: 100vh;
+  overflow: hidden;
+}
 
-
-body {
+ body {
   width: 100%;
   height: 100%;
   font-family: 'PP Neue Montreal', sans-serif;
@@ -20,7 +19,7 @@ body {
   justify-content: center;
   align-items: center;
   background: radial-gradient(50% 50% at 50% 50%, #2bc1e2 0%, rgba(43, 193, 226, 0.64) 100%);
-} */
+}  
 
 .conseilnav-p {
   font-weight: 100;
@@ -30,31 +29,41 @@ body {
   border: 1px solid #e24d2c;
   border-radius: 7px;
   padding: 8px 16px;
-  position: absolute;
-  bottom: 16px;
-  right: 32px;
+  position: fixed;
+  bottom: 8px;
+  right: 8px;
 }
 
-.titre {
+#heading {
   position: absolute;
   top: 5%;
   left: 3%;
   max-width: 90vw;
 }
 
-.svg-content {
+#map {
   width: 100%;
-  box-sizing: border-box;
   order: 2;
   z-index: 2;
   filter: drop-shadow(0 4px 4px rgba(0, 0, 0, 0.451));
 }
 
+.hidden {
+  transition:all;
+  transition-duration: 1s;
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
 .pays-actifs {
   fill: #fefefa;
-  border: 0.5px solid #e1e1e1;
+  border: 1px solid #e1e1e1;
   flex-shrink: 1;
+  transition:all;
+  transition-duration: 500ms;
 }
+
 
 .pays-actifs:hover {
   fill: #ffe500;
@@ -67,9 +76,9 @@ body {
 .credits-p {
   order: 3;
   z-index: 3;
-  position: absolute;
-  bottom: 16px;
-  left: 16px;
+  position: fixed;
+  bottom: 8px;
+  left: 8px;
   width: -moz-max-content;
   width: max-content;
   font-weight: 100;
@@ -88,10 +97,6 @@ body {
   flex-grow: 0;
   z-index: 1;
 }
-
-/* PopUp */
-
-/* Auto layout */
 
 .chart-card {
   align-items: flex-start;
@@ -123,7 +128,6 @@ body {
 }
 
 .card-img-div {
-  /* Auto layout */
   overflow: clip;
   display: flex;
   flex-direction: row;
@@ -138,10 +142,6 @@ body {
     inset 2px 2px 2px 1px rgba(0, 0, 0, 0.15);
   border-radius: 5px;
 }
-
-/* Frame 4 */
-
-/* Auto layout */
 
 .card-info-section {
   display: flex;
@@ -178,7 +178,7 @@ body {
   flex-direction: column;
   max-height: 300px;
   position: fixed;
-  left: 2%;
+  left: 8px;
   overflow-y: scroll;
   z-index: 100;
 }

@@ -1,52 +1,84 @@
 export default class Controller {
+    #countries
+    #continents
     constructor(view, model) {
         this.view = view
         this.model = model
     }
 
-    async fetchAvailable() {
-        await this.model.getAvailableCountries();
-    }
-
-    async fetchCharts() {
-        await this.model.getCountriesCharts();
-    }
     async render(country) {
         this.view.buildCards(country)
         this.view.insertCards(country)
     }
     async setAvailable() {
-        await this.fetchAvailable()
-        this.countries = this.model.availableCountries.map(country => {
-            country.display = false;
-            country.HTMLelement = document.getElementById(country.id)
-            return country
+        await this.model.init()
+        this.#continents = this.model.continents
+        this.#countries = this.model.availableCountries.map(country => {
+            let newCountry = {
+                name: country.name,
+                id: country.id,
+                display: false,
+                continent: this.model.getContinent(country.id),
+                element: document.getElementById(country.id)
+            }
+            console.log(newCountry)
+            return newCountry
         })
-        await this.view.buildSelectors(this.countries)
+        await this.view.buildSelectors(this.continents)
         this.showAvailable()
+    }
+    showAvailable() {
+        this.view.insertSelectors(this.#continents)
+        this.view.selectEvents(this.#continents, this.#countries)
     }
 
     setSelected(country) {
         country.display = true;
     }
 
-    async fetchSelected(country) {
-        let chart = await this.model.getCountryChart(country)
-        console.log(chart)
-        country.track = await chart[0].title
-        country.artist = await chart[0].subtitle
-        country.images = await chart[0].images
+    setHidden(country) {
+        country.hidden = true
     }
 
-    showSelected(country) {
-        country.HTMLelement.classList.toggle("land")
-        country.HTMLelement.classList.toggle("pays-actifs")
-        this.view.buildCard(country);
-        this.view.insertCard(country)
+    enableSelected(countryToEnable) {
+        countryToEnable.element.classList.toggle("land")
+        countryToEnable.element.classList.toggle("pays-actifs")
+        this.view.buildCard(countryToEnable);
+        this.view.insertCard(countryToEnable)
     }
-    showAvailable() {
-        this.view.insertSelectors(this.countries)
-        this.view.selectEvents(this.countries)
+
+    hideOtherContinents() {
+        this.countries.forEach(countryToHide => {
+            if (countryToHide.hidden == true) {
+                countryToHide.element.classList.add(".hidden")
+            }
+        })
+    }
+
+
+    async fetchSelected(selectedCountry) {
+        let chart = await this.model.getCountryChart(selectedCountry)
+        selectedCountry.track = await chart[0].title
+        selectedCountry.artist = await chart[0].subtitle
+        selectedCountry.images = await chart[0].images
+    }
+
+
+
+
+
+    get countries() {
+        return this.#countries
+    }
+    get continents() {
+        return this.#continents
+    }
+    set countries(value) {
+        this.#countries = value
+    }
+
+    set continents(value) {
+        this.#continents = value
     }
 
 }

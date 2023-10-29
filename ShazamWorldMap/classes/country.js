@@ -2,14 +2,14 @@ class Country {
   constructor(listid, title, subtitle, images) {
     this.id = listid
     this.chart = { title: title, artist: subtitle, images: images }
-    // on crée la propriété HTMLelement qui fait le lien entre JS et le Document Object Model HTML
-    this.HTMLelement = document.getElementById(this.id);
-    this.HTMLelement.position = this.HTMLelement.getBoundingClientRect()
+    // on crée la propriété element qui fait le lien entre JS et le Document Object Model HTML
+    this.element = document.getElementById(this.id);
+    this.element.position = this.element.getBoundingClientRect()
     this.toggleClass()
   }
   toggleClass() {
-    this.HTMLelement.classList.toggle('land');
-    this.HTMLelement.classList.toggle('pays-actifs');
+    this.element.classList.toggle('land');
+    this.element.classList.toggle('pays-actifs');
   }
 }
 

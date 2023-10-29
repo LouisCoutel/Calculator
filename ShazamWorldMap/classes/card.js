@@ -5,7 +5,7 @@ class Card {
         this.track = country.track
         this.artist = country.artist
         this.images = country.images
-        this.position = country.HTMLelement.getBoundingClientRect()
+        this.position = country.element.getBoundingClientRect()
         this.chartCard = this.create("article");
         this.imgDiv = this.create("div")
 
