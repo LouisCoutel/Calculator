@@ -4,11 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DataViz Sonia Bastien Gilbert Louis</title>
-    
-    
-    <script type="module" crossorigin src="/assets/swm-3fbafa78.js"></script>
-    <link rel="modulepreload" crossorigin href="/assets/modulepreload-polyfill-3cfb730f.js">
-    <link rel="stylesheet" href="/assets/SWM-e784e5be.css">
+    <script src="./script.js" type="module" defer></script>
+    <link rel="stylesheet" href="./public/style.css" />
   </head>
   <body>
     <svg
@@ -1632,7 +1629,7 @@
       <b class="font-display">Catamaran</b> & <b class="font-medium">Neue Amsterdam</b><br />map by
       <b class="font-medium">amCharts</b><br />made in 2023 @<img
         class="ada-logo"
-        src="/assets/ada_logo-b9065e74.png"
+        src="Carte/ada_logo.png"
       /><br />by <b class="font-medium">S. Chellabi</b>, <b class="font-medium">L. Coutel</b>,
       <b class="font-medium">G. Mougamadou</b> and
       <b class="font-medium">B. Vintras</b>
@@ -1643,7 +1640,7 @@
       Explore the map with your cursor and zoom
     </p>
     <div class="selectors-window">
-      <button aria-label="collapse continent selection list">Show</button>
+      <button class="selectors-window--hide-button" id="hide-button" aria-label="collapse continent selection list">Show</button>
       <ul id="selectors-list"></ul>
     </div>
     </div>
