@@ -13,8 +13,6 @@ class Engine {
         this.#lastEntered = undefined;
     }
 
-
-
     add(a, b) {
         let result = a + b;
         if (result != 0) {
@@ -84,7 +82,6 @@ class Engine {
         this.#numbers = value
     }
 
-    //new methods
     reset() {
         // reset number counter so that input goes to first "number"
         this.counter = 0
@@ -94,7 +91,7 @@ class Engine {
         this.operators = [];
         this.lastEntered = undefined;
     }
-    //old methods
+
     getResult() {
         return (this.numbers[0] * 100000) / 100000
     }
@@ -114,10 +111,11 @@ class Engine {
             this.#initNumbers(input)
         }
     }
+
     setOperator(input) {
-        console.log(input)
         this.operators.push(input)
     }
+
     addFloat() {
         if (this.numbers[this.counter] != undefined) {
             this.#concatToNumbers(".")
@@ -125,10 +123,12 @@ class Engine {
             this.#initNumbers("0.")
         }
     }
+
     setLast(value) {
         this.lastEntered = value
         console.log(this.lastEntered)
     }
+
     checkInit() {
         if (this.lastEntered != undefined) {
             return true
@@ -136,11 +136,13 @@ class Engine {
             return false
         }
     }
+
     checkNotOp() {
         if (this.lastEntered != " ") {
             return true
         } else { return false }
     }
+
     delNumbers() {
         this.numbers[this.counter] = this.numbers[this.counter].slice(0, -1);
     }
@@ -152,9 +154,11 @@ class Engine {
             return false
         }
     }
+
     incCounter() {
         this.#counter++
     }
+
     decCounter() {
         this.#counter--
     }
@@ -162,6 +166,7 @@ class Engine {
     backToPrevNumber() {
         this.numbers.pop()
     }
+
     backToPrevOp() {
         this.operators.pop()
     }
@@ -177,13 +182,13 @@ class Engine {
             }
         }
     }
+
     sumOperation() {
-        // result equals first two number
         let result = this.add(this.numbers[this.opCounter], this.numbers[this.opCounter + 1]);
-        //numbers are removed and first number of the pair is now result
         this.numbers.splice(this.opCounter, 2, result);
         this.operators.splice(this.opCounter, 1);
     }
+
     subOperation() {
         let result = this.subtract(
             this.numbers[this.opCounter],
@@ -194,9 +199,7 @@ class Engine {
     }
 
     divOperation() {
-        // check if user is trying to divide by zero
         if (this.numbers[1] != 0) {
-            // if not, perform division
             let result = this.divide(
                 this.numbers[this.opCounter],
                 this.numbers[this.opCounter + 1]

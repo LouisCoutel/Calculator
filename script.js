@@ -24,26 +24,23 @@ log(calculator)
 log(buttons)
 
 
-function initEvents() {
-    for (let key in buttons) {
-        if (Array.isArray(buttons[key])) {
-            buttons[key].forEach(button => {
-                button.element.onclick = () => {
-                    calculator.processInput(button.type, button.value)
-                }
-            })
-        } else {
-            if (key != "constructor") {
-                let button = buttons[key]
-                log(button)
-                button.element.onclick = () => {
-                    calculator.processInput(button.type, button.value)
-                }
+for (let key in buttons) {
+    if (Array.isArray(buttons[key])) {
+        buttons[key].forEach(button => {
+            button.element.onclick = () => {
+                calculator.processInput(button.type, button.value)
+            }
+        })
+    } else {
+        if (key != "constructor") {
+            let button = buttons[key]
+            log(button)
+            button.element.onclick = () => {
+                calculator.processInput(button.type, button.value)
             }
         }
     }
 }
 
-initEvents();
 
 log(buttons)

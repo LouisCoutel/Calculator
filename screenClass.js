@@ -1,5 +1,4 @@
 class ScreenDisplay {
-
     constructor() {
         this.id = "screen"
         this.el = document.getElementById(this.id)
@@ -28,6 +27,7 @@ class ScreenDisplay {
     getLastDisplayed() {
         return this.el.innerHTML.charAt(this.el.innerHTML.length - 1)
     }
+
     erase(value) {
         this.displayValue(this.el.innerHTML.slice(0, value))
     }
