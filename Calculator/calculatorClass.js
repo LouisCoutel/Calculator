@@ -22,6 +22,7 @@ class Calculator {
         this.#calcDisplay.clear()
         this.#engine.reset()
     }
+
     processResult() {
         this.#engine.compute()
         let result = this.#engine.getResult()
@@ -29,25 +30,30 @@ class Calculator {
         // this.#engine.setNumber(result)
         // this.#engine.setLast(result[result.length - 1])
     }
+
     actualize() {
         this.#engine.setLast(this.#calcDisplay.getLastDisplayed())
     }
+
     addDigit(digit) {
         this.#calcDisplay.concatToDisplay(digit)
         this.#engine.setNumber(digit)
         this.#engine.setLast(digit);
     }
+
     addOp(op) {
         this.#calcDisplay.concatToDisplay(" " + op + " ")
         this.#engine.setOperator(op)
         this.#engine.incCounter()
         this.#engine.setLast(op);
     }
+
     addFloat() {
         this.#engine.addFloat();
         this.#calcDisplay.concatFloat()
         this.#engine.setLast("float");
     }
+
     erase() {
         if (this.#engine.checkInit()) {
             // if we're not starting over, remove last character from display string
@@ -76,6 +82,7 @@ class Calculator {
             }
         }
     }
+
     processInput(type, value) {
         if (type == "digit") {
             this.addDigit(value)

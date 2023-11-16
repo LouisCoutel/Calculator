@@ -28,3 +28,4 @@ coverage
 *.sln
 *.sw?
 MyTopTracks/.env
+MyTopTracks/providers/discogsToken.js

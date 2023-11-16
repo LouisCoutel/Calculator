@@ -14,6 +14,20 @@ export default defineConfig({
       '@': fileURLToPath(new URL('./src', import.meta.url))
     }
   },
+  server: {
+    proxy: {
+      'deezerAPI/': {
+        target: 'https://api.deezer.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\deezerAPI/, ''),
+      },
+      'discogsAPI/': {
+        target: 'https://api.discogs.com',
+        changeOrigin: true,
+        rewrite: (path) => path.replace(/^\discogsAPI/, ''),
+      }
+    }
+  },
   build: {
     rollupOptions: {
       input: {
