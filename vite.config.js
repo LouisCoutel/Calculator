@@ -33,7 +33,7 @@ export default defineConfig({
       input: {
         main: resolve(__dirname, 'index.html'),
         calculator: resolve(__dirname, 'Calculator/calculator.html'),
-        mtt: resolve(__dirname, 'mtt/mtt.html'),
+        mtt: resolve(__dirname, 'MyTopTracks/MTT.html'),
       },
     },
   },
