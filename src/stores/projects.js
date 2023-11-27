@@ -7,7 +7,7 @@ export const useProjects = defineStore('useProjects', {
             name: 'Calculator', href: './Calculator/calculator.html', img: calcUrl, alt: "Une interface minimaliste représentant une calculatrice"
         },
         {
-            name: 'ShazamWorldMap', href: './MyTopTracks/MTT.html', img: shazamUrl, alt: "Une carte du monde sur laquelle se surimpose mes top tracks sur Deezer"
+            name: 'MyTopTracks', href: './MyTopTracks/MTT.html', img: shazamUrl, alt: "Une carte du monde sur laquelle se surimpose mes top tracks sur Deezer"
         }
         ]
     }),

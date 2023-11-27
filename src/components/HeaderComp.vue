@@ -16,14 +16,14 @@ const linkedin = {
       <section
         class="name-title-section flex flex-col justify-end w-full font-display leading-tight"
       >
-        <h2 class="header-h2 xs:text-lg sm:text-xl text-2xl lg-reg:text-3xl font-bold line-clamp-1 ">
+        <h2 class="header-h2 xs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold line-clamp-1 ">
           Louis Coutel
         </h2>
-        <h1 class="header-h1 xs:text-xl sm:text-2xl text-3xl lg-reg:text-4xl font-bold line-clamp-1">
+        <h1 class="header-h1 xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold line-clamp-1">
           Développeur Fullstack
         </h1>
       </section>
-      <section class="socials-section flex flex-row grow w-fit sm:gap-1 xs:gap-1 gap-2 justify-end items-end">
+      <section class="socials-section flex flex-row grow w-fit gap-1  md:gap-2 justify-end items-end">
         <SocialIcon :faClass="linkedin.class" :link="linkedin.link"></SocialIcon>
         <SocialIcon :faClass="github.class" :link="github.link"></SocialIcon>
       </section>

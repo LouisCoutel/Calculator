@@ -18,16 +18,6 @@ module.exports = {
         eerieBlack: "#1b2021ff",
         utOrange: "#ff8811ff",
       },
-      screens: {
-        'xs': { 'raw': '(min-width: 0px) and (max-width: 679px)' },
-
-        'sm': { 'raw': '(min-width: 680px) and (max-width: 800px)' },
-
-
-        'xl': '1280px',
-
-        '2xl': '1536px',
-      }
     },
   },
   plugins: [

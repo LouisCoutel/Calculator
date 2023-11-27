@@ -7,7 +7,7 @@ const projects = useProjects();
 </script>
 <template>
   <section
-    class="main_projects flex flex-col sm:w-fit sm:max-w-[33vw] xs:w-full xs:h-fit h-full xs:overflow-auto sm:overflow-auto overflow-hidden rounded-lg"
+    class="main_projects flex flex-col sm:w-fit max-w-[33vw] xs:w-full xs:h-fit h-full xs:overflow-auto sm:overflow-auto overflow-hidden rounded-lg"
   >
     <SectionHeading :title="'Projets'" class="w-fit"></SectionHeading>
     <section

@@ -5,23 +5,23 @@ import CVurl from '../../public/CV_LouisCoutel_2023.pdf'
 </script>
 
 <template>
-  <section class="about-section inline-flex flex-col shrink xs:min-w-[15ch] min-w-[35ch] max-w-[75ch]">
+  <section class="about-section inline-flex flex-col shrink min-w-[15ch] sm:min-w-[35ch] md:min-w-[50ch] max-w-[75ch]">
     <SectionHeading :title="'A propos'"></SectionHeading>
-    <p class="about-p xs:text-sm sm:text-sm text-base mb-2">
+    <p class="about-p text-sm sm:text-base mb-2">
       Après un an de découverte en autodidacte du développement, j'ai rejoint
       <b>AdaTechSchool</b> afin de consolider mes compétences, participer à des projets de groupe et
       découvrir de nouvelles technos. Dans ce cadre, je recherche actuellement une
       <b>alternance</b>.
     </p>
 
-    <p class="about-p xs:text-sm sm:text-sm text-base mb-2">
+    <p class="about-p text-sm sm:text-base mb-2">
       Avant cela, j'ai accompagné le magazine <b>L'Express</b> pendant 4 ans en tant que
       <b>Réalisateur Podcast</b>. J'ai notamment participé à la création de <b>La Loupe</b>, le
       podcast quotidien de L'Express.
     </p>
 
     <a
-      class="about-a text-lg xs:text-base sm:text-base underline transition-all w-fit font-medium hover:text-utOrange duration-100"
+      class="about-a sm:text-lg text-base underline transition-all w-fit font-medium hover:text-utOrange duration-100"
       :href=CVurl
       target="_blank"
       >MonCV.pdf</a

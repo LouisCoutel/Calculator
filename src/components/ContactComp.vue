@@ -8,11 +8,11 @@ import SendButton from "./atoms/SendButton.vue";
   <section class="contact-section inline-flex grow flex-col">
     <SectionHeading :title="'Contact'"> </SectionHeading>
     <form
-      class="contact_form flex flex-col w-full h-full gap-2"
+      class="contact_form flex flex-col  w-full h-full gap-2"
       action="https://formspree.io/f/mvonkgag"
       method="POST"
     >
-      <section class="poster-info flex xs:flex-col gap-2 w-full">
+      <section class="poster-info flex flex-col sm:flex-row gap-2 w-full">
         <FormField :labelName="'Nom'"></FormField>
         <FormField :labelName="'Email'"></FormField>
       </section>
@@ -20,7 +20,7 @@ import SendButton from "./atoms/SendButton.vue";
         id="textarea"
         name="message"
         placeholder="Rédigez votre message ici"
-        class="resize-none rounded-lg bg-gray-200 text-gray-400 w-full h-full xs:h-32 grow shrink p-1 px-2 transition-colors focus-within:outline-1 focus-within:bg-gray-100 hover:bg-gray-100 shadow-inner"
+        class="resize-none rounded-lg bg-gray-200 text-gray-400 w-full sm:h-full grow shrink p-1 px-2 transition-colors focus-within:outline-1 focus-within:bg-gray-100 hover:bg-gray-100 shadow-inner"
         required
       ></textarea>
       <SendButton></SendButton>
