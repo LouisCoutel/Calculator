@@ -5,7 +5,7 @@ import ProjectsComp from './ProjectsComp.vue'
 </script>
 
 <template>
-  <main class="main_wrapper flex xs:flex-col flex-row h-full w-full overflow-hidden gap-8 mt-2 p-2">
+  <main class="main_wrapper flex flex-col md:flex-row h-full w-full overflow-hidden gap-8 mt-2 p-2">
     <!-- header section -->
 
     <!-- about section -->

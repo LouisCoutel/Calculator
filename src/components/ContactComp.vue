@@ -20,7 +20,7 @@ import SendButton from "./atoms/SendButton.vue";
         id="textarea"
         name="message"
         placeholder="Rédigez votre message ici"
-        class="resize-none rounded-lg bg-gray-200 text-gray-400 w-full sm:h-full grow shrink p-1 px-2 transition-colors focus-within:outline-1 focus-within:bg-gray-100 hover:bg-gray-100 shadow-inner"
+        class="resize-none rounded-lg bg-gray-200 text-gray-400 w-full h-32 md:h-full grow shrink p-1 px-2 transition-colors focus-within:outline-1 focus-within:bg-gray-100 hover:bg-gray-100 shadow-inner"
         required
       ></textarea>
       <SendButton></SendButton>
