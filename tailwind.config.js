@@ -18,6 +18,10 @@ module.exports = {
         eerieBlack: "#1b2021ff",
         utOrange: "#ff8811ff",
       },
+      screens: {
+        sm: "500px",
+        tallmd: { 'raw': '(min-height: 800px) and (min-width: 800px)' },
+      }
     },
   },
   plugins: [

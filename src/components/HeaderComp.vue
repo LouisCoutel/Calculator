@@ -16,10 +16,10 @@ const linkedin = {
       <section
         class="name-title-section flex flex-col justify-end w-full font-display leading-tight"
       >
-        <h2 class="header-h2 xs:text-lg sm:text-xl md:text-2xl lg:text-3xl font-bold line-clamp-1 ">
+        <h2 class="header-h2 xs:text-lg sm:text-xl md:text-2xl tallmd:text-3xl font-bold line-clamp-1 ">
           Louis Coutel
         </h2>
-        <h1 class="header-h1 xs:text-xl sm:text-2xl md:text-3xl lg:text-4xl font-bold line-clamp-1">
+        <h1 class="header-h1 xs:text-xl sm:text-2xl md:text-3xl tallmd:text-4xl font-bold line-clamp-1">
           Développeur Fullstack
         </h1>
       </section>

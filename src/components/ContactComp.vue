@@ -12,7 +12,7 @@ import SendButton from "./atoms/SendButton.vue";
       action="https://formspree.io/f/mvonkgag"
       method="POST"
     >
-      <section class="poster-info flex flex-col sm:flex-row gap-2 w-full">
+      <section class="poster-info flex flex-col sm:flex-row gap-2 tallmd:gap-3 w-full">
         <FormField :labelName="'Nom'"></FormField>
         <FormField :labelName="'Email'"></FormField>
       </section>
