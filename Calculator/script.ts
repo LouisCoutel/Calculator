@@ -1,7 +1,7 @@
 import Calculator from "./calculatorClass.js";
 import SingletonFactory from "./factory.js";
 
-function log(value) {
+function log(value: String) {
     return console.log(value)
 }
 
@@ -26,7 +26,7 @@ log(buttons)
 
 for (let key in buttons) {
     if (Array.isArray(buttons[key])) {
-        buttons[key].forEach(button => {
+        buttons[key].forEach((button: any) => {
             button.element.onclick = () => {
                 calculator.processInput(button.type, button.value)
             }

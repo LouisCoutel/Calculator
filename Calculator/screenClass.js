@@ -4,7 +4,7 @@ class ScreenDisplay {
         this.el = document.getElementById(this.id)
     }
 
-    concatToDisplay(value) {
+    concatToDisplay(value: String) {
         this.el.innerHTML = this.el.innerHTML + value
     }
 
@@ -20,7 +20,7 @@ class ScreenDisplay {
         this.el.innerHTML = ""
     }
 
-    displayValue(value) {
+    displayValue(value: String) {
         this.el.innerHTML = value
     }
 
@@ -33,4 +33,4 @@ class ScreenDisplay {
     }
 }
 
-export default ScreenDisplay 
+export default class ScreenDisplay

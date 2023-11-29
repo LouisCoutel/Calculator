@@ -1,9 +1,9 @@
-
-
 class Calculator {
-    #engine
-    #calcDisplay
-    constructor(engine, calcDisplay, buttons) {
+    #engine: any
+    #calcDisplay: any
+    buttons: any
+
+    constructor(engine: any, calcDisplay: any, buttons: any) {
         this.#engine = engine
         this.#calcDisplay = calcDisplay
         this.buttons = buttons
@@ -11,7 +11,7 @@ class Calculator {
 
     errorReset() {
         // berate user for trying to divide by zero
-        setTimeout(function () {
+        setTimeout(() => {
             this.#engine.reset();
             this.#calcDisplay.clear()
         }, 1500);
@@ -25,7 +25,7 @@ class Calculator {
 
     processResult() {
         this.#engine.compute()
-        let result = this.#engine.getResult()
+        const result: Number = this.#engine.getResult()
         this.#calcDisplay.displayValue(result)
         // this.#engine.setNumber(result)
         // this.#engine.setLast(result[result.length - 1])
@@ -35,13 +35,13 @@ class Calculator {
         this.#engine.setLast(this.#calcDisplay.getLastDisplayed())
     }
 
-    addDigit(digit) {
+    addDigit(digit: string) {
         this.#calcDisplay.concatToDisplay(digit)
         this.#engine.setNumber(digit)
         this.#engine.setLast(digit);
     }
 
-    addOp(op) {
+    addOp(op: string) {
         this.#calcDisplay.concatToDisplay(" " + op + " ")
         this.#engine.setOperator(op)
         this.#engine.incCounter()
@@ -83,7 +83,7 @@ class Calculator {
         }
     }
 
-    processInput(type, value) {
+    processInput(type: string, value: string) {
         if (type == "digit") {
             this.addDigit(value)
         };

@@ -33,4 +33,4 @@ class SingletonFactory {
         return this.buttons;
     }
 };
-export default SingletonFactory
+export default class SingletonFactory
