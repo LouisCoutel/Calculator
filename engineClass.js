@@ -1,9 +1,9 @@
 class Engine {
-    #numbers
-    #operators
-    #counter
-    #opCounter
-    #lastEntered
+    #numbers: Array
+    #operators: Array
+    #counter: Number
+    #opCounter: Number
+    #lastEntered: String
 
     constructor() {
         this.#numbers = [];
@@ -13,8 +13,8 @@ class Engine {
         this.#lastEntered = undefined;
     }
 
-    add(a, b) {
-        let result = a + b;
+    add(a: Number, b: Number) {
+        const result: Number = a + b;
         if (result != 0) {
             return result;
         } else {
@@ -22,8 +22,8 @@ class Engine {
         }
     };
 
-    subtract(a, b) {
-        let result = a - b;
+    subtract(a: Number, b: Number) {
+        const result: Number = a - b;
         if (result != 0) {
             return result;
         } else {
@@ -31,8 +31,8 @@ class Engine {
         }
     };
 
-    multiply(a, b) {
-        let result = a * b;
+    multiply(a: Number, b: Number) {
+        const result: Number = a * b;
         if (result != 0) {
             return result;
         } else {
@@ -40,8 +40,8 @@ class Engine {
         }
     };
 
-    divide(a, b) {
-        let result = a / b;
+    divide(a: Number, b: Number) {
+        const result: Number = a / b;
         if (result != 0) {
             return result;
         } else {
@@ -66,19 +66,19 @@ class Engine {
     }
 
 
-    set lastEntered(value) {
+    set lastEntered(value: String) {
         this.#lastEntered = value
     }
-    set opCounter(value) {
+    set opCounter(value: String) {
         this.#opCounter = value
     }
-    set counter(value) {
+    set counter(value: String) {
         this.#counter = value
     }
-    set operators(value) {
+    set operators(value: String) {
         this.#operators = value
     }
-    set numbers(value) {
+    set numbers(value: String) {
         this.#numbers = value
     }
 
@@ -96,15 +96,15 @@ class Engine {
         return (this.numbers[0] * 100000) / 100000
     }
 
-    #concatToNumbers(input) {
+    #concatToNumbers(input: String) {
         this.#numbers[this.counter] += input
     }
 
-    #initNumbers(input) {
+    #initNumbers(input: String) {
         this.#numbers[this.counter] = input
     }
 
-    setNumber(input) {
+    setNumber(input: String) {
         if (this.numbers[this.counter] != undefined) {
             this.#concatToNumbers(input)
         } else {
@@ -112,7 +112,7 @@ class Engine {
         }
     }
 
-    setOperator(input) {
+    setOperator(input: String) {
         this.operators.push(input)
     }
 
@@ -124,7 +124,7 @@ class Engine {
         }
     }
 
-    setLast(value) {
+    setLast(value: String) {
         this.lastEntered = value
         console.log(this.lastEntered)
     }
@@ -184,13 +184,13 @@ class Engine {
     }
 
     sumOperation() {
-        let result = this.add(this.numbers[this.opCounter], this.numbers[this.opCounter + 1]);
+        const result: Number = this.add(this.numbers[this.opCounter], this.numbers[this.opCounter + 1]);
         this.numbers.splice(this.opCounter, 2, result);
         this.operators.splice(this.opCounter, 1);
     }
 
     subOperation() {
-        let result = this.subtract(
+        const result: Number = this.subtract(
             this.numbers[this.opCounter],
             this.numbers[this.opCounter + 1]
         )
@@ -200,7 +200,7 @@ class Engine {
 
     divOperation() {
         if (this.numbers[1] != 0) {
-            let result = this.divide(
+            const result: Number = this.divide(
                 this.numbers[this.opCounter],
                 this.numbers[this.opCounter + 1]
             );
@@ -212,7 +212,7 @@ class Engine {
     }
 
     multOperation() {
-        let result = this.multiply(
+        const result: Number = this.multiply(
             this.numbers[this.opCounter],
             this.numbers[this.opCounter + 1]
         );
@@ -222,7 +222,7 @@ class Engine {
 
     toActualNumbers() {
         this.#numbers = this.#numbers.map(el => {
-            return (Math.round(parseFloat(el) * 100000) / 100000);
+            return (Math.round(parseFloat(el: Number) * 100000) / 100000);
         });
     }
 
@@ -245,4 +245,4 @@ class Engine {
 
 
 
-export default Engine
+export default class Engine
