@@ -3,9 +3,9 @@ type Float = "."
 class Term {
     value: number
     valArr: Array<number>
-
     float: boolean
     floatIndex: number | undefined
+
     constructor(init: number | Float) {
         if (init == ".") {
             this.valArr = []
@@ -18,9 +18,6 @@ class Term {
             this.floatIndex = 0
         }
     }
-
-
-
     getValue() {
         if (this.float = true) {
             this.value = parseFloat(
@@ -31,7 +28,6 @@ class Term {
             this.value = parseFloat(this.valArr.join())
         }
     }
-
     setFloat() {
         if (!Number.isInteger(this.value)) {
             throw new Error("Cannot set more than one floating point")
@@ -40,7 +36,6 @@ class Term {
             this.floatIndex = (this.valArr.length)
         }
     }
-
     pushNum(input: number) {
         this.valArr.push(input)
     }

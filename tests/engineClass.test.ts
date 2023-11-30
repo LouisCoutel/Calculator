@@ -8,9 +8,6 @@ describe("Model", () => {
         controller.setOperator(minus)
         expect(setOperatorSpy).toHaveBeenCalledWith(minus);
     });
-
-
-
 });
 
 

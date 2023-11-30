@@ -3,6 +3,7 @@ type Operator = {
     sign: string,
     operate: Function
 }
+
 class View {
     id: string
     screen: HTMLElement

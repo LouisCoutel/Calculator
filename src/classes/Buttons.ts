@@ -1,48 +1,23 @@
 import controller from "../MVC/Controller"
 import { Minus, Plus, Divider, Multiplier } from "./Operators"
-type Operator = {
-  sign: string,
-  operate: Function
-}
+
 function $(id: string) {
   return document.getElementById(id) as HTMLElement
-
-}
-
-
-
-const buttonList = {
-  digits: ["0", "1", "2", "3", "4", "5", "6", "7", "8", "9"],
-  operators: ["+", "-", "/", "*"],
-  backspace: "backspace",
-  float: "float",
-  equal: "=",
-  clear: "CLR"
 }
 
 class Buttons {
-  digitsButtons: Array<any>
-  opsButtons: Array<any>
-  backspaceButton: any
-  equalButton: any
-  floatButton: any
-  clearButton: any
+  digitsButtons: Array<DigitButton>
+  opsButtons: Array<Button>
+  backspaceButton: BackspaceButton
+  equalButton: EqualButton
+  floatButton: FloatButton
+  clearButton: ClearButton
   constructor() {
-    this.digitsButtons = buttonList.digits.map((el: string) => new DigitButton(el))
-    this.opsButtons = buttonList.operators.map((el: string) => {
-      if (el == "+") {
-        return new PlusButton
-      }
-      if (el == "-") {
-        return new MinusButton
-      }
-      if (el == "*") {
-        return new MultiplierButton
-      }
-      if (el == "/") {
-        return new DividerButton
-      }
-    })
+    this.digitsButtons = []
+    for (let i = 0; i < 10; i++) {
+      this.digitsButtons.push(new DigitButton(i))
+    }
+    this.opsButtons = [new PlusButton, new MinusButton, new DividerButton, new MultiplierButton]
     this.backspaceButton = new BackspaceButton
     this.equalButton = new EqualButton
     this.floatButton = new FloatButton
@@ -60,19 +35,17 @@ class Button {
 class DigitButton extends Button {
   value: number
   id: string
-
   element: HTMLElement
-  constructor(input: string) {
+  constructor(input: number) {
     super()
-    this.value = parseFloat(input)
-    this.id = input
-    this.element = $(input)
+    this.value = input
+    this.id = input.toString()
+    this.element = $(this.id)
     this.element.onclick = () => {
       this.controller.setNumber(this.value)
     }
   }
 }
-
 
 class PlusButton extends Button {
   id: string
@@ -86,6 +59,7 @@ class PlusButton extends Button {
     }
   }
 }
+
 class MinusButton extends Button {
   id: string
   element: HTMLElement
@@ -98,6 +72,7 @@ class MinusButton extends Button {
     }
   }
 }
+
 class DividerButton extends Button {
   id: string
   element: HTMLElement
@@ -110,6 +85,7 @@ class DividerButton extends Button {
     }
   }
 }
+
 class MultiplierButton extends Button {
   id: string
   element: HTMLElement
@@ -166,6 +142,5 @@ class ClearButton extends Button {
     }
   }
 }
-
 
 export default Buttons
