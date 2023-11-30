@@ -43,6 +43,7 @@ class DigitButton extends Button {
     this.element = $(this.id)
     this.element.onclick = () => {
       this.controller.setNumber(this.value)
+      console.log("yo")
     }
   }
 }
@@ -116,7 +117,7 @@ class BackspaceButton extends Button {
     super()
     this.element = $("backspace")
     this.element.onclick = () => {
-      this.controller.clear()
+      this.controller.erase()
     }
   }
 };
@@ -138,7 +139,8 @@ class ClearButton extends Button {
     super()
     this.element = $("CLR")
     this.element.onclick = () => {
-      this.controller.erase()
+      this.controller.reset()
+
     }
   }
 }
