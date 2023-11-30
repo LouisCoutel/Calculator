@@ -3,6 +3,7 @@ type Operator = {
     sign: string,
     operate: Function
 }
+// W.I.P
 
 class View {
     id: string
@@ -14,7 +15,10 @@ class View {
         this.id = "screen"
         this.screen = document.getElementById(this.id) as HTMLElement
 
-        this.buttons = new Buttons()
+    }
+
+    setButtons() {
+        this.buttons = new Buttons
     }
 
     render() {
@@ -32,5 +36,4 @@ class View {
 }
 
 const view = new View
-view.constructor = () => { return view };
 export default view

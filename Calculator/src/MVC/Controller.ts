@@ -6,6 +6,7 @@ import { Plus, Minus, Divider, Multiplier } from "../classes/Operators"
 type Operator = {
     sign: string,
     operate: Function
+
 }
 class Controller {
     #model: any
@@ -14,13 +15,16 @@ class Controller {
         this.#model = model
         this.#view = view
     }
+    setButtons() {
+        this.#view.setButtons()
+    }
     setOperator(input: Operator) {
         this.#model.operators.push(input)
         this.#view.render()
     }
 
     setNumber(input: number) {
-        if (this.#model.operators.length >= this.#model.terms.length) {
+        if (this.#model.operators.length >= this.#model.terms.length && this.#model.terms.length != 0) {
             this.#model.terms[this.#model.terms.length - 1].pushNum(input)
         } else {
             this.#model.terms.push(new Term(input))
@@ -60,8 +64,8 @@ class Controller {
     round(num: number) {
         return (num * 100000) / 100000
     }
+
 }
 
 const controller = new Controller()
-controller.constructor = () => { return controller };
 export default controller

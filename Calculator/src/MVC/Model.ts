@@ -18,8 +18,12 @@ class Model {
     setFloat() {
         this.terms[this.terms.length - 1].setFloat()
     }
+    clearData() {
+        this.terms = []
+        this.operators = []
+        this.result = 0
+    }
 }
 
 const model = new Model
-model.constructor = () => { return model };
 export default model

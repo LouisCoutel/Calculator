@@ -2,7 +2,7 @@
   "name": "calculator",
   "version": "1.0.0",
   "description": "Simple calculator in the browser",
-  "main": "script.js",
+  "main": "app.ts",
   "type": "module",
   "scripts": {
     "test": "jest"
