@@ -2,6 +2,7 @@ import model from "./Model"
 import view from "./View"
 import Term from "../classes/Term"
 import { Plus, Minus, Divider, Multiplier } from "../classes/Operators"
+
 type Operator = {
     sign: string,
     operate: Function
@@ -25,8 +26,6 @@ class Controller {
             this.#model.terms.push(new Term(input))
         }
     }
-
-
     reset() {
         this.#model.clearData()
         this.#view.render()
@@ -37,7 +36,6 @@ class Controller {
             this.#view.render()
         }, 1500);
     }
-
     calcResult() {
         const opClone: Array<Operator> = this.#model.operators.map((op: Operator) => op)
         const termClone: Array<Term> = this.#model.terms.map((term: Term) => term)
@@ -46,7 +44,6 @@ class Controller {
         }
         this.#model.result = this.round(termClone[0].value)
     }
-
     compute(opClone: Array<Operator>, termClone: Array<Term>) {
         let index = opClone.findIndex(op => op instanceof Multiplier)
         if (!index) {
@@ -57,15 +54,12 @@ class Controller {
         termClone.splice(index, 2, new Term(result))
         opClone.splice(index, 1)
     }
-
     erase() {
         this.#model.data.pop()
     }
-
     round(num: number) {
         return (num * 100000) / 100000
     }
-
 }
 
 const controller = new Controller()
