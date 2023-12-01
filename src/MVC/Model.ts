@@ -40,10 +40,7 @@ class Model {
         if (!index) {
             index = 0
         }
-        console.log(opsClone.data)
-        console.log(index)
         const result = opsClone.getAtIndex(index).operate(termsClone.getAtIndex(index).value, termsClone.getAtIndex(index + 1).value)
-        console.log(result)
         termsClone.replaceByResult(index, result)
         opsClone.removeAtIndex(index)
     }
