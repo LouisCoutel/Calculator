@@ -1,9 +1,7 @@
 import controller from "../MVC/Controller"
-import { Minus, Plus, Divider, Multiplier } from "./Operators"
+// import { Minus, Plus, Divider, Multiplier } from "./Operators"
+import { $ } from "../utils/functions"
 
-function $(id: string) {
-  return document.getElementById(id) as HTMLElement
-}
 
 class Buttons {
   digitsButtons: Array<DigitButton>
@@ -26,88 +24,80 @@ class Buttons {
 }
 
 class Button {
+  id: string
   controller: any
+  element: HTMLElement | undefined
   constructor() {
     this.controller = controller
+    this.element = undefined
+    this.id = ""
   }
 }
 
 class DigitButton extends Button {
   value: number
-  id: string
-  element: HTMLElement
   constructor(input: number) {
     super()
     this.value = input
     this.id = input.toString()
     this.element = $(this.id)
-    this.element.onclick = () => {
-      this.controller.setNumber(this.value)
-      console.log("yo")
-    }
+    // this.element.onclick = () => {
+    //   this.controller.setNumber(this.value)
+    // }
   }
 }
 
 class PlusButton extends Button {
-  id: string
-  element: HTMLElement
   constructor() {
     super()
     this.id = "+"
-    this.element = this.element = $("+")
-    this.element.onclick = () => {
-      this.controller.setOperator(new Plus)
-    }
+    this.element = $("+")
+    // this.element.onclick = () => {
+    //   this.controller.setOperator(new Plus)
+    // }
   }
 }
 
 class MinusButton extends Button {
-  id: string
-  element: HTMLElement
   constructor() {
     super()
     this.id = "-"
-    this.element = this.element = $("-")
-    this.element.onclick = () => {
-      this.controller.setOperator(new Minus)
-    }
+    this.element = $("-")
+    // this.element.onclick = () => {
+    //   this.controller.setOperator(new Minus)
+    // }
   }
 }
 
 class DividerButton extends Button {
-  id: string
-  element: HTMLElement
   constructor() {
     super()
     this.id = "/"
-    this.element = this.element = $("/")
-    this.element.onclick = () => {
-      this.controller.setOperator(new Divider)
-    }
+    this.element = $("/")
+    // this.element.onclick = () => {
+    //   this.controller.setOperator(new Divider)
+    // }
   }
 }
 
 class MultiplierButton extends Button {
-  id: string
-  element: HTMLElement
   constructor() {
     super()
     this.id = "*"
-    this.element = this.element = $("*")
-    this.element.onclick = () => {
-      this.controller.setOperator(new Multiplier)
-    }
+    this.element = $("*")
+    // this.element.onclick = () => {
+    //   this.controller.setOperator(new Multiplier)
+    // }
   }
 }
 
 class FloatButton extends Button {
-  element: HTMLElement
   constructor() {
     super()
     this.element = $("float")
-    this.element.onclick = () => {
-      this.controller.addFloat()
-    }
+    // this.element.onclick = () => {
+    //   this.controller.addFloat()
+    // }
   }
 }
 
@@ -116,20 +106,20 @@ class BackspaceButton extends Button {
   constructor() {
     super()
     this.element = $("backspace")
-    this.element.onclick = () => {
-      this.controller.erase()
-    }
+    // this.element.onclick = () => {
+    //   this.controller.erase()
+    // }
   }
-};
+}
 
 class EqualButton extends Button {
   element: HTMLElement
   constructor() {
     super()
     this.element = $("=")
-    this.element.onclick = () => {
-      this.controller.compute(this.element)
-    }
+    // this.element.onclick = () => {
+    //   this.controller.compute(this.element)
+    // }
   }
 }
 
@@ -138,10 +128,9 @@ class ClearButton extends Button {
   constructor() {
     super()
     this.element = $("CLR")
-    this.element.onclick = () => {
-      this.controller.reset()
-
-    }
+    // this.element.onclick = () => {
+    //   this.controller.reset()
+    // }
   }
 }
 

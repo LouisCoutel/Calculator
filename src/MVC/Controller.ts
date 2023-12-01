@@ -1,82 +1,52 @@
 import model from "./Model"
 import view from "./View"
 import Term from "../classes/Term"
-import ModelHelper from "../classes/ModelHelper"
-import { Divider, Multiplier } from "../classes/Operators"
+import { Operator } from "../utils/types"
 
-type Operator = {
-    sign: string,
-    operate: Function
-
-}
 class Controller {
     model: any
-    #view: any
-    helper: ModelHelper
+    view: any
+
     constructor() {
         this.model = model
-        this.#view = view
+        this.view = view
     }
+
     setButtons() {
-        this.#view.setButtons()
+        this.view.setButtons()
     }
-
-
     setOperator(input: Operator) {
         if (this.model.getLast() instanceof Term) {
-            this.model.operators.push(input)
+            this.model.operators.pushNew(input)
         } else if (this.model.getLast() != undefined) {
-            this.model.replaceLastOp(input)
+            this.model.operators.replaceLast(input)
         }
-        this.#view.render()
+        this.view.render()
     }
-
     setNumber(input: number) {
         if (this.model.getLast() == undefined) {
-            this.model.pushTerm(new Term(input))
+            this.model.terms.pushNew(input)
         } else if (this.model.getLast() instanceof Term) {
-            this.model.pushNum(input)
+            this.model.terms.pushNumToLast(input)
         }
-        this.#view.render()
+        this.view.render()
     }
     reset() {
         this.model.clearData()
-        this.#view.render()
+        this.view.render()
     }
     errorReset() {
         setTimeout(() => {
             this.reset();
         }, 1500);
     }
-    calcResult() {
-
-        const termClone: Array<Term> = this.model.terms.map((term: Term) => term)
-        while (opClone.length > 0) {
-            this.compute(opClone, termClone)
-        }
-        this.model.result = this.round(termClone[0].value)
-    }
-    compute() {
-        let index = opClone.findIndex(op => op instanceof Multiplier)
-        if (!index) {
-            index = opClone.findIndex(op => op instanceof Divider)
-        }
-        if (!index) { index = 0 }
-        const result = opClone[index].operate(termClone[index].value, termClone[index + 1].value)
-        termClone.splice(index, 2, new Term(result))
-        opClone.splice(index, 1)
-    }
     erase() {
         if (this.model.getLast() instanceof Term) {
-            this.model.popLastNum()
+            this.model.terms.pop()
         } else if (this.model.getLast() != undefined) {
-            this.model.popLastOp()
+            this.model.operators.pop()
         }
     }
-    round(num: number) {
-        return (num * 100000) / 100000
-    }
-
 }
 
 const controller = new Controller()
