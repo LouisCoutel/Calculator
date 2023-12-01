@@ -21,11 +21,12 @@ export class DataArray {
     getLast() {
         return this.data[this.getLength() - 1]
     }
-    getAtIndex(index: number) {
-        return this.data[index]
-    }
+
     pop() {
         this.data.pop()
+    }
+    getAtIndex(index: number) {
+        return this.data[index]
     }
 }
 
@@ -40,11 +41,13 @@ export class OperatorsArray extends DataArray {
     clear() {
         this.data = []
     }
-    geIndexOfMult() {
-        return this.data.findIndex(op => op instanceof Multiplier)
+    getIndexOfMult() {
+        const i = this.data.findIndex(op => op instanceof Multiplier)
+        if (i >= 0) { return i } else { return undefined }
     }
     getIndexOfDiv() {
-        return this.data.findIndex(op => op instanceof Divider)
+        const i = this.data.findIndex(op => op instanceof Divider)
+        if (i >= 0) { return i } else { return undefined }
     }
     pushNew(op: Operator) {
         this.data.push(op)
@@ -52,6 +55,7 @@ export class OperatorsArray extends DataArray {
     replaceLast(input: Operator) {
         this.data.splice((this.getLength() - 1), 1, input)
     }
+
 }
 export class OpsArrClone extends OperatorsArray {
     data: Array<Operator>
@@ -63,6 +67,7 @@ export class OpsArrClone extends OperatorsArray {
     removeAtIndex(index: number) {
         this.data.splice(index, 1)
     }
+
 }
 
 export class TermsArray extends DataArray {
@@ -103,5 +108,7 @@ export class TermsArrClone extends TermsArray {
             throw new Error("Cannot get final result, not all terms have been computed")
         }
     }
+
+
 }
 

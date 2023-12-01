@@ -24,9 +24,9 @@ class Controller {
         this.view.render()
     }
     setNumber(input: number) {
-        if (this.model.getLast() == undefined) {
+        if (this.model.getLast() instanceof Term == false) {
             this.model.terms.pushNew(input)
-        } else if (this.model.getLast() instanceof Term) {
+        } else if(this.model.getLast() != undefined){
             this.model.terms.pushNumToLast(input)
         }
         this.view.render()
@@ -46,6 +46,9 @@ class Controller {
         } else if (this.model.getLast() != undefined) {
             this.model.operators.pop()
         }
+    }
+    launchCompute() {
+        this.model.calcResult()
     }
 }
 

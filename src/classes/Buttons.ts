@@ -1,5 +1,5 @@
 import controller from "../MVC/Controller"
-// import { Minus, Plus, Divider, Multiplier } from "./Operators"
+import { Minus, Plus, Divider, Multiplier } from "./Operators"
 import { $ } from "../utils/functions"
 
 
@@ -41,9 +41,9 @@ class DigitButton extends Button {
     this.value = input
     this.id = input.toString()
     this.element = $(this.id)
-    // this.element.onclick = () => {
-    //   this.controller.setNumber(this.value)
-    // }
+    this.element.onclick = () => {
+      this.controller.setNumber(this.value)
+    }
   }
 }
 
@@ -52,9 +52,9 @@ class PlusButton extends Button {
     super()
     this.id = "+"
     this.element = $("+")
-    // this.element.onclick = () => {
-    //   this.controller.setOperator(new Plus)
-    // }
+    this.element.onclick = () => {
+      this.controller.setOperator(new Plus)
+    }
   }
 }
 
@@ -63,9 +63,9 @@ class MinusButton extends Button {
     super()
     this.id = "-"
     this.element = $("-")
-    // this.element.onclick = () => {
-    //   this.controller.setOperator(new Minus)
-    // }
+    this.element.onclick = () => {
+      this.controller.setOperator(new Minus)
+    }
   }
 }
 
@@ -74,9 +74,9 @@ class DividerButton extends Button {
     super()
     this.id = "/"
     this.element = $("/")
-    // this.element.onclick = () => {
-    //   this.controller.setOperator(new Divider)
-    // }
+    this.element.onclick = () => {
+      this.controller.setOperator(new Divider)
+    }
   }
 }
 
@@ -85,9 +85,9 @@ class MultiplierButton extends Button {
     super()
     this.id = "*"
     this.element = $("*")
-    // this.element.onclick = () => {
-    //   this.controller.setOperator(new Multiplier)
-    // }
+    this.element.onclick = () => {
+      this.controller.setOperator(new Multiplier)
+    }
   }
 }
 
@@ -95,9 +95,9 @@ class FloatButton extends Button {
   constructor() {
     super()
     this.element = $("float")
-    // this.element.onclick = () => {
-    //   this.controller.addFloat()
-    // }
+    this.element.onclick = () => {
+      this.controller.addFloat()
+    }
   }
 }
 
@@ -106,9 +106,9 @@ class BackspaceButton extends Button {
   constructor() {
     super()
     this.element = $("backspace")
-    // this.element.onclick = () => {
-    //   this.controller.erase()
-    // }
+    this.element.onclick = () => {
+      this.controller.erase()
+    }
   }
 }
 
@@ -117,9 +117,9 @@ class EqualButton extends Button {
   constructor() {
     super()
     this.element = $("=")
-    // this.element.onclick = () => {
-    //   this.controller.compute(this.element)
-    // }
+    this.element.onclick = () => {
+      this.controller.launchCompute(this.element)
+    }
   }
 }
 
@@ -128,9 +128,9 @@ class ClearButton extends Button {
   constructor() {
     super()
     this.element = $("CLR")
-    // this.element.onclick = () => {
-    //   this.controller.reset()
-    // }
+    this.element.onclick = () => {
+      this.controller.reset()
+    }
   }
 }
 

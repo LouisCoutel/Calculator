@@ -9,19 +9,19 @@ class View {
 
     constructor() {
         this.screen = $("screen")
-        this.buttons = new Buttons
         this.displayData = []
         this.model = model
     }
-
+    setButtons() {this.buttons = new Buttons}
     render() {
         this.displayData = []
         for (let i = 0; i < this.model.terms.getLength(); i++) {
-            this.displayData.push(this.model.terms.getAtIndex(i).value.toString())
-            if (this.model.operators[0]) {
+            this.displayData.push(this.model.terms.getAtIndex(i).value)
+            if (this.model.operators.getAtIndex(i)) {
                 this.displayData.push(this.model.operators.getAtIndex(i).sign)
             }
         }
+        this.screen.innerText = this.displayData.join(" ")
     }
 }
 
