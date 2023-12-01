@@ -1,20 +1,19 @@
 import Buttons from "../classes/Buttons"
-type Operator = {
-    sign: string,
-    operate: Function
-}
+import model from "./Model"
 // W.I.P
 
 class View {
     id: string
-    screen: HTMLElement
+    // screen: HTMLElement
     buttons: any
     model: any
 
+    displayData: Array<string>
     constructor() {
         this.id = "screen"
-        this.screen = document.getElementById(this.id) as HTMLElement
-
+        // this.screen = document.getElementById(this.id) as HTMLElement
+        this.displayData = []
+        this.model = model
     }
 
     setButtons() {
@@ -22,18 +21,14 @@ class View {
     }
 
     render() {
-        const combinedArrs: Array<any> = []
-        this.model.actualNumbers.forEach((number: number, index: number) => {
-            combinedArrs.push(number)
-            const operator: Operator | undefined = this.model.operatorArray[index]
-
-            if (operator != undefined) {
-                combinedArrs.push(operator.sign)
+        this.displayData = []
+        for (let i = 0; i < this.model.terms.length; i++) {
+            this.displayData.push(this.model.terms[i].value.toString())
+            if (this.model.operators[0]) {
+                this.displayData.push(this.model.operators[i].sign)
             }
-        })
-        this.screen.innerText = combinedArrs.map(entry => entry.toString()).join(" ")
+        }
     }
 }
-
 const view = new View
 export default view
