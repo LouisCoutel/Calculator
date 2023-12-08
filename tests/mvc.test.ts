@@ -77,28 +77,6 @@ describe("Controller / Model relation", () => {
 
         controller.reset()
     })
-
-    // test("controller.erase removes last input from model data (single-digit term, last term digit or operator)", () => {
-    //     // controller.setNumber(3)
-    //     // controller.erase()
-    //     // controller.setNumber(4)
-
-    //     // expect(model.terms.data[0]).toBe(4)
-
-    //     // controller.setOperator(new Minus);
-    //     // controller.erase()
-    //     // controller.setOperator(new Plus);
-
-    //     // expect(model.operators.data[0]).toBeInstanceOf(Plus);
-
-    //     // controller.setNumber(3)
-    //     // controller.setNumber(2)
-    //     // controller.erase()
-
-    //     // expect(model.terms.data[1]).toBe(3)
-
-    //     // controller.reset()
-    // })
 })
 
 describe("Model", () => {
