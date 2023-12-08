@@ -8,7 +8,7 @@ jobs:
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "14"
+          node-version: "latest"
 
       # Speed up subsequent runs with caching
       - name: Cache node modules
