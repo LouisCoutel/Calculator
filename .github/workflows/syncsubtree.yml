@@ -16,4 +16,3 @@ jobs:
                 repo: 'LouisCoutel/Calculator'
                 path: 'Calculator'
                 deploy_key: ${{ secrets.DEPLOY_KEY }}
-        
