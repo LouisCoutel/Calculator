@@ -14,4 +14,4 @@ jobs:
                 git config user.name "LouisCoutel"
                 git config user.email "louiscoutel75@gmail.com"
                 git status
-                git subtree push --prefix Calculator ${{ secrets.DEPLOY_KEY }} main
+                git subtree push --prefix Calculator git@github.com:LouisCoutel/Calculator.git main
