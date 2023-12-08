@@ -1,15 +1,15 @@
-name: Vite Deploy
-on: push
+name: Run test on subfolder
+on: status
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
       - name: Setup Node.js
         uses: actions/setup-node@v1
         with:
-          node-version: "18"
-
+            node-version: "18"
+            
       # Speed up subsequent runs with caching
       - name: Cache node modules
         uses: actions/cache@v2
@@ -25,11 +25,9 @@ jobs:
             ${{ runner.os }}-
 
       - name: Install Dependencies
+        working-directory: './Calculator'
         run: npm install
 
       - name: Run tests on subfolder
+        working-directory: './Calculator'
         run: npm test
-        working-directory: ./Calculator
-
-      - name: Run deploy
-        run: npm run deploy
