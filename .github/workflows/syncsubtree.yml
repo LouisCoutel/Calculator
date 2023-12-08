@@ -8,11 +8,9 @@ jobs:
 
         steps:
           - name: Git Checkout
-            uses: actions/checkout@v2
-
-          - name: nxtlvlsoftware/git-subtree
-            uses: NxtLvLSoftware/git-subtree-action@1.1
-            with: 
-                repo: 'LouisCoutel/Calculator'
-                path: 'Calculator'
-                deploy_key: ${{ secrets.DEPLOY_KEY }}
+            uses: actions/checkout@v4
+            with:
+                fetch-depth: 0
+          - name: Git
+            run: |
+                git subtree --prefix Calculator ${{secrets.DEPLOY_KEY}} main
