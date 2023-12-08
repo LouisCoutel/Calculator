@@ -1,19 +1,19 @@
 name: Sync Subtree
-on: workflow_dispatch
+on: push
+permissions: write-all
+
 jobs:
     sync:
-
         runs-on: ubuntu-latest
 
         steps:
           - name: Git Checkout
             uses: actions/checkout@v2
 
-          - name: Git
-            working-directory: ./
-            run : |
-                pwd
-                git config user.name "LouisCoutel"
-                git config user.email "louiscoutel75@gmail.com"
-                git status
-                git subtree push --prefix Calculator git@github.com:LouisCoutel/Calculator.git main
+          - name: nxtlvlsoftware/git-subtree
+            uses: NxtLvLSoftware/git-subtree-action@1.1
+            with: 
+                repo: 'LouisCoutel/Calculator'
+                path: 'Calculator'
+                deploy_key: ${{ secrets.DEPLOY_KEY }}
+        
