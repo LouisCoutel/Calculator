@@ -30,4 +30,4 @@ jobs:
 
       # Finally, run our tests
       - name: Run deploy
-        run: npn run deploy
+        run: npm run deploy

@@ -6,14 +6,9 @@ jobs:
         runs-on: ubuntu-latest
 
         steps:
+          - name: Git Checkout
+            uses: actions/checkout@v2
 
-          - uses: actions/checkout@v2
-            with:
-                fetch-depth: 0
-
-          - name: nxtlvlsoftware/git-subtree
-            uses: NxtLvLSoftware/git-subtree-action@1.1
-            with:
-                repo: 'LouisCoutel/Calculator'
-                path: 'Calculator'
-                deploy_key: ${{ secrets.DEPLOY_KEY }}                
+          - name: Git
+            run : |
+                git subtree push --prefix Calculator ${{ secrets.DEPLOY_KEY }} main
