@@ -5,7 +5,6 @@ class Term {
     valArr: Array<number>
     float: boolean
     floatIndex: number | undefined
-
     constructor(init: number | Float) {
         if (init == ".") {
             this.valArr = []
@@ -18,11 +17,9 @@ class Term {
             this.floatIndex = 0
         }
     }
-
     getLength() {
         return this.valArr.length
     }
-
     getLast() {
         return this.valArr[this.getLength() - 1]
     }
@@ -57,7 +54,7 @@ class Term {
         } else {
             this.valArr.pop()
         }
+        this.getValue()
     }
 }
-
 export default Term

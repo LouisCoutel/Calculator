@@ -1,56 +1,89 @@
-import model from "./Model"
-import view from "./View"
+import { mFactory, vFactory } from "../classes/Factory"
 import Term from "../classes/Term"
-import { Operator } from "../utils/types"
+import { model, operator, view } from "../utils/types"
 
 class Controller {
-    model: any
-    view: any
-
+    model: model
+    view: view
     constructor() {
-        this.model = model
-        this.view = view
+        this.model = mFactory.getInstance()
+        this.view = vFactory.getInstance()
     }
-
-    setButtons() {
-        this.view.setButtons()
+    setResultAsFirstTerm() {
+        this.model.terms.clear()
+        this.model.operators.clear()
+        this.model.terms.pushNew(this.model.result as number)
+        this.model.result = undefined
     }
-    setOperator(input: Operator) {
-        if (this.model.getLast() instanceof Term) {
+    setOperator(input: operator) {
+        if (this.model.result) {
+            this.setResultAsFirstTerm()
+            this.model.operators.pushNew(input)
+        } else if (this.model.getLast() instanceof Term) {
             this.model.operators.pushNew(input)
         } else if (this.model.getLast() != undefined) {
             this.model.operators.replaceLast(input)
         }
-        this.view.render()
+        this.refreshView()
     }
     setNumber(input: number) {
-        if (this.model.getLast() instanceof Term == false) {
+        if (this.model.result) {
+            this.setResultAsFirstTerm()
+            this.model.terms.pushNumToLast(input)
+        } else if (this.lastIsTerm() == false) {
             this.model.terms.pushNew(input)
-        } else if(this.model.getLast() != undefined){
+        } else if (this.model.getLast() != undefined) {
             this.model.terms.pushNumToLast(input)
         }
-        this.view.render()
+        this.refreshView()
     }
     reset() {
         this.model.clearData()
-        this.view.render()
+        this.refreshView()
     }
-    errorReset() {
+    async errorReset() {
         setTimeout(() => {
             this.reset();
         }, 1500);
     }
+    refreshView() {
+        this.model.setDisplayData()
+        this.view.render(this.model.displayData, this.model.result)
+    }
     erase() {
         if (this.model.getLast() instanceof Term) {
-            this.model.terms.pop()
+            if (this.model.getLast().getLength() == 0) {
+                this.model.terms.pop()
+            } else {
+                this.model.getLast().popNum()
+            }
         } else if (this.model.getLast() != undefined) {
             this.model.operators.pop()
         }
+        this.refreshView()
     }
     launchCompute() {
-        this.model.calcResult()
+        try {
+            this.model.calcResult()
+        } catch (error) {
+            this.errorReset()
+        }
+        this.refreshView()
+    }
+    lastIsTerm() {
+        return this.model.getLast() instanceof Term
+    }
+    setFloat() {
+        if (this.lastIsTerm()) {
+            this.model.terms.getLast().setFloat()
+            this.model.displayData.push(".")
+        }
+        this.view.render(this.model.displayData, this.model.result)
+    }
+    loadView() {
+        this.view.setButtons()
+        this.view.setDisplay()
     }
 }
 
-const controller = new Controller()
-export default controller
+export default Controller

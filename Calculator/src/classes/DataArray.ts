@@ -1,4 +1,4 @@
-import { Operator } from "../utils/types"
+import { operator } from "../utils/types"
 import Term from "./Term"
 import { Multiplier, Divider } from "./Operators"
 
@@ -31,16 +31,13 @@ export class DataArray {
 }
 
 export class OperatorsArray extends DataArray {
-    data: Array<Operator>
+    data: Array<operator>
 
     constructor() {
         super()
         this.data = []
     }
 
-    clear() {
-        this.data = []
-    }
     getIndexOfMult() {
         const i = this.data.findIndex(op => op instanceof Multiplier)
         if (i >= 0) { return i } else { return undefined }
@@ -49,18 +46,18 @@ export class OperatorsArray extends DataArray {
         const i = this.data.findIndex(op => op instanceof Divider)
         if (i >= 0) { return i } else { return undefined }
     }
-    pushNew(op: Operator) {
+    pushNew(op: operator) {
         this.data.push(op)
     }
-    replaceLast(input: Operator) {
+    replaceLast(input: operator) {
         this.data.splice((this.getLength() - 1), 1, input)
     }
 
 }
 export class OpsArrClone extends OperatorsArray {
-    data: Array<Operator>
+    data: Array<operator>
 
-    constructor(originalData: Array<Operator>) {
+    constructor(originalData: Array<operator>) {
         super()
         this.data = originalData
     }
@@ -85,7 +82,7 @@ export class TermsArray extends DataArray {
         this.getLast().pushNum(num)
     }
     round(num: number) {
-        return (num * 100000) / 100000
+        return Math.round(num * 10000000) / 10000000
     }
 }
 
@@ -102,7 +99,7 @@ export class TermsArrClone extends TermsArray {
     }
     getFinalResult() {
         if (this.getLength() > 0) {
-            return this.getLast().value
+            return this.round(this.getLast().value)
         }
         else {
             throw new Error("Cannot get final result, not all terms have been computed")
