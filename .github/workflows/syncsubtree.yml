@@ -14,7 +14,8 @@ jobs:
           - name: Setup tmate session
             if: success() || failure()
             uses: mxschmitt/action-tmate@v3
-          - name: Git
-            run: |
-                git subtree pull --prefix Calculator ${{secrets.DEPLOY_KEY}} main
-          
+          - uses: nxtlvlsoftware/git-subtree-action@1.1
+            with:
+              repo: 'LouisCoutel/Calculator'
+              path: 'Calculator'
+              deploy_key: ${{ secrets.DEPLOY_KEY }}
