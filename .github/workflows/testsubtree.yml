@@ -1,5 +1,5 @@
 name: Run test on subfolder
-on: status
+on: push
 jobs:
   test:
     runs-on: ubuntu-latest
