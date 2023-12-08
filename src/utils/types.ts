@@ -4,7 +4,7 @@ import View from "../MVC/View"
 import { DataArray } from "../classes/DataArray"
 import { Operator } from "../classes/Operators"
 import Term from "../classes/Term"
-import Buttons from "../components/Buttons"
+import { Buttons } from "../components/Buttons"
 import Display from "../components/Display"
 
 export class Placeholder { }
