@@ -3,16 +3,20 @@ import { TermsArray, OperatorsArray, OpsArrClone, TermsArrClone } from '../class
 class Model {
     terms: TermsArray
     operators: OperatorsArray
-    result: number
+    result: number | undefined
+    displayData: Array<string | number>
+
     constructor() {
         this.terms = new TermsArray
         this.operators = new OperatorsArray
-        this.result = 0
+        this.result = undefined
+        this.displayData = []
     }
+
     clearData() {
         this.terms.clear()
         this.operators.clear()
-        this.result = 0
+        this.result = undefined
     }
     getLast() {
         if (this.terms.getLength() == 0) {
@@ -35,15 +39,24 @@ class Model {
     compute(opsClone: OpsArrClone, termsClone: TermsArrClone) {
         let index = opsClone.getIndexOfMult()
         if (!index) {
-            index = opsClone.getIndexOfMult()
+            index = opsClone.getIndexOfDiv()
         }
         if (!index) {
             index = 0
         }
         const result = opsClone.getAtIndex(index).operate(termsClone.getAtIndex(index).value, termsClone.getAtIndex(index + 1).value)
+
         termsClone.replaceByResult(index, result)
         opsClone.removeAtIndex(index)
     }
+    setDisplayData() {
+        this.displayData = []
+        for (let i = 0; i < this.terms.getLength(); i++) {
+            this.displayData.push(this.terms.getAtIndex(i).value)
+            if (this.operators.getAtIndex(i)) {
+                this.displayData.push(this.operators.getAtIndex(i).sign)
+            }
+        }
+    }
 }
-const model = new Model
-export default model
+export default Model

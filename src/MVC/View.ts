@@ -1,29 +1,21 @@
-import Buttons from "../classes/Buttons"
-import model from "./Model"
- import { $ } from "../utils/functions"
-class View {
-    screen: HTMLElement
-    buttons: any
-    model: any
-    displayData: Array<string>
+import { Buttons } from "../components/Buttons"
+import Display from "../components/Display"
 
-    constructor() {
-        this.screen = $("screen")
-        this.displayData = []
-        this.model = model
+class View {
+    declare display: Display
+    declare buttons: Buttons
+    render(inputData: Array<string | number>, resultData: number | undefined) {
+        this.display.setInput(inputData.join(" "))
+        if (resultData) {
+            this.display.setResult(resultData.toString())
+        } else this.display.setResult("")
     }
-    setButtons() {this.buttons = new Buttons}
-    render() {
-        this.displayData = []
-        for (let i = 0; i < this.model.terms.getLength(); i++) {
-            this.displayData.push(this.model.terms.getAtIndex(i).value)
-            if (this.model.operators.getAtIndex(i)) {
-                this.displayData.push(this.model.operators.getAtIndex(i).sign)
-            }
-        }
-        this.screen.innerText = this.displayData.join(" ")
+    setButtons() {
+        this.buttons = new Buttons
+    }
+    setDisplay() {
+        this.display = new Display
     }
 }
 
-const view = new View
-export default view
+export default View

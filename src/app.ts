@@ -1,6 +1,9 @@
-import controller from "./MVC/Controller.js";
+import { cFactory, vFactory, mFactory } from "./classes/Factory";
 
+const controller = cFactory.getInstance()
+const view = vFactory.getInstance()
+const model = mFactory.getInstance()
 
-
-
-controller.view.setButtons()
+window.onload = () => {
+    controller.loadView()
+}

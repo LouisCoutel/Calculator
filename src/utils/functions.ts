@@ -1,5 +1,5 @@
 export function $(id: string) {
-    return document.getElementById(id)
+    return document.getElementById(id) as HTMLElement
 }
 
 export function log(value: string) {
