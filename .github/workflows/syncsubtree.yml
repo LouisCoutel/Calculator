@@ -1,5 +1,5 @@
 name: Sync Subtree
-on: push
+on: workflow_dispatch
 permissions: write-all
 
 jobs:
@@ -11,10 +11,10 @@ jobs:
             uses: actions/checkout@v4
             with:
                 fetch-depth: 0
-
-          - name: Git
-            run: |
-                git subtree pull --prefix Calculator ${{secrets.DEPLOY_KEY}} main
           - name: Setup tmate session
             if: success() || failure()
             uses: mxschmitt/action-tmate@v3
+          - name: Git
+            run: |
+                git subtree pull --prefix Calculator ${{secrets.DEPLOY_KEY}} main
+          
