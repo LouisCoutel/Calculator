@@ -1,5 +1,5 @@
 name: Sync Subtree
-on: push
+on: workflow_dispatch
 jobs:
     sync:
 
@@ -10,8 +10,9 @@ jobs:
             uses: actions/checkout@v2
 
           - name: Git
-            working-directory: ../../
+            working-directory: ./
             run : |
+                pwd
                 git config user.name "LouisCoutel"
                 git config user.email "louiscoutel75@gmail.com"
                 git status
