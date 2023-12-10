@@ -4,6 +4,11 @@
       "skipLibCheck": true,
       "module": "ESNext",
       "moduleResolution": "bundler",
+      "lib": [
+        "es2020",
+        "DOM",
+        "DOM.Iterable"
+      ],
       "allowSyntheticDefaultImports": true
     },
     "include": ["vite.config.ts","./jest-setup.ts","./src", "app.ts","./tests"]
