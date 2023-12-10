@@ -57,4 +57,5 @@ class Term {
         this.getValue()
     }
 }
+
 export default Term
