@@ -16,5 +16,6 @@
         "@typescript-eslint"
     ],
     "rules": {
+        "max-lines":["error",150, true, true]
     }
 }
