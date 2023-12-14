@@ -29,8 +29,8 @@ class Model {
         }
     }
     calcResult() {
-        const termsClone = new TermsArrClone(this.terms.data)
-        const opClone = new OpsArrClone(this.operators.data)
+        const termsClone = new TermsArrClone(this.terms.data.map(item => item))
+        const opClone = new OpsArrClone(this.operators.data.map(item => item))
         while (opClone.getLength() > 0) {
             this.compute(opClone, termsClone)
         }
@@ -52,6 +52,8 @@ class Model {
     setDisplayData() {
         this.displayData = []
         for (let i = 0; i < this.terms.getLength(); i++) {
+            console.log(this.displayData)
+            console.log(this.terms.data)
             this.displayData.push(this.terms.getAtIndex(i).value)
             if (this.operators.getAtIndex(i)) {
                 this.displayData.push(this.operators.getAtIndex(i).sign)
