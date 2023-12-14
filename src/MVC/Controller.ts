@@ -52,7 +52,9 @@ class Controller {
     }
     erase() {
         if (this.model.getLast() instanceof Term) {
-            if (this.model.getLast().getLength() == 0) {
+            if (this.model.getLast().getLength() <= 1) {
+                console.log("last")
+                console.log(this.model.getLast())
                 this.model.terms.pop()
             } else {
                 this.model.getLast().popNum()

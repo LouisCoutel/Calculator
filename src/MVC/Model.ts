@@ -52,8 +52,6 @@ class Model {
     setDisplayData() {
         this.displayData = []
         for (let i = 0; i < this.terms.getLength(); i++) {
-            console.log(this.displayData)
-            console.log(this.terms.data)
             this.displayData.push(this.terms.getAtIndex(i).value)
             if (this.operators.getAtIndex(i)) {
                 this.displayData.push(this.operators.getAtIndex(i).sign)
