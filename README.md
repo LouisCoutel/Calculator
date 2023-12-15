@@ -31,7 +31,7 @@ I wanted to avoid the *Anemic Model* anti-pattern, and in my opinion giving the 
 In the end, I decided to give this responsibility to the model, as computing depends on model data and ends up modifying it.
 
 ## The app
-The app consist in a Model, a View and a Controller instanciated through *Singleton Factories* that expose a `getInstance()` method and replace their constructor with a function returning the current instance for further "foolproofing".
+The app consists of a Model, a View and a Controller instanciated through *Singleton Factories* that expose a `getInstance()` method and replace their constructor with a function returning the current instance for further "foolproofing".
 
 This allowed me to instantiate the controller with the view and model as part of its constructor without having to worry about refering to un-instantiated classes, importing instances, passing instances as parameters or re-instantiating classes that should only have one instance.
 
@@ -41,7 +41,7 @@ The view is comprised of two properties, *buttons* and *display*, and its only m
 The view itself instantiates **Buttons** and **Display** on app launch, when instructed to by the controller. This is not ideal, as I would have prefered to instantiate them directly in the constructor, but as the buttons need to refer to the controller for events handling, the controller has to be fully instanciated first.
 
 #### view.buttons
-The class **Buttons** mirrors the various **HTML button elements** present in the document, by instanciating the appropriate sub-class for each type of button: digits, operators and "features" such as *clear* or *erase*. Each button contains all the appropriate properties, such as their symbol, HTML element and value, and sets an event handler on their element.
+The class **Buttons** mirrors the various **HTML button elements** present in the document, by instanciating the appropriate **Button** sub-class for each type of button: **digitButton**, **operatorButton** and "features" such as **clrButton** or **BackspaceButton**. Each button contains all the appropriate properties, such as their symbol, HTML element and value, and sets an event handler on their element.
 
 When clicked, each button calls a specific controller method with appropriate parameters, so that the controller instructs the view and/or the model accordingly.
 
@@ -56,7 +56,7 @@ The model contains four properties:
 - result: a single value, either undefined or a number
 - displayData: a representation of current input data in a way that can be easily passed down to the view and rendered.
 
-It exposes methods to set, retrieve, modify and perform operations with/on that data, such as ``compute()`` or ``setDisplayData()``
+It exposes methods to set, retrieve, modify and perform operations with/on that data, such as ``compute()`` or ``setDisplayData()``.
 
 #### model.terms & model.operators
 These properties are instances of (respectively) the **TermsArray** and **OperatorsArray** classes, which themselves extend the **DataArray** class. They contain a **data** property and offer methods for setting, getting and modifying data.
@@ -70,8 +70,11 @@ Each Term stores its value as a floating point integer as well as an array of in
 #### Operator
 Each operator is a sub-class of **Operator**, such as **Plus** or **Divider**, containing its sign as a string and exposing an *operate* method that returns the result of the corresponding basic operation when provided with two terms.
 
+#### Computation
+
+When instructed to compute, the model clones its operators and terms arrays, in order to preserve data in case the user decides erase 
+
 ### The controller
 The controller only properties are instances of **Model** and **View**. Its job is to respond to events and exceptions, instruct the model accordingly and pass data from the model to the view.
 
 Most of its methods correspond to specific user inputs : setting an operator, setting a digit, erasing the last inputed digit or operator, setting the result, chaining operations after a computation, reseting... 
-
