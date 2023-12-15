@@ -17,4 +17,6 @@ export type display = Display
 export type dataArray = DataArray
 export type operator = Operator
 export type term = Term
+export type Float = "."
+
 

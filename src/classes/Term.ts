@@ -1,5 +1,4 @@
-type Float = "."
-
+import { Float } from "../utils/types"
 class Term {
     value: number
     valArr: Array<number>
@@ -10,7 +9,7 @@ class Term {
             this.valArr = [0]
             this.value = 0
             this.float = true
-            this.floatIndex = 0
+            this.floatIndex = 1
         } else {
             this.valArr = [init]
             this.value = init
