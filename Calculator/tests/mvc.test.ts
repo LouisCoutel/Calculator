@@ -77,6 +77,22 @@ describe("Controller / Model relation", () => {
 
         controller.reset()
     })
+
+    test("controller handles setting floats, even as first input", () => {
+        controller.setNumber(3)
+        controller.setFloat()
+        controller.setNumber(3)
+        expect(model.terms.data[0].value).toBe(3.3)
+
+        controller.reset()
+
+        controller.setFloat()
+        controller.setNumber(3)
+        expect(model.terms.data[0].value).toBe(0.3)
+
+        controller.reset()
+    })
+
 })
 
 describe("Model", () => {

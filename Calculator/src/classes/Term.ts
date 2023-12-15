@@ -1,20 +1,12 @@
-import { Float } from "../utils/types"
 class Term {
     value: number
     valArr: Array<number>
     float: boolean
     floatIndex: number | undefined
-    constructor(init: number | Float) {
-        if (init == ".") {
-            this.valArr = [0]
-            this.value = 0
-            this.float = true
-            this.floatIndex = 1
-        } else {
-            this.valArr = [init]
-            this.value = init
-            this.float = false
-        }
+    constructor(init: number) {
+        this.valArr = [init]
+        this.value = init
+        this.float = false
     }
     getLength() {
         return this.valArr.length
