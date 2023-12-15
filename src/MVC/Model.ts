@@ -29,8 +29,8 @@ class Model {
         }
     }
     calcResult() {
-        const termsClone = new TermsArrClone(this.terms.data)
-        const opClone = new OpsArrClone(this.operators.data)
+        const termsClone = new TermsArrClone(this.terms.data.map(item => item))
+        const opClone = new OpsArrClone(this.operators.data.map(item => item))
         while (opClone.getLength() > 0) {
             this.compute(opClone, termsClone)
         }

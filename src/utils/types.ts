@@ -18,3 +18,4 @@ export type dataArray = DataArray
 export type operator = Operator
 export type term = Term
 
+

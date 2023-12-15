@@ -52,7 +52,9 @@ class Controller {
     }
     erase() {
         if (this.model.getLast() instanceof Term) {
-            if (this.model.getLast().getLength() == 0) {
+            if (this.model.getLast().getLength() <= 1) {
+                console.log("last")
+                console.log(this.model.getLast())
                 this.model.terms.pop()
             } else {
                 this.model.getLast().popNum()
@@ -77,6 +79,10 @@ class Controller {
         if (this.lastIsTerm()) {
             this.model.terms.getLast().setFloat()
             this.model.displayData.push(".")
+        } else if (this.model.getLast() == undefined) {
+            this.model.terms.pushNew(0)
+            this.model.getLast().setFloat()
+            this.model.displayData.push("0.")
         }
         this.view.render(this.model.displayData, this.model.result)
     }
