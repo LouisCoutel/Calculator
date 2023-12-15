@@ -7,14 +7,14 @@ class Term {
     floatIndex: number | undefined
     constructor(init: number | Float) {
         if (init == ".") {
-            this.valArr = []
+            this.valArr = [0]
             this.value = 0
             this.float = true
+            this.floatIndex = 0
         } else {
             this.valArr = [init]
             this.value = init
             this.float = false
-            this.floatIndex = 0
         }
     }
     getLength() {
