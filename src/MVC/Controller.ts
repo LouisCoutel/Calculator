@@ -80,7 +80,8 @@ class Controller {
             this.model.terms.getLast().setFloat()
             this.model.displayData.push(".")
         } else if (this.model.getLast() == undefined) {
-            this.model.terms.pushNew(".")
+            this.model.terms.pushNew(0)
+            this.model.getLast().setFloat()
             this.model.displayData.push("0.")
         }
         this.view.render(this.model.displayData, this.model.result)
