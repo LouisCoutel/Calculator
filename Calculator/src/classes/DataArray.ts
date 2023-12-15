@@ -1,4 +1,4 @@
-import { operator } from "../utils/types"
+import { operator, Float } from "../utils/types"
 import Term from "./Term"
 import { Multiplier, Divider } from "./Operators"
 
@@ -75,7 +75,7 @@ export class TermsArray extends DataArray {
         this.data = []
     }
 
-    pushNew(val: number) {
+    pushNew(val: number | Float) {
         this.data.push(new Term(val))
     }
     pushNumToLast(num: number) {

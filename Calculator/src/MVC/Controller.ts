@@ -79,6 +79,9 @@ class Controller {
         if (this.lastIsTerm()) {
             this.model.terms.getLast().setFloat()
             this.model.displayData.push(".")
+        } else if (this.model.getLast() == undefined) {
+            this.model.terms.pushNew(".")
+            this.model.displayData.push("0.")
         }
         this.view.render(this.model.displayData, this.model.result)
     }
