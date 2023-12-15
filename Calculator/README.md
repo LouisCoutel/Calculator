@@ -72,9 +72,22 @@ Each operator is a sub-class of **Operator**, such as **Plus** or **Divider**, c
 
 #### Computation
 
-When instructed to compute, the model clones its operators and terms arrays, in order to preserve data in case the user decides erase 
+When instructed to compute, the model clones its operators and terms arrays, in order to preserve data input data. It then triggers a while loop that runs the following sequence of actions :
+
+- get the index of the first multiplier operator
+- if there is none, get the index of the first divider
+- if there is none, set index at 0
+- instruct the operator at this index to operate, with the values of terms[index] and terms[index + 1] provided as parameters, and return the result. If this results in trying to divide by 0, an exception is thrown that triggers a reset.
+- replace terms[index] by the result and remove terms[index + 1]
+- when there is no more operators left, end the loop and set the only remaining term's value as the final result
 
 ### The controller
 The controller only properties are instances of **Model** and **View**. Its job is to respond to events and exceptions, instruct the model accordingly and pass data from the model to the view.
 
 Most of its methods correspond to specific user inputs : setting an operator, setting a digit, erasing the last inputed digit or operator, setting the result, chaining operations after a computation, reseting... 
+
+Conditions and safeties are put in place at the appropriate steps to ensure that user input doesn't result in un-manageable operations, but also to improve user experience.
+
+For example, it's not possible to set an operator before any digit as been inputed, or to divide by zero, or to set more than one floating point in a term.
+
+On the other hand, if the first input is a floating point, "0." will be displayed, even tho this is effectively null. Once a computation as been performed, it's possible to set new operators or terms in order to perform a new computation with the result of the previous one.
