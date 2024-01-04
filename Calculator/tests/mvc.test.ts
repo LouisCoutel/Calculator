@@ -45,7 +45,6 @@ describe("Controller / Model relation", () => {
     test("model keeps data in memory and controller.reset sets all back to init state", () => {
         expect(model.operators.data[0]).toBeInstanceOf(Minus)
         expect(model.terms.data[0]).toBeInstanceOf(Term)
-        console.log(model.operators.data)
         const resetSpy = jest.spyOn(controller, "reset")
         const clearDataSpy = jest.spyOn(model, "clearData")
         controller.reset()
