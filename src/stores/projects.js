@@ -8,6 +8,9 @@ export const useProjects = defineStore('useProjects', {
         },
         {
             name: 'MyTopTracks', href: './MyTopTracks/MTT.html', img: mttUrl, alt: "Une carte du monde sur laquelle se surimpose mes top tracks sur Deezer"
+        },
+        {
+            name: 'List', href: './List/VueList/index.html', img: mttUrl, alt: "Une carte du monde sur laquelle se surimpose mes top tracks sur Deezer"
         }
         ]
     }),
