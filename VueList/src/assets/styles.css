@@ -1,0 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Lexend:wght@100;200;300;400;500;600;700;800&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+  font-family: 'Neue Montreal';
+  font-weight: 300;
+  src: url('./fonts/PPNeueMontreal/OTF/PPNeueMontreal-Thin.otf');
+}
+@font-face {
+  font-family: 'Neue Montreal';
+  font-weight: 400;
+  src: url('./fonts/PPNeueMontreal/OTF/PPNeueMontreal-Book.otf');
+}
+@font-face {
+  font-family: 'Neue Montreal';
+  font-weight: 500;
+  src: url('./fonts/PPNeueMontreal/OTF/PPNeueMontreal-Medium.otf');
+}
+@font-face {
+  font-family: 'Neue Montreal';
+  font-weight: 700;
+  src: url('./fonts/PPNeueMontreal/OTF/PPNeueMontreal-Bold.otf');
+}
+@font-face {
+  font-family: 'Lexend';
+  font-weight: 200;
+  src: url('./fonts/Lexend/static/Lexend-ExtraLight.ttf');
+}
+@font-face {
+  font-family: 'Lexend';
+  font-weight: 400;
+  src: url('./fonts/Lexend/static/Lexend-Regular.ttf');
+}
+@font-face {
+  font-family: 'Lexend';
+  font-weight: 500;
+  src: url('./fonts/Lexend/static/Lexend-Medium.ttf');
+}
+@font-face {
+  font-family: 'Lexend';
+  font-weight: 700;
+  src: url('./fonts/Lexend/static/Lexend-Bold.ttf');
+}
