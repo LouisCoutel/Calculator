@@ -1,56 +1,57 @@
 /* eslint-disable eqeqeq */
-import { defineStore } from 'pinia'
-import { types } from '../types'
+import { defineStore } from "pinia"
+import { types } from "../types"
 
-export const useSearchResults = defineStore('useSearchResults', {
+export const useSearchResults = defineStore("useSearchResults", {
     state: () => ({
         albums: [],
         books: [],
         movies: [],
-        query: '',
+        query: "",
         pickedType: types[0],
-        pickerOpened: false
+        pickerOpened: false,
     }),
 
     getters: {
-        unpickedTypes: state => {
-            return types.filter(obj =>
-                obj != state.pickedType
-            )
-        }
+        unpickedTypes: (state) => {
+            return types.filter((obj) => obj != state.pickedType)
+        },
     },
 
     actions: {
-        async find () {
-            this.router.replace({ name: 'load' })
+        async find() {
+            this.router.replace({ name: "load" })
             this.endSearch()
             const res = await fetch(`ext/find/${this.pickedType.name}/${this.query}`)
-            this.router.replace({ name: 'search' })
+            this.router.replace({ name: "search" })
             const data = await res.json()
             console.log(await data)
             this.albums = await data.albums
             this.movies = await data.movies
             this.books = await data.books
         },
-        endSearch () {
+
+        endSearch() {
             this.albums = []
             this.movies = []
             this.books = []
         },
 
-        setQuery (val) {
+        setQuery(val) {
             this.query = val
         },
-        openPicker () {
+
+        openPicker() {
             this.pickerOpened = true
         },
-        closePicker () {
+
+        closePicker() {
             this.pickerOpened = false
         },
 
-        setType (type) {
+        setType(type) {
             this.pickedType = type
             this.pickerOpened = false
-        }
-    }
+        },
+    },
 })

@@ -1,4 +1,4 @@
-const mongoose = require('mongoose')
+const mongoose = require("mongoose")
 
 const albumSchema = new mongoose.Schema({
     note: { type: String, required: false },
@@ -9,9 +9,9 @@ const albumSchema = new mongoose.Schema({
     genre: { type: String, required: false },
     img: { type: String, required: false },
     title: { type: String, required: true },
-    type: { type: String, required: true }
+    type: { type: String, required: true },
 })
 
-const Album = mongoose.model('Album', albumSchema)
+const Album = mongoose.model("Album", albumSchema)
 
 module.exports = Album

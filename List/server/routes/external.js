@@ -1,6 +1,6 @@
-const express = require('express')
+const express = require("express")
 const router = express.Router()
-const externalCtrl = require('../controllers/external')
+const externalCtrl = require("../controllers/external")
 
-router.get('/find/:type/:query', externalCtrl.find)
+router.get("/find/:type/:query", externalCtrl.find)
 module.exports = router

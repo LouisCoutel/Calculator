@@ -10,7 +10,7 @@ const props = defineProps({
 const brand = props.brand
 const albumUrl = inject('albumUrl').value
 
-function openLink () {
+function openLink() {
     console.log(albumUrl)
     window.open(albumUrl, '_blank')
 }
@@ -18,6 +18,7 @@ function openLink () {
 const alt = `Logo of ${brand}`
 
 const brandStyle = {}
+
 if (brand == 'YouTube') {
     brandStyle.logo = ref('')
     brandStyle.bg = '#F00'
@@ -29,7 +30,7 @@ if (brand == 'YouTube') {
     brandStyle.bg = '#1DB954'
 }
 
-function changeLogo (event) {
+function changeLogo(event) {
     if (event.type == 'mouseenter') {
         brandStyle.logo.value = dzrPink
     } else if (event.type == 'mouseleave') {
@@ -40,9 +41,9 @@ function changeLogo (event) {
 </script>
 
 <template>
-  <button aria-label="LinkToMusicServiceButton" :class="brandStyle.bg"
-    class="Button relative transition duration-150 hover:bg-white hover:border-dzrPnk hover:border-[1px]  w-12 h-5 p-1 rounded-[5px] flex-col justify-center items-center gap-2.5 inline-flex"
-    @click="openLink" @mouseenter="changeLogo" @mouseleave="changeLogo">
-    <img class="Logo aspect-auto" :src=brandStyle.logo.value :alt="alt" />
-  </button>
+    <button aria-label="LinkToMusicServiceButton" :class="brandStyle.bg"
+        class="Button relative transition duration-150 hover:bg-white hover:border-dzrPnk hover:border-[1px]  w-12 h-5 p-1 rounded-[5px] flex-col justify-center items-center gap-2.5 inline-flex"
+        @click="openLink" @mouseenter="changeLogo" @mouseleave="changeLogo">
+        <img class="Logo aspect-auto" :src=brandStyle.logo.value :alt="alt" />
+    </button>
 </template>

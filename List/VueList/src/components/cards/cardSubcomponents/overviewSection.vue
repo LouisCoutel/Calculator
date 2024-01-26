@@ -1,8 +1,10 @@
 <script setup>
 import { ref } from 'vue'
+
 const props = defineProps({
-    note: String
+  note: String
 })
+
 const note = ref(props.note)
 </script>
 

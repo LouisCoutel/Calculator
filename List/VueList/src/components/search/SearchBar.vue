@@ -1,14 +1,14 @@
 <script setup>
 import { useSearchResults } from '../../stores/useSearchResultStore'
-
 import SearchTypeButton from './buttons/SearchTypeButton.vue'
 import SearchButton from './buttons/SearchButton.vue'
 import searchField from './searchField.vue'
+
 const search = useSearchResults()
 
-function setType (type) {
-    search.pickedType = type
-    search.closePicker()
+function setType(type) {
+  search.pickedType = type
+  search.closePicker()
 }
 </script>
 
@@ -24,13 +24,17 @@ function setType (type) {
           @click="setType(type)" />
       </div>
     </transition>
+
     <router-view name="cancelbutton" v-slot="{ Component }">
       <transition name="div">
         <component :is="Component" />
       </transition>
     </router-view>
+
     <label for="searchField" class="absolute invisible pointer-events-none">Search field</label>
+
     <searchField :id="'searchField'" v-model="search.query" :class="search.pickedType.focusColor" />
+
     <transition name="divrev">
       <SearchButton v-if="!search.pickerOpened" :class='"relative"' @click="search.find" />
     </transition>
