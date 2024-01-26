@@ -94,7 +94,7 @@ export class TermsArray extends DataArray {
     }
 
     pushNumToLast(num: number) {
-        this.getLast().pushNum(num)
+        this.getLast().pushNumToArr(num)
     }
 
     roundNum(num: number) {

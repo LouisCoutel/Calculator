@@ -1,9 +1,16 @@
 import Term from "../src/data_classes/Term"
-import { cFactory, mFactory } from "../src/data_classes/Factory"
+import { cFactory, mFactory, vFactory } from "../src/data_classes/Factory"
 import { Plus, Minus } from "../src/data_classes/Operators"
+import { html } from "../src/utils/docTemplate"
 
 const controller = cFactory.getInstance()
 const model = mFactory.getInstance()
+const view = vFactory.getInstance()
+
+document.body.innerHTML = html
+
+view.setButtons()
+view.setDisplay()
 
 describe("Controller / Model relation", () => {
     test("setOperator doesn't set operators at init state", () => {

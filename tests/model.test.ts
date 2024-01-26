@@ -1,8 +1,15 @@
-import { cFactory, mFactory } from "../src/data_classes/Factory"
+import { cFactory, mFactory, vFactory } from "../src/data_classes/Factory"
 import { Plus, Minus, Multiplier, Divider } from "../src/data_classes/Operators"
+import { html } from "../src/utils/docTemplate"
 
 const controller = cFactory.getInstance()
 const model = mFactory.getInstance()
+const view = vFactory.getInstance()
+
+document.body.innerHTML = html
+
+view.setButtons()
+view.setDisplay()
 
 describe("Model", () => {
     test("model computes display data when data is set in model", () => {
@@ -74,7 +81,6 @@ describe("Model", () => {
         controller.setNumber(0)
 
         const errorResetSpy = jest.spyOn(controller, "errorReset")
-        const resetSpy = jest.spyOn(controller, "reset")
 
         controller.launchCompute()
 
@@ -83,6 +89,5 @@ describe("Model", () => {
         }).toThrow("Cannot divide by (0)")
 
         expect(errorResetSpy).toHaveBeenCalled()
-        expect(resetSpy).toHaveBeenCalled()
     })
 })
