@@ -1,13 +1,13 @@
-import Controller from "../MVC/Controller"
-import Model from "../MVC/Model"
-import View from "../MVC/View"
-import { DataArray } from "../classes/DataArray"
-import { Operator } from "../classes/Operators"
-import Term from "../classes/Term"
+import Controller from "../calc_ctrl/CalcController"
+import Model from "../calc_model/CalcModel"
+import View from "../View"
+import { DataArray } from "../data_classes/DataArray"
+import { Operator } from "../data_classes/Operators"
+import Term from "../data_classes/Term"
 import { Buttons } from "../components/Buttons"
 import Display from "../components/Display"
 
-export class Placeholder { }
+export class Placeholder {}
 
 export type model = Model
 export type controller = Controller
@@ -17,5 +17,3 @@ export type display = Display
 export type dataArray = DataArray
 export type operator = Operator
 export type term = Term
-
-

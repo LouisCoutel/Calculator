@@ -1,4 +1,4 @@
-import { TermsArray, OperatorsArray, OpsArrClone, TermsArrClone } from '../classes/DataArray'
+import { TermsArray, OperatorsArray, OpsArrClone, TermsArrClone } from "../data_classes/DataArray"
 
 class Model {
     terms: TermsArray
@@ -7,8 +7,8 @@ class Model {
     displayData: Array<string | number>
 
     constructor() {
-        this.terms = new TermsArray
-        this.operators = new OperatorsArray
+        this.terms = new TermsArray()
+        this.operators = new OperatorsArray()
         this.result = undefined
         this.displayData = []
     }
@@ -29,8 +29,8 @@ class Model {
         }
     }
     calcResult() {
-        const termsClone = new TermsArrClone(this.terms.data.map(item => item))
-        const opClone = new OpsArrClone(this.operators.data.map(item => item))
+        const termsClone = new TermsArrClone(this.terms.data.map((item) => item))
+        const opClone = new OpsArrClone(this.operators.data.map((item) => item))
         while (opClone.getLength() > 0) {
             this.compute(opClone, termsClone)
         }
@@ -44,9 +44,11 @@ class Model {
         if (!index) {
             index = 0
         }
-        const result = opsClone.getAtIndex(index).operate(termsClone.getAtIndex(index).value, termsClone.getAtIndex(index + 1).value)
+        const result = opsClone
+            .getAtIndex(index)
+            .operate(termsClone.getAtIndex(index).value, termsClone.getAtIndex(index + 1).value)
 
-        termsClone.replaceByResult(index, result)
+        termsClone.replaceDataByResult(index, result)
         opsClone.removeAtIndex(index)
     }
     setDisplayData() {
