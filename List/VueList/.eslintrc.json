@@ -5,7 +5,8 @@
     },
     "extends": [
         "standard",
-        "plugin:vue/vue3-essential"
+        "plugin:vue/vue3-essential",
+        "prettier"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
@@ -14,7 +15,5 @@
     "plugins": [
         "vue"
     ],
-    "rules": {
-        "indent": ["error", 4]
-    }
+    "rules": {}
 }

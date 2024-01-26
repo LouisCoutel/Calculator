@@ -11,7 +11,6 @@ const brand = props.brand
 const albumUrl = inject('albumUrl').value
 
 function openLink() {
-    console.log(albumUrl)
     window.open(albumUrl, '_blank')
 }
 

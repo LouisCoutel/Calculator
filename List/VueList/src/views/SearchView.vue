@@ -24,6 +24,7 @@ function onEnter(el, done) {
     }
   )
 }
+
 </script>
 
 <template>
@@ -36,18 +37,8 @@ function onEnter(el, done) {
     <div
       class="CardWrapper flex-col justify-start items-center gap-2 h-full w-full pb-40 pt-2 inline-flex overflow-y-scroll scrollbar-none">
       <TransitionGroup @enter="onEnter">
-        <itemCard v-for="(data, index) in search.albums" :key="data.externalId" :data="data" :target="target"
-          :data-index="index"></itemCard>
-      </TransitionGroup>
-
-      <TransitionGroup @enter="onEnter">
-        <itemCard v-for="(data, index) in search.books" :key="data.externalId" :data="data" :target="target"
-          :data-index="index"></itemCard>
-      </TransitionGroup>
-
-      <TransitionGroup @enter="onEnter">
-        <itemCard v-for="(data, index) in search.movies" :key="data.externalId" :data="data" :target="target"
-          :data-index="index"></itemCard>
+        <itemCard v-for="(data, index) in search.filtered" :key="data.externalId" :data="data" :target="target"
+          :data-index="index" />
       </TransitionGroup>
     </div>
   </div>
