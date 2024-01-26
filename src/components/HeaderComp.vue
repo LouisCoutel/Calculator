@@ -1,5 +1,5 @@
 <script setup>
-import SocialIcon from "./atoms/SocialIcon.vue";
+import SocialIcon from "../atoms/SocialIcon.vue";
 
 const github = {
   class: "fa-square-github",

@@ -1,5 +1,5 @@
 <script setup>
-import SectionHeading from "./atoms/SectionHeading.vue";
+import SectionHeading from "../atoms/SectionHeading.vue";
 import ProjectTile from "./ProjectTile.vue";
 import { useProjects } from "../stores/projects";
 

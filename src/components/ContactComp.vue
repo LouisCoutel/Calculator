@@ -1,7 +1,7 @@
 <script setup>
-import SectionHeading from "./atoms/SectionHeading.vue";
-import FormField from "./atoms/FormField.vue";
-import SendButton from "./atoms/SendButton.vue";
+import SectionHeading from "../atoms/SectionHeading.vue";
+import FormField from "../atoms/FormField.vue";
+import SendButton from "../atoms/SendButton.vue";
 </script>
 
 <template>

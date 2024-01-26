@@ -1,6 +1,6 @@
 <script setup>
-import SectionHeading from "./atoms/SectionHeading.vue";
-import CVurl from "../../public/CV_LouisCoutel_2023.pdf";
+import SectionHeading from "../atoms/SectionHeading.vue"
+import CVurl from "../../public/CV_LouisCoutel_2023.pdf"
 </script>
 
 <template>
