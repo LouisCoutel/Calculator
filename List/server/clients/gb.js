@@ -17,7 +17,7 @@ const gb = {
         const books = await res1.json()
         const items = []
 
-        for (const book of books?.items) {
+        for (const book of books.items) {
             const item = await this.toObj(book)
 
             items.push(item)

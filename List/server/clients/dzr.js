@@ -13,7 +13,7 @@ const dzr = {
         const albums = await res1.json()
         const items = []
 
-        for (const album of albums?.data) {
+        for (const album of albums.data) {
             const res2 = await fetch(this.genreUrl(album.id), this.options)
             const genre = await res2.json()
             const item = await this.toObj(album, await genre)

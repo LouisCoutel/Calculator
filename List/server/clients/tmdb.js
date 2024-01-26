@@ -24,7 +24,7 @@ const tmdb = {
         const movies = await res1.json()
         const items = []
 
-        for (const movie of movies?.results) {
+        for (const movie of movies.results) {
             const res2 = await fetch(this.detailsUrl(movie.id), this.options)
             const details = await res2.json()
             const item = await this.toObj(movie, await details)

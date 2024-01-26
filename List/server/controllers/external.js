@@ -2,7 +2,6 @@ const dzr = require("../clients/dzr.js")
 const gb = require("../clients/gb.js")
 const tmdb = require("../clients/tmdb.js")
 const { JsonStreamStringify } = require("json-stream-stringify")
-const fetch = require("node-fetch")
 
 function matchProvider(type) {
     if (type == "Album") {
@@ -14,7 +13,7 @@ function matchProvider(type) {
     }
 }
 
-exports.find = async (req, res, next) => {
+exports.find = async (req, res) => {
     if (req.params.type != "All") {
         const provider = matchProvider(req.params.type)
         const items = await provider?.find(req.params.query)

@@ -3,7 +3,7 @@ const Book = require("../models/book.js")
 const Album = require("../models/album.js")
 const generateTimeline = require("../generateTimeline")
 
-exports.createFilm = (req, res, next) => {
+exports.createFilm = (req, res) => {
     delete req.body._id
 
     const film = new Film({
@@ -17,7 +17,7 @@ exports.createFilm = (req, res, next) => {
         .catch((error) => res.status(400).json({ error }))
 }
 
-exports.createBook = (req, res, next) => {
+exports.createBook = (req, res) => {
     delete req.body._id
 
     const book = new Book({
@@ -31,7 +31,7 @@ exports.createBook = (req, res, next) => {
         .catch((error) => res.status(400).json({ error }))
 }
 
-exports.createAlbum = (req, res, next) => {
+exports.createAlbum = (req, res) => {
     delete req.body._id
 
     const album = new Album({
@@ -46,7 +46,7 @@ exports.createAlbum = (req, res, next) => {
         .catch((error) => res.status(400).json({ error }))
 }
 
-exports.deleteOneFilm = (req, res, next) => {
+exports.deleteOneFilm = (req, res) => {
     Film.deleteOne({ _id: req.params.id })
         .then((film) => {
             console.log(req.params.id, " supprimé")
@@ -55,7 +55,7 @@ exports.deleteOneFilm = (req, res, next) => {
         .catch((error) => res.status(400).json({ error }))
 }
 
-exports.deleteOneAlbum = (req, res, next) => {
+exports.deleteOneAlbum = (req, res) => {
     Film.deleteOne({ _id: req.params.id })
         .then((album) => {
             console.log(req.params.id, " supprimé")
@@ -64,7 +64,7 @@ exports.deleteOneAlbum = (req, res, next) => {
         .catch((error) => res.status(400).json({ error }))
 }
 
-exports.deleteOneBook = (req, res, next) => {
+exports.deleteOneBook = (req, res) => {
     Book.deleteOne({ _id: req.params.id })
         .then((book) => {
             console.log(req.params.id, " supprimé")
@@ -73,7 +73,7 @@ exports.deleteOneBook = (req, res, next) => {
         .catch((error) => res.status(400).json({ error }))
 }
 
-exports.getAllThings = (req, res, next) => {
+exports.getAllThings = (req, res) => {
     const promises = []
 
     promises.push(Film.find())
