@@ -5,8 +5,8 @@ import { useSearchResults } from '../../../stores/useSearchResultStore'
 const search = useSearchResults()
 
 function endSearch() {
-  router.replace({ name: 'timeline' })
-  search.endSearch()
+    router.replace({ name: 'timeline' })
+    search.endSearch()
 }
 </script>
 

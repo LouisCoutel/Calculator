@@ -1,27 +1,26 @@
 <script setup>
-import SearchBar from '../components/search/SearchBar.vue'
-import gsap from 'gsap'
+import SearchBar from "../components/search/SearchBar.vue"
+import animate from 'gsap'
 
 function onEnter(el, done) {
-  gsap.fromTo(
+  animate.fromTo(
     el,
     {
-      opacity: 0
+      opacity: 0,
     },
     { opacity: 1, duration: 2, onComplete: done }
   )
 }
 
 function onLeave(el, done) {
-  gsap.fromTo(
+  animate.fromTo(
     el,
     {
-      opacity: 1
+      opacity: 1,
     },
     { opacity: 0, duration: 2, onComplete: done }
   )
 }
-
 </script>
 
 <template>

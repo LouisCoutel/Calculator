@@ -2,8 +2,8 @@
 import { ref } from 'vue'
 
 const props = defineProps({
-  type: Object,
-  action: Function
+    type: Object,
+    action: Function
 })
 
 const action = ref(props.action)

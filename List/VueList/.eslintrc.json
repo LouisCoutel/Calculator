@@ -4,20 +4,17 @@
         "es2021": true
     },
     "extends": [
-        "standard",
-        "plugin:vue/vue3-essential"
+        "eslint:recommended",
+        "prettier"
     ],
     "parserOptions": {
         "ecmaVersion": "latest",
         "sourceType": "module"
     },
-    "plugins": [
-        "vue"
-    ],
     "rules": {
-        "indent": [
+        "max-lines": [
             "error",
-            4
+            150
         ]
     }
 }

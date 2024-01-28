@@ -2,7 +2,7 @@ import * as am5 from "@amcharts/amcharts5"
 import * as am5map from "@amcharts/amcharts5/map"
 import am5themes_Animated from "@amcharts/amcharts5/themes/Animated"
 import am5themes_Responsive from "@amcharts/amcharts5/themes/Responsive"
-import state from "./State"
+import state from "../utils/State"
 
 class AmMap {
     constructor(view) {
