@@ -1,8 +1,8 @@
 <script setup>
 import { ref } from 'vue'
 const props = defineProps({
-  data: Object,
-  typeStyles: Object
+    data: Object,
+    typeStyles: Object
 })
 
 const authors = ref(props.data.authors)

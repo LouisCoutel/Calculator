@@ -4,7 +4,7 @@ import { useSearchResults } from '../../stores/useSearchResultStore'
 const search = useSearchResults()
 
 function setQuery(ev) {
-  search.setQuery(ev.target.value)
+    search.setQuery(ev.target.value)
 }
 </script>
 

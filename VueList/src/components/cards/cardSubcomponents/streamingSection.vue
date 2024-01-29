@@ -3,8 +3,8 @@ import MusicButton from './MusicButton.vue'
 import { ref } from 'vue'
 
 const props = defineProps({
-  albumUrl: String,
-  externalId: String
+    albumUrl: String,
+    externalId: String
 })
 
 const albumUrl = props.albumUrl

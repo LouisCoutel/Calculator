@@ -6,21 +6,21 @@ import { useDB } from '../stores/useDBStore'
 const db = useDB()
 
 function onEnter(el, done) {
-  gsap.fromTo(
-    el,
-    {
-      opacity: 0,
-      translateY: -window.innerHeight
-    },
-    {
-      opacity: 1,
-      translateY: 0,
-      ease: 'elastic.out(0.1, 0.5)',
-      duration: 2,
-      delay: el.dataset.index * 0.25,
-      onComplete: done
-    }
-  )
+    gsap.fromTo(
+        el,
+        {
+            opacity: 0,
+            translateY: -window.innerHeight
+        },
+        {
+            opacity: 1,
+            translateY: 0,
+            ease: 'elastic.out(0.1, 0.5)',
+            duration: 2,
+            delay: el.dataset.index * 0.25,
+            onComplete: done
+        }
+    )
 }
 
 const target = ref('timeline')

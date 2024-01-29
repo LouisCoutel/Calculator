@@ -8,8 +8,8 @@ import { useDB } from "../../stores/useDBStore"
 
 const db = useDB()
 const props = defineProps({
-  data: Object,
-  target: String,
+    data: Object,
+    target: String,
 })
 
 const data = props.data
@@ -24,26 +24,26 @@ const externalId = ref(data.externalId)
 provide("albumUrl", albumUrl)
 
 function assignTypeStyles(type) {
-  const styles = {}
+    const styles = {}
 
-  if (type == "Movie") {
-    styles.color = "text-mdPrpl"
-    styles.imageH = "h-24 "
-  } else if (type == "Book") {
-    styles.color = "text-drkRd"
-    styles.imageH = "h-fit"
-  } else if (type == "Album") {
-    styles.imageH = "h-16"
-    styles.color = "text-mdBl"
-  }
+    if (type == "Movie") {
+        styles.color = "text-mdPrpl"
+        styles.imageH = "h-24 "
+    } else if (type == "Book") {
+        styles.color = "text-drkRd"
+        styles.imageH = "h-fit"
+    } else if (type == "Album") {
+        styles.imageH = "h-16"
+        styles.color = "text-mdBl"
+    }
 
-  return styles
+    return styles
 }
 
 const typeStyles = assignTypeStyles(type.value)
 
 function addItem() {
-  db.sendData(data)
+    db.sendData(data)
 }
 </script>
 

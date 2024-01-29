@@ -7,8 +7,8 @@ import searchField from './searchField.vue'
 const search = useSearchResults()
 
 function setType(type) {
-  search.pickedType = type
-  search.closePicker()
+    search.pickedType = type
+    search.closePicker()
 }
 </script>
 
