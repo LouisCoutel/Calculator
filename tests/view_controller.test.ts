@@ -1,3 +1,4 @@
+/* eslint-disable import/no-named-as-default */
 import { cFactory, vFactory } from "../src/data_classes/Factory"
 import { html } from "../src/utils/docTemplate"
 import userEvent from "@testing-library/user-event"

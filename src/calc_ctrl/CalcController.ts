@@ -1,6 +1,6 @@
 import { mFactory, vFactory } from "../data_classes/Factory"
 import Term from "../data_classes/Term"
-import { model, operator, view } from "../utils/customTypes"
+import { model, operator, term, view } from "../utils/customTypes"
 
 class Controller {
     model: model
@@ -61,11 +61,12 @@ class Controller {
     }
 
     erase() {
-        if (this.model.getLast() instanceof Term) {
-            if (this.model.getLast().getLength() <= 1) {
+        const lastEntered = this.model.getLast()
+        if (lastEntered instanceof Term) {
+            if (lastEntered.getArrLength() <= 1) {
                 this.model.terms.pop()
             } else {
-                this.model.getLast().popNum()
+                lastEntered.popNumFromArr()
             }
         } else if (this.model.getLast() != undefined) {
             this.model.operators.pop()
@@ -94,7 +95,8 @@ class Controller {
             this.model.displayData.push(".")
         } else if (this.model.getLast() == undefined) {
             this.model.terms.pushNewTerm(0)
-            this.model.getLast().setFloat()
+            const newTerm = this.model.getLast() as term
+            newTerm.setFloat()
             this.model.displayData.push("0.")
         }
 

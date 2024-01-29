@@ -5,7 +5,8 @@
     "main": "app.ts",
     "type": "module",
     "scripts": {
-        "test": "jest"
+        "test": "jest",
+        "lint": "eslint . --ext .ts,.tsx,.js,.jsx,.cjs,.mjs --fix --ignore-path .gitignore"
     },
     "author": "Louis Coutel",
     "license": "ISC",

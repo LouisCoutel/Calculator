@@ -1,4 +1,4 @@
-import { cFactory, vFactory, mFactory } from "./data_classes/Factory"
+import { cFactory } from "./src/data_classes/Factory"
 
 const controller = cFactory.getInstance()
 

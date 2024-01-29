@@ -1,8 +1,10 @@
-class Operator {
+abstract class Operator {
     sign: string
     constructor() {
         this.sign = ""
     }
+
+    abstract operate(numA: number, numB: number): number
 }
 
 class Plus extends Operator {

@@ -14,6 +14,6 @@ export type controller = Controller
 export type view = View
 export type buttons = Buttons
 export type display = Display
-export type dataArray = DataArray
+export type dataArray = DataArray<term | operator>
 export type operator = Operator
 export type term = Term

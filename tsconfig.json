@@ -25,7 +25,8 @@
     "src/**/*.ts",
     "./jest-setup.ts",
     "src/**/*.tsx",
-    "src/**/*.vue"
+    "src/**/*.vue",
+    "app.ts"
   ],
   "references": [
     {
