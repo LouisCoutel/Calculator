@@ -15,7 +15,7 @@
     "vite.config.ts",
     "./jest-setup.ts",
     "./src",
-    "app.ts",
+    "src/app.ts",
     "./tests"
   ]
 }
