@@ -1,9 +1,9 @@
-import { operator } from "../utils/customTypes"
-import Term from "./Term"
+import { operator, term } from "../utils/customTypes"
 import { Multiplier, Divider } from "./Operators"
+import Term from "./Term"
 
-export class DataArray {
-    data: Array<any>
+export class DataArray<datatype> {
+    data: Array<datatype>
 
     constructor() {
         this.data = []
@@ -31,7 +31,7 @@ export class DataArray {
     }
 }
 
-export class OperatorsArray extends DataArray {
+export class OperatorsArray extends DataArray<operator> {
     data: Array<operator>
 
     constructor() {
@@ -69,8 +69,6 @@ export class OperatorsArray extends DataArray {
 }
 
 export class OpsArrClone extends OperatorsArray {
-    data: Array<operator>
-
     constructor(originalData: Array<operator>) {
         super()
         this.data = originalData
@@ -81,8 +79,8 @@ export class OpsArrClone extends OperatorsArray {
     }
 }
 
-export class TermsArray extends DataArray {
-    data: Array<Term>
+export class TermsArray extends DataArray<term> {
+    data: Array<term>
 
     constructor() {
         super()
@@ -103,9 +101,9 @@ export class TermsArray extends DataArray {
 }
 
 export class TermsArrClone extends TermsArray {
-    data: Array<Term>
+    data: Array<term>
 
-    constructor(originalData: Array<Term>) {
+    constructor(originalData: Array<term>) {
         super()
         this.data = originalData
     }

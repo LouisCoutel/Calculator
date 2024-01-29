@@ -2,14 +2,11 @@ import Controller from "../calc_ctrl/CalcController"
 import View from "../View"
 import Model from "../calc_model/CalcModel"
 
-class Placeholder {}
-
-class Factory {
-    class: typeof Placeholder
-    instance: any
-
-    constructor() {
-        this.class = Placeholder
+abstract class Factory<ClassName> {
+    instance: ClassName | null
+    class: { new (): ClassName }
+    constructor(classname: { new (): ClassName }) {
+        this.class = classname
         this.instance = null
     }
 
@@ -17,37 +14,25 @@ class Factory {
         if (this.instance == null) {
             this.instance = new this.class()
             // Hide the constructor so the returned object can't be new'd...
-            this.instance.constructor = () => {
-                return this.instance
-            }
         }
 
         return this.instance
     }
 }
 
-class ControllerFactory extends Factory {
-    class: typeof Controller
-
+class ControllerFactory extends Factory<Controller> {
     constructor() {
-        super()
-        this.class = Controller
+        super(Controller)
     }
 }
-class ModelFactory extends Factory {
-    class: typeof Model
-
+class ModelFactory extends Factory<Model> {
     constructor() {
-        super()
-        this.class = Model
+        super(Model)
     }
 }
-class ViewFactory extends Factory {
-    class: typeof View
-
+class ViewFactory extends Factory<View> {
     constructor() {
-        super()
-        this.class = View
+        super(View)
     }
 }
 
