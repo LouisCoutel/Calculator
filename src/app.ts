@@ -1,9 +1,7 @@
-import { cFactory, vFactory, mFactory } from "./classes/Factory";
+import { cFactory } from "./data_classes/Factory";
 
-const controller = cFactory.getInstance()
-const view = vFactory.getInstance()
-const model = mFactory.getInstance()
+const controller = cFactory.getInstance();
 
 window.onload = () => {
-    controller.loadView()
-}
+  controller.loadView();
+};

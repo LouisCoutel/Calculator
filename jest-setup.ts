@@ -1,7 +1,8 @@
-import '@testing-library/jest-dom';
-import { TextEncoder, TextDecoder } from 'util';
-Object.assign(global, { TextDecoder, TextEncoder });
-import { JSDOM } from 'jsdom'
+/* eslint-disable @typescript-eslint/no-namespace */
+import "@testing-library/jest-dom"
+import { TextEncoder, TextDecoder } from "util"
+Object.assign(global, { TextDecoder, TextEncoder })
+import { JSDOM } from "jsdom"
 
 declare global {
     namespace NodeJS {
@@ -14,6 +15,7 @@ declare global {
 }
 
 const dom = new JSDOM(`<!DOCTYPE html>
+
 <html lang="en">
 
 <head>
@@ -34,7 +36,7 @@ const dom = new JSDOM(`<!DOCTYPE html>
     <script src="./src/app.ts" type="module"></script>
 </body>
 
-</html>`);
+</html>`)
 
 global.document = dom.window.document
-global.window = global.document.defaultView as (Window & typeof globalThis);
+global.window = global.document.defaultView as Window & typeof globalThis

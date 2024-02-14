@@ -1,9 +1,9 @@
-import { operator } from "../utils/types"
-import Term from "./Term"
+import { operator, term } from "../utils/customTypes"
 import { Multiplier, Divider } from "./Operators"
+import Term from "./Term"
 
-export class DataArray {
-    data: Array<any>
+export class DataArray<datatype> {
+    data: Array<datatype>
 
     constructor() {
         this.data = []
@@ -13,7 +13,7 @@ export class DataArray {
         this.data = []
     }
     clone() {
-        return this.data.map(op => op)
+        return this.data.map((op) => op)
     }
     getLength() {
         return this.data.length
@@ -25,12 +25,13 @@ export class DataArray {
     pop() {
         this.data.pop()
     }
+
     getAtIndex(index: number) {
         return this.data[index]
     }
 }
 
-export class OperatorsArray extends DataArray {
+export class OperatorsArray extends DataArray<operator> {
     data: Array<operator>
 
     constructor() {
@@ -39,73 +40,83 @@ export class OperatorsArray extends DataArray {
     }
 
     getIndexOfMult() {
-        const i = this.data.findIndex(op => op instanceof Multiplier)
-        if (i >= 0) { return i } else { return undefined }
+        const i = this.data.findIndex((op) => op instanceof Multiplier)
+
+        if (i >= 0) {
+            return i
+        } else {
+            return undefined
+        }
     }
+
     getIndexOfDiv() {
-        const i = this.data.findIndex(op => op instanceof Divider)
-        if (i >= 0) { return i } else { return undefined }
+        const i = this.data.findIndex((op) => op instanceof Divider)
+
+        if (i >= 0) {
+            return i
+        } else {
+            return undefined
+        }
     }
-    pushNew(op: operator) {
+
+    pushNewOp(op: operator) {
         this.data.push(op)
     }
-    replaceLast(input: operator) {
-        this.data.splice((this.getLength() - 1), 1, input)
+
+    replaceLastOp(input: operator) {
+        this.data.splice(this.getLength() - 1, 1, input)
     }
-
 }
-export class OpsArrClone extends OperatorsArray {
-    data: Array<operator>
 
+export class OpsArrClone extends OperatorsArray {
     constructor(originalData: Array<operator>) {
         super()
         this.data = originalData
     }
+
     removeAtIndex(index: number) {
         this.data.splice(index, 1)
     }
-
 }
 
-export class TermsArray extends DataArray {
-    data: Array<Term>
+export class TermsArray extends DataArray<term> {
+    data: Array<term>
 
     constructor() {
         super()
         this.data = []
     }
 
-    pushNew(val: number) {
+    pushNewTerm(val: number) {
         this.data.push(new Term(val))
     }
+
     pushNumToLast(num: number) {
-        this.getLast().pushNum(num)
+        this.getLast().pushNumToArr(num)
     }
-    round(num: number) {
+
+    roundNum(num: number) {
         return Math.round(num * 10000000) / 10000000
     }
 }
 
 export class TermsArrClone extends TermsArray {
-    data: Array<Term>
+    data: Array<term>
 
-    constructor(originalData: Array<Term>) {
+    constructor(originalData: Array<term>) {
         super()
         this.data = originalData
     }
 
-    replaceByResult(index: number, val: number) {
+    replaceDataByResult(index: number, val: number) {
         this.data.splice(index, 2, new Term(val))
     }
+
     getFinalResult() {
         if (this.getLength() > 0) {
-            return this.round(this.getLast().value)
-        }
-        else {
+            return this.roundNum(this.getLast().value)
+        } else {
             throw new Error("Cannot get final result, not all terms have been computed")
         }
     }
-
-
 }
-
