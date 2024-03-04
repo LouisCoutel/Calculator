@@ -1,4 +1,4 @@
-![header](https://github.com/LouisCoutel/Calculator/blob/main/CalcPreview.jpg)
+![header](https://github.com/LouisCoutel/Calculator/blob/main/CalcHeader.png)
 ## About
 On the surface, this is a simple browser calculator. It handles chained operations, floating points, erasing and common errors. Under the hood, it is more of an exercise-turned-experiment in Object Oriented Programming.
 
