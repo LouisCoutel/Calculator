@@ -39,9 +39,11 @@ The MVC components are instanciated through *Singleton Factories* that expose a 
 
 
 ### The view
-The view has two properties, *buttons* and *display*, and its only method is `render()`. It instantiates them on app launch, when instructed to by the controller. This is not ideal, as I would have prefered to instantiate them directly in the constructor, but as the buttons need to refer to the controller for events handling, it has to be fully instanciated first.
+The view has two properties *buttons* and *display*, and its only method is `render()`. It instantiates them on app launch, when instructed to by the controller. I would have prefered to instantiate them directly in the constructor, but as the buttons need to refer to the controller for events handling, it has to be fully instanciated first.
 
-The class **Buttons** mirrors the various **HTML button elements** present in the document, by instanciating the appropriate **Button** sub-class for each type of button: **digitButton**, **operatorButton** and "features" such as **clrButton** or **BackspaceButton**. Each Button contains all of the appropriate properties, such as a symbol, a reference to an HTML element and a value, and sets an event handler on their element. When clicked, each button calls a specific controller method with appropriate parameters.
+The class **Buttons** mirrors the various **HTML button elements** present in the document, by instanciating the appropriate **Button** sub-class for each type of button: **digitButton**, **operatorButton** and "features" such as **clrButton** or **BackspaceButton**. 
+
+Each Button contains all of the appropriate properties, such as a symbol, a reference to an HTML element and a value, and sets an event handler on their element. When clicked, each button calls a specific controller method with appropriate parameters.
 
 In the same spirit as the Buttons class, the Display mirrors the HTML elements where input and result data are displayed and exposes setters.
 
@@ -92,7 +94,5 @@ Typescript compilation and deployment to **Github Pages** is handled at the pare
 This project's repository is integrated into my portfolio as a **Git subtree**. 
 
 > Git Subtrees allows a repository to include the contents of another repository as a subdirectory. This enables the integration of external projects into a main project while maintaining their separate version histories.
-
-Typescript compilation and deployment to **Github Pages** is handled at the parent-repo level with **Vite** (a build tool for front-end Javascript environments). Workflows for automated testing are implemented on both repos, since subtrees result in separate histories.
 
 GitHub Pages is one of the most convenient ways to quickly deploy an app for free, but it only allows deployment of a single repository. Including all my projects on my Page would have required to integrate them in my portfolio. Instead, working with subtrees allowed me to keep every project completly independent while still bundling everything under a shared parent repo, with a single common building and deployment step.
